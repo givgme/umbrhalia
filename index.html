@@ -7,6 +7,7 @@
 <meta name="description" content="Umbrhalia / Cazando Eclipses — proyecto transmedia itinerante sobre las trayectorias de futuros eclipses solares totales, narrado por Ohr.">
 <link rel="icon" type="image/svg+xml" href="assets/img/umbrhalia-marca.svg">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 <body>
 
@@ -63,12 +64,13 @@
     </div>
   </section>
 
-  <section id="mapa" class="seccion seccion-pendiente">
+  <section id="mapa" class="seccion">
     <div class="wrap">
       <h2>Mapa de trayectorias</h2>
-      <p>Un mapa interactivo con las trayectorias de eclipses solares totales entre 1900 y 2100.</p>
-      <p class="nota-pendiente">En construcción — se está preparando con datos astronómicos reales de trayectorias de eclipses.</p>
+      <p>135 eclipses solares totales entre 1900 y 2100. Cada franja roja es la ruta de la totalidad — toca o pasa el cursor sobre una para ver la fecha, duración y ancho de la franja.</p>
+      <p class="fuente-dato">Datos de trayectorias: Michael Zeiler, a partir del trabajo de Xavier Jubier (servicio público ArcGIS). Contorno continental: <a href="https://github.com/johan/world.geo.json">world.geo.json</a>.</p>
     </div>
+    <div id="mapa-trayectorias" role="application" aria-label="Mapa interactivo de trayectorias de eclipses solares totales, 1900 a 2100"></div>
   </section>
 
   <section id="participar" class="seccion seccion-pendiente">
@@ -87,5 +89,7 @@
   </div>
 </footer>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="js/map.js"></script>
 </body>
 </html>
