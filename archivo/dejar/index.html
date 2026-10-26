@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es" data-root="../../">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-23EL8D2L9E"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-23EL8D2L9E');</script>
+<title>Deja tu palabra · Umbrhalia</title>
+<link rel="icon" type="image/svg+xml" href="../../assets/img/umbrhalia-marca-r2.svg">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="../../css/u.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="top">
+  <div class="wrap">
+    <img class="marca" src="../../assets/img/umbrhalia-marca-r2.svg" alt="">
+    <a class="nombre" href="../../">UMBRHALIA</a>
+    <nav aria-label="Principal">
+      <a href="../../cuentos/">Narrar</a>
+      <a href="../" aria-current="page">Recordar</a>
+      <a href="../../experiencias/">Vivir</a>
+      <a href="../../proyecto/">Proyecto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+<section>
+<div class="wrap">
+  <div class="progreso" id="progreso" aria-hidden="true"></div>
+  <div aria-live="polite">
+
+  <!-- 1 -->
+  <div class="paso activo" data-paso="1">
+    <p class="rotulo">Recordar · 1</p>
+    <p class="ohr-dice" id="saludo">Soy Ohr. Solo puedo hablar con ustedes cuando la Luna tapa al Sol.</p>
+    <h1>¿Has visto un eclipse de Sol?</h1>
+    <div class="opciones">
+      <button class="opcion" data-visto="total">Sí, un eclipse total</button>
+      <button class="opcion" data-visto="parcial">Sí, uno anular o parcial</button>
+      <button class="opcion" data-visto="no">Todavía no</button>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="paso" data-paso="2">
+    <p class="rotulo">Recordar · 2</p>
+    <h1>¿Cuál?</h1>
+    <div id="elige-total">
+      <label for="buscar">Escribe el año o busca en la lista</label>
+      <input id="buscar" type="text" inputmode="numeric" placeholder="Ej. 2024" autocomplete="off">
+      <div class="lista-eclipses" id="lista" role="listbox" aria-label="Eclipses solares totales"></div>
+      <div class="mapa chico" id="mapa2" style="margin-top:14px" aria-label="Franja del eclipse elegido"></div>
+      <p class="chico tenue" style="margin-top:8px">Eclipses solares totales entre 1900 y hoy.</p>
+    </div>
+    <div id="elige-anio" hidden>
+      <label for="anio">¿En qué año fue, más o menos?</label>
+      <input id="anio" type="number" min="1900" max="2026" placeholder="Ej. 2023">
+    </div>
+    <div class="acciones">
+      <button class="boton" data-atras>Atrás</button>
+      <button class="boton lleno" id="sig2" disabled>Seguir</button>
+      <button class="boton" id="norecuerdo">No recuerdo la fecha</button>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="paso" data-paso="3">
+    <p class="rotulo">Recordar · 3</p>
+    <h1>¿Dónde estabas?</h1>
+    <p class="tenue">Toca el mapa. Solo guardamos la ciudad, nunca el punto exacto.</p>
+    <div class="mapa chico" id="mapa3" aria-label="Mapa para indicar dónde viste el eclipse"></div>
+    <label for="ciudad">Ciudad o lugar (opcional)</label>
+    <input id="ciudad" type="text" placeholder="Ej. Mazatlán">
+    <div class="acciones">
+      <button class="boton" data-atras>Atrás</button>
+      <button class="boton lleno" data-sig>Seguir</button>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="paso" data-paso="4">
+    <p class="rotulo">Recordar · 4</p>
+    <h1>Si tuvieras que nombrar ese momento con una sola palabra…</h1>
+    <label for="palabra" class="skip-label">Tu palabra</label>
+    <input id="palabra" class="palabra-input" type="text" maxlength="24" autocomplete="off" autocapitalize="none" placeholder="…">
+    <p class="chico tenue" id="aviso-palabra">Una palabra. La que llegue primero.</p>
+    <div class="acciones">
+      <button class="boton" data-atras>Atrás</button>
+      <button class="boton lleno" id="sig4" disabled>Seguir</button>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="paso" data-paso="5">
+    <p class="rotulo">Recordar · 5 · opcional</p>
+    <h1>¿Quieres contar más?</h1>
+    <label for="relato">Un relato breve</label>
+    <textarea id="relato" rows="4" maxlength="500" placeholder="Qué viste, qué oíste, quién estaba contigo…"></textarea>
+    <label>Una nota de voz, para quien prefiere no escribir</label>
+    <button class="boton" disabled>Grabar · disponible en la versión financiada</button>
+    <label for="foto">Una foto tuya del momento</label>
+    <input id="foto" type="file" accept="image/*">
+    <div class="acciones">
+      <button class="boton" data-atras>Atrás</button>
+      <button class="boton lleno" data-sig>Seguir</button>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="paso" data-paso="6">
+    <p class="rotulo">Recordar · 6</p>
+    <h1>Tu palabra, tus reglas</h1>
+    <label for="nombre">Nombre o seudónimo</label>
+    <input id="nombre" type="text" autocomplete="nickname" placeholder="Puede quedar en blanco">
+    <label class="check"><input type="checkbox" id="anonimo"> Prefiero aparecer como anónimo/a</label>
+    <label class="check"><input type="checkbox" id="ok-archivo"> Acepto que mi testimonio se muestre en el archivo de Umbrhalia. Sigo siendo su autor/a.</label>
+    <label class="check"><input type="checkbox" id="ok-usos"> (Opcional) Acepto que se use en exposiciones y en el documental.</label>
+    <p class="aviso-proto">Prototipo: nada se envía a ningún servidor. Tu testimonio se queda solo en este navegador. El texto de consentimiento definitivo está en revisión legal.</p>
+    <div class="acciones">
+      <button class="boton" data-atras>Atrás</button>
+      <button class="boton lleno" id="sig6" disabled>Dejar mi palabra</button>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="paso" data-paso="7">
+    <p class="rotulo">La ventana sigue abierta</p>
+    <h1 id="titulo7">Tu palabra ya está en el mapa.</h1>
+    <p class="tenue" id="resumen7"></p>
+    <div class="mapa chico" id="mapa7" aria-label="Tu palabra sobre la franja de tu eclipse, junto a los primeros testigos"></div>
+    <div class="leyenda">
+      <span><i style="background:#DA291C"></i>Tu eclipse</span>
+      <span><i style="background:#ececee;opacity:.4"></i>Otros eclipses totales</span>
+      <span><i style="background:#0b0b0f;border:2px solid #ececee;border-radius:50%;width:10px;height:10px"></i>Primeros testigos</span>
+    </div>
+    <h2 style="margin-top:40px">Tu postal</h2>
+    <canvas id="postal" width="1080" height="1350" class="postal-vista" role="img" aria-label="Postal con tu palabra y tu eclipse"></canvas>
+    <div class="acciones">
+      <a class="boton lleno" id="descargar" download="umbrhalia-postal.png" href="#">Descargar postal</a>
+      <button class="boton" id="compartir" hidden>Compartir</button>
+      <a class="boton" href="../">Ver el archivo</a>
+    </div>
+  </div>
+
+  <!-- R: todavía no -->
+  <div class="paso" data-paso="R1">
+    <p class="rotulo">Todavía no</p>
+    <p class="ohr-dice">Entonces todavía me debes una visita.</p>
+    <h1>Próximas ventanas</h1>
+    <div class="opciones" id="proximas"></div>
+    <div class="acciones"><button class="boton" data-atras>Atrás</button></div>
+  </div>
+  <div class="paso" data-paso="R2">
+    <p class="rotulo">La palabra de antes</p>
+    <h1>¿Qué crees que sentirás?</h1>
+    <label for="antes" class="skip-label">Tu palabra de antes</label>
+    <input id="antes" class="palabra-input" type="text" maxlength="24" autocomplete="off" autocapitalize="none" placeholder="…">
+    <label for="correo">Avísame antes del eclipse (opcional)</label>
+    <input id="correo" type="email" placeholder="tu@correo">
+    <p class="chico tenue">Después del eclipse, Umbrhalia te escribirá: «Ya pasó. ¿Qué palabra es ahora?». Juntas, las dos palabras forman tu carta al futuro.</p>
+    <p class="aviso-proto">Prototipo: el correo no se envía ni se guarda.</p>
+    <div class="acciones">
+      <button class="boton" data-atras>Atrás</button>
+      <button class="boton lleno" id="sigR2" disabled>Guardar mi palabra de antes</button>
+    </div>
+  </div>
+  <div class="paso" data-paso="R3">
+    <p class="rotulo">Carta al futuro</p>
+    <h1 id="tituloR3">Te esperamos.</h1>
+    <p class="tenue" id="resumenR3"></p>
+    <canvas id="postalR" width="1080" height="1350" class="postal-vista" role="img" aria-label="Postal con tu palabra de antes"></canvas>
+    <div class="acciones">
+      <a class="boton lleno" id="descargarR" download="umbrhalia-carta-al-futuro.png" href="#">Descargar postal</a>
+      <a class="boton" href="../../cuentos/la-distancia/">Mientras tanto, escucha a Ohr</a>
+    </div>
+  </div>
+
+  </div>
+</div>
+</section>
+</main>
+
+<footer class="pie"><div class="wrap"><p>Umbrhalia · un proyecto de Gabriela Isabel Vera Garfias. © 2026. Todos los derechos reservados.</p></div></footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="../../js/u.js"></script>
+<script src="../../js/dejar.js"></script>
+</body>
+</html>

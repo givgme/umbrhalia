@@ -1,104 +1,169 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-root="./">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google tag (gtag.js): visitas y tiempo de interacción -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-23EL8D2L9E"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-23EL8D2L9E');
-</script>
-<title>Umbrhalia · Cazando Eclipses</title>
-<meta name="description" content="Umbrhalia / Cazando Eclipses — proyecto transmedia itinerante sobre las trayectorias de futuros eclipses solares totales, narrado por Ohr.">
-<link rel="icon" type="image/svg+xml" href="assets/img/umbrhalia-marca.svg">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-23EL8D2L9E');</script>
+<title>Umbrhalia</title>
+<meta name="description" content="Umbrhalia: universo narrativo transmedia para la memoria de los eclipses solares, narrado por Ohr.">
+<link rel="icon" type="image/svg+xml" href="assets/img/umbrhalia-marca-r2.svg">
+<link rel="stylesheet" href="css/u.css">
 </head>
 <body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 
-<a class="skip-link" href="#contenido">Saltar al contenido</a>
-
-<header class="site-header">
+<header class="top">
   <div class="wrap">
-    <img src="assets/img/umbrhalia-marca.svg" alt="" class="marca" width="40" height="40">
-    <span class="site-title">Umbrhalia</span>
-    <nav aria-label="Navegación principal">
-      <a href="#ohr">Ohr</a>
-      <a href="#proyecto">El proyecto</a>
-      <a href="#mapa">Mapa</a>
-      <a href="#participar">Participar</a>
+    <img class="marca" src="assets/img/umbrhalia-marca-r2.svg" alt="">
+    <a class="nombre" href="./">UMBRHALIA</a>
+    <nav aria-label="Principal">
+      <a href="cuentos/">Narrar</a>
+      <a href="archivo/">Recordar</a>
+      <a href="experiencias/">Vivir</a>
+      <a href="proyecto/">Proyecto</a>
     </nav>
   </div>
 </header>
 
 <main id="contenido">
 
-  <section class="hero">
+  <section class="portada" aria-labelledby="t-cuenta">
     <div class="wrap">
-      <h1>Umbrhalia <span class="subtitulo">/ Cazando Eclipses</span></h1>
-      <p class="tagline">Un proyecto transmedia itinerante e independiente sobre las trayectorias de futuros eclipses solares totales alrededor del mundo.</p>
-      <p class="hero-nota">Umbrhalia no es un personaje — es la ventana de contacto misma: el periodo de umbra/totalidad de un eclipse solar total, el instante en que la conexión con la humanidad se vuelve posible.</p>
+      <img class="ohr-respira" src="assets/img/ohr-bigbang-r2.svg" alt="Ohr: un círculo de línea delgada del que nace una dispersión de puntos.">
+      <p class="rotulo" id="t-cuenta">La próxima ventana se abre en</p>
+      <p class="cuenta"><span id="dias">—</span></p>
+      <p class="rotulo">días</p>
+      <p class="cuenta-sub" id="proximo">Calculando el próximo eclipse solar total…</p>
+      <a class="bajar" href="#coincidencia">Qué es una ventana ↓</a>
     </div>
   </section>
 
-  <section id="ohr" class="seccion seccion-ohr">
-    <div class="wrap wrap-dos-columnas">
-      <div class="columna-imagen">
-        <img src="assets/img/ohr-bigbang.svg" alt="Ilustración de Ohr: un círculo del que nace, en todas direcciones, un estallido de puntos dispersos — el Big Bang naciendo del propio cuerpo de Ohr." width="280" height="280">
+  <section id="coincidencia" class="coincidencia" aria-labelledby="t-coin">
+    <div class="wrap">
+      <p class="rotulo">La coincidencia</p>
+      <h2 id="t-coin">Desliza la Luna sobre el Sol</h2>
+      <div class="escena" aria-hidden="true">
+        <svg viewBox="-160 -160 320 320">
+          <g class="estrellas" fill="#ececee">
+            <circle cx="-120" cy="-110" r="1.4"/><circle cx="96" cy="-128" r="1"/><circle cx="130" cy="40" r="1.6"/>
+            <circle cx="-138" cy="70" r="1"/><circle cx="-60" cy="132" r="1.2"/><circle cx="70" cy="120" r="1"/>
+            <circle cx="-20" cy="-148" r="1"/><circle cx="148" cy="-40" r="1"/>
+          </g>
+          <g class="corona" fill="none" stroke="#ececee" stroke-linecap="round">
+            <circle r="68" stroke-width="0.8" opacity=".7"/>
+            <circle r="80" stroke-width="0.6" opacity=".45"/>
+            <circle r="94" stroke-width="0.5" opacity=".25"/>
+            <path d="M 0 -60 Q 6 -69 0 -76" stroke="#DA291C" stroke-width="2.4"/>
+            <path d="M 52 30 Q 62 31 66 38" stroke="#DA291C" stroke-width="2"/>
+          </g>
+          <circle class="sol-disco" r="60" fill="#ececee"/>
+          <circle id="luna" r="61" fill="#0b0b0f" stroke="#2a2a31" stroke-width="1" cx="-150"/>
+        </svg>
       </div>
-      <div class="columna-texto">
-        <h2>Ohr</h2>
-        <p>Ohr es una entidad sin género ni forma fija, con una voz poética profunda, que representa la posibilidad, la entropía y la coincidencia cósmica.</p>
-        <p>Ohr narra la historia ilustrada del proyecto: una serie de pequeños cuentos, uno por cada etapa de la formación del universo — desde el Big Bang hasta el origen de la Luna — donde Ohr se adapta a cada escala cósmica sin tener nunca una silueta humana fija.</p>
+      <label for="mover" class="chico">Mueve la Luna</label>
+      <input id="mover" class="deslizador" type="range" min="-150" max="150" value="-150" step="1">
+      <p class="mensaje-total" id="msg" aria-live="polite">El Sol es 400 veces más grande que la Luna, y está 400 veces más lejos.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-cierra">
+    <div class="wrap">
+      <p class="rotulo">La ventana se cierra</p>
+      <h2 id="t-cierra">La Luna se aleja unos centímetros cada año.</h2>
+      <p>Algún día ya no alcanzará a cubrir al Sol, y los eclipses totales dejarán de existir. Nos tocó vivir dentro de esa ventana.</p>
+      <p>Umbrhalia es el nombre de ese instante: los minutos de la totalidad, cuando Ohr, la conciencia de la materia que vio formarse el universo, puede por fin tocarnos. Cada persona que vive un eclipse y lo cuenta mantiene la ventana abierta un poco más.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-puertas">
+    <div class="wrap">
+      <p class="rotulo" id="t-puertas">Tres puertas</p>
+      <div class="puertas">
+        <a class="puerta" href="cuentos/">
+          <span class="verbo">Narrar</span>
+          <h3>Escucha a Ohr</h3>
+          <p>Siete cuentos, del Big Bang a la Luna, para leer y para oír.</p>
+        </a>
+        <a class="puerta" href="archivo/dejar/">
+          <span class="verbo">Recordar</span>
+          <h3>Deja tu palabra</h3>
+          <p>¿Viste un eclipse? Una palabra basta para entrar al archivo.</p>
+        </a>
+        <a class="puerta" href="experiencias/">
+          <span class="verbo">Vivir</span>
+          <h3>Entra a la sombra</h3>
+          <p>Instalación, talleres y documental.</p>
+        </a>
       </div>
     </div>
   </section>
 
-  <section id="proyecto" class="seccion">
-    <div class="wrap">
-      <h2>El proyecto</h2>
-      <p class="intro-seccion">Una misma idea central —el eclipse como ventana de contacto cósmico— se traduce a múltiples lenguajes artísticos y sensoriales, sin que ninguno dependa exclusivamente del otro.</p>
-      <ul class="lista-piezas">
-        <li><strong>Historia ilustrada + podcast autónomo</strong> — narrada por Ohr, en formato impreso y como pieza sonora completamente independiente.</li>
-        <li><strong>Sitio web</strong> — este mismo hub: presentación, mapa interactivo de trayectorias, y archivo participativo.</li>
-        <li><strong>Documental</strong> — entrevistas a testigos reales de eclipses.</li>
-        <li><strong>Instalación inmersiva multisensorial</strong> — no solo VR; pensada también para personas ciegas o con baja visión.</li>
-        <li><strong>Talleres itinerantes</strong> — con observación telescópica.</li>
-        <li><strong>Archivo participativo</strong> — testimonios reales de quienes han vivido un eclipse; la verdadera culminación del recorrido.</li>
-      </ul>
-    </div>
-  </section>
+  <div class="franja" aria-label="Palabras de los primeros testigos">
+    <div class="franja-track" id="franja"></div>
+  </div>
+  <div class="wrap"><p class="chico tenue" style="margin-top:10px">Palabras de los primeros testigos: Xochicalco 664, Tenochtitlan 1496, Ciudad de México 1691, Londres 1715.</p></div>
 
-  <section id="mapa" class="seccion">
+  <section aria-labelledby="t-apoya">
     <div class="wrap">
-      <h2>Mapa de trayectorias</h2>
-      <p>135 eclipses solares totales entre 1900 y 2100. Cada franja roja es la ruta de la totalidad — toca o pasa el cursor sobre una para ver la fecha, duración y ancho de la franja.</p>
-      <p class="fuente-dato">Datos de trayectorias: Michael Zeiler, a partir del trabajo de Xavier Jubier (servicio público ArcGIS). Contorno continental: <a href="https://github.com/johan/world.geo.json">world.geo.json</a>.</p>
-    </div>
-    <div id="mapa-trayectorias" role="application" aria-label="Mapa interactivo de trayectorias de eclipses solares totales, 1900 a 2100"></div>
-  </section>
-
-  <section id="participar" class="seccion seccion-pendiente">
-    <div class="wrap">
-      <h2>Participar</h2>
-      <p>¿Viviste un eclipse solar total? Este será el espacio para compartir tu experiencia y sumarla al archivo participativo del proyecto.</p>
-      <p class="nota-pendiente">Formulario próximamente.</p>
+      <p class="rotulo">El proyecto</p>
+      <h2 id="t-apoya">Buscamos quién nos acompañe a abrir la próxima ventana.</h2>
+      <div class="acciones">
+        <a class="boton lleno" href="proyecto/">Conoce la propuesta</a>
+        <a class="boton" href="flujo/">Ver el flujo del público</a>
+      </div>
     </div>
   </section>
 
 </main>
 
-<footer class="site-footer">
+<footer class="pie">
   <div class="wrap">
-    <p>Umbrhalia / Cazando Eclipses — proyecto independiente de Gabriela Isabel Vera Garfias.</p>
-    <p><small style="opacity:.75">Este sitio usa Google Analytics para contar visitas de forma agregada y anónima. <a href="https://policies.google.com/technologies/partner-sites?hl=es" target="_blank" rel="noopener">Cómo usa Google estos datos ↗</a></small></p>
+    <p>Umbrhalia · un proyecto de Gabriela Isabel Vera Garfias. © 2026. Todos los derechos reservados.</p>
+    <p>Prototipo en desarrollo. Este sitio cuenta visitas de forma agregada con Google Analytics. <a href="https://policies.google.com/technologies/partner-sites?hl=es" target="_blank" rel="noopener">Cómo usa Google estos datos ↗</a></p>
   </div>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="js/map.js"></script>
+<script src="js/u.js"></script>
+<script>
+(function () {
+  U.proximos(1).then(function (lista) {
+    var p = lista[0];
+    if (!p) return;
+    document.getElementById('dias').textContent = U.diasHasta(p.date).toLocaleString('es-MX');
+    document.getElementById('proximo').innerHTML =
+      'Eclipse solar total del <strong>' + U.fecha(p.date) + '</strong>. Hasta ' + U.duracion(p.duration_s) +
+      ' de totalidad en el punto máximo. <a href="archivo/?eclipse=' + p.date + '">Ver la franja en el mapa</a>.';
+  }).catch(function () {
+    document.getElementById('proximo').textContent = 'Eclipse solar total del 2 de agosto de 2027.';
+  });
+
+  var luna = document.getElementById('luna');
+  var mover = document.getElementById('mover');
+  var sec = document.getElementById('coincidencia');
+  var msg = document.getElementById('msg');
+  var total = false;
+  mover.addEventListener('input', function () {
+    var x = parseInt(mover.value, 10);
+    luna.setAttribute('cx', x);
+    var ahora = Math.abs(x) <= 3;
+    if (ahora !== total) {
+      total = ahora;
+      sec.classList.toggle('total', total);
+      msg.textContent = total
+        ? 'Totalidad. El día se equivoca: aparecen las estrellas y la corona. Solo ahora se puede mirar sin protección.'
+        : 'El Sol es 400 veces más grande que la Luna, y está 400 veces más lejos.';
+    }
+  });
+
+  var palabras = U.PALABRAS_TESTIGOS.concat(U.PALABRAS_TESTIGOS);
+  var mia = U.leer();
+  if (mia && mia.palabra) palabras.splice(3, 0, mia.palabra), palabras.splice(3 + U.PALABRAS_TESTIGOS.length + 1, 0, mia.palabra);
+  document.getElementById('franja').innerHTML = palabras.map(function (w) {
+    var esMia = mia && w === mia.palabra;
+    return '<span' + (esMia ? ' class="rojo"' : '') + '>' + U.escapar(w) + '</span><span class="sep">·</span>';
+  }).join('');
+})();
+</script>
 </body>
 </html>
