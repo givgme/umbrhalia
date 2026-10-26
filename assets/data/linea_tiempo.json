@@ -270,15 +270,6 @@
   "descripcion": "Cosmas Damian Asam pinta el anillo de diamantes y las perlas de luz de los eclipses reales."
  },
  {
-  "anio": 1771,
-  "tipo": "mencion",
-  "tipo_texto": "Eclipse reconstruido o mencionado",
-  "region": "México",
-  "nombre": "Eclipse híbrido",
-  "aproximado": true,
-  "descripcion": "Dato por confirmar: este evento aparece en la cronología, pero aún no en el texto ni en el catálogo de la tesis."
- },
- {
   "anio": 1778,
   "tipo": "registro",
   "tipo_texto": "Registro",
@@ -385,15 +376,6 @@
   "nombre": "Tamayo (Nueva York)",
   "aproximado": false,
   "descripcion": "Rufino Tamayo pinta *Eclipse total*: el paisaje desaparece y solo quedan los cuerpos y el cielo."
- },
- {
-  "anio": 1967,
-  "tipo": "pintura",
-  "tipo_texto": "Obra de arte",
-  "region": "México",
-  "nombre": "Tamayo (Cuernavaca)",
-  "aproximado": true,
-  "descripcion": "Dato por confirmar: obra de Rufino Tamayo aún sin ficha en el texto de la tesis."
  },
  {
   "anio": 1970,
