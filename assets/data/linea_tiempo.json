@@ -177,7 +177,7 @@
   "region": "México",
   "nombre": "Vaso Bilimek",
   "aproximado": false,
-  "descripcion": ""
+  "descripcion": "Susan Milbrath propone que el vaso Bilimek registra un eclipse solar de 1508: la sombra grabada en piedra."
  },
  {
   "anio": 1515,
@@ -275,8 +275,8 @@
   "tipo_texto": "Eclipse reconstruido o mencionado",
   "region": "México",
   "nombre": "Eclipse híbrido",
-  "aproximado": false,
-  "descripcion": ""
+  "aproximado": true,
+  "descripcion": "Dato por confirmar: este evento aparece en la cronología, pero aún no en el texto ni en el catálogo de la tesis."
  },
  {
   "anio": 1778,
@@ -303,7 +303,7 @@
   "region": "México",
   "nombre": "Teotihuacan",
   "aproximado": false,
-  "descripcion": ""
+  "descripcion": "Eclipse total del 21 de febrero de 1803. Su franja cubrió Teotihuacan, que 188 años después volvería a quedar bajo la sombra, en 1991."
  },
  {
   "anio": 1804,
@@ -392,8 +392,8 @@
   "tipo_texto": "Obra de arte",
   "region": "México",
   "nombre": "Tamayo (Cuernavaca)",
-  "aproximado": false,
-  "descripcion": ""
+  "aproximado": true,
+  "descripcion": "Dato por confirmar: obra de Rufino Tamayo aún sin ficha en el texto de la tesis."
  },
  {
   "anio": 1970,
@@ -411,7 +411,7 @@
   "region": "México",
   "nombre": "Teotihuacan",
   "aproximado": false,
-  "descripcion": "El gran eclipse total del 11 de julio de 1991 sobre el centro de México."
+  "descripcion": "Eclipse total del 11 de julio de 1991, el último del siglo XX visto desde México. Su franja cubrió la zona arqueológica de Teotihuacan."
  },
  {
   "anio": 2010,
