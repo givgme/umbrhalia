@@ -35,7 +35,7 @@
       <button data-f="Otras regiones" aria-pressed="false">Otras regiones</button>
       <button data-f="con" aria-pressed="false">Solo con historia</button>
     </div>
-    <div class="simbolos"><span><svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> Eclipse reconstruido o mencionado</span><span><svg width="12" height="12" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> Registro (códice, crónica, petroglifo)</span><span><svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1 L11 11 L1 11 Z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> Obra de arte</span><span><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="currentColor"/></svg> Caso de estudio</span></div>
+    <div class="simbolos"><span><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> Eclipse reconstruido o mencionado</span><span><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5" fill="currentColor"/></svg> Registro (códice, crónica, petroglifo)</span><span><svg width="14" height="14" viewBox="0 0 14 14"><path d="M9.5 2.101 A5.5 5.5 0 1 0 9.5 11.899 A5 5 0 0 1 9.5 2.101 Z" fill="currentColor"/></svg> Obra de arte</span><span><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="3.5" fill="currentColor"/><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.2"/></svg> Caso de estudio</span></div>
   </div>
 </section>
 <div class="wrap">
@@ -48,7 +48,7 @@
 <script src="../js/u.js"></script>
 <script>
 (function () {
-  var SIM = {"mencion": "<svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\"><circle cx=\"6\" cy=\"6\" r=\"5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg>", "registro": "<svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\"><rect x=\"1\" y=\"1\" width=\"10\" height=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg>", "pintura": "<svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\"><path d=\"M6 1 L11 11 L1 11 Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg>", "hito": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\"><circle cx=\"7\" cy=\"7\" r=\"6\" fill=\"currentColor\"/></svg>"};
+  var SIM = {"mencion": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\"><circle cx=\"7\" cy=\"7\" r=\"5.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg>", "registro": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\"><circle cx=\"7\" cy=\"7\" r=\"5.5\" fill=\"currentColor\"/></svg>", "pintura": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\"><path d=\"M9.5 2.101 A5.5 5.5 0 1 0 9.5 11.899 A5 5 0 0 1 9.5 2.101 Z\" fill=\"currentColor\"/></svg>", "hito": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\"><circle cx=\"7\" cy=\"7\" r=\"3.5\" fill=\"currentColor\"/><circle cx=\"7\" cy=\"7\" r=\"6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/></svg>"};
   var ROM = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI'];
   var datos = [], filtro = 'todo';
   function md(s) { return U.escapar(s).replace(/\*([^*]+)\*/g, '<em>$1</em>'); }
