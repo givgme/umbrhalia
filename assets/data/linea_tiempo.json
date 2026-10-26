@@ -1,0 +1,443 @@
+[
+ {
+  "anio": 580,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "",
+  "aproximado": false,
+  "descripcion": ""
+ },
+ {
+  "anio": 630,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "",
+  "aproximado": false,
+  "descripcion": ""
+ },
+ {
+  "anio": 631,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "",
+  "aproximado": false,
+  "descripcion": ""
+ },
+ {
+  "anio": 642,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "",
+  "aproximado": false,
+  "descripcion": ""
+ },
+ {
+  "anio": 664,
+  "tipo": "registro",
+  "tipo_texto": "Registro",
+  "region": "México",
+  "nombre": "Xochicalco",
+  "aproximado": false,
+  "descripcion": "En el friso de la Pirámide de las Serpientes Emplumadas, una quijada muerde un disco solar. La reconstrucción sitúa un eclipse el 1 de mayo de 664 (juliano) muy cerca del sitio."
+ },
+ {
+  "anio": 837,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "",
+  "aproximado": false,
+  "descripcion": ""
+ },
+ {
+  "anio": 1011,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "Otras regiones",
+  "nombre": "Aztlán / Florida",
+  "aproximado": false,
+  "descripcion": "Una hipótesis minoritaria asocia este eclipse con Aztlán, en la zona de Florida. Lo confirmado es la ocurrencia del eclipse, no su vínculo con Aztlán."
+ },
+ {
+  "anio": 1050,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "",
+  "aproximado": false,
+  "descripcion": ""
+ },
+ {
+  "anio": 1064,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "Otras regiones",
+  "nombre": "Aztlán / Florida",
+  "aproximado": false,
+  "descripcion": "Segundo eclipse de la hipótesis de Aztlán en Florida. La posición más aceptada sitúa Aztlán en el norte de México."
+ },
+ {
+  "anio": 1083,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "",
+  "aproximado": false,
+  "descripcion": ""
+ },
+ {
+  "anio": 1097,
+  "tipo": "registro",
+  "tipo_texto": "Registro",
+  "region": "Otras regiones",
+  "nombre": "Chaco, Nuevo México",
+  "aproximado": false,
+  "descripcion": "Un petroglifo cerca de Peñasco Blanco se ha interpretado como la corona de este eclipse total."
+ },
+ {
+  "anio": 1155,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "",
+  "aproximado": false,
+  "descripcion": ""
+ },
+ {
+  "anio": 1247,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "",
+  "aproximado": false,
+  "descripcion": ""
+ },
+ {
+  "anio": 1301,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "",
+  "aproximado": false,
+  "descripcion": ""
+ },
+ {
+  "anio": 1325,
+  "tipo": "registro",
+  "tipo_texto": "Registro",
+  "region": "México",
+  "nombre": "Tenochtitlan",
+  "aproximado": false,
+  "descripcion": "El borde de la franja de este eclipse pasa sobre la actual Ciudad de México, el año tradicional de la fundación de Tenochtitlan."
+ },
+ {
+  "anio": 1383,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "",
+  "aproximado": false,
+  "descripcion": ""
+ },
+ {
+  "anio": 1434,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "",
+  "aproximado": false,
+  "descripcion": ""
+ },
+ {
+  "anio": 1437,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "",
+  "aproximado": false,
+  "descripcion": ""
+ },
+ {
+  "anio": 1500,
+  "tipo": "registro",
+  "tipo_texto": "Registro",
+  "region": "México",
+  "nombre": "Telleriano-Remensis",
+  "aproximado": true,
+  "descripcion": "El códice registra un gran eclipse de Sol hacia 1496 o 1507. Fecha exacta sin confirmar."
+ },
+ {
+  "anio": 1508,
+  "tipo": "registro",
+  "tipo_texto": "Registro",
+  "region": "México",
+  "nombre": "Vaso Bilimek",
+  "aproximado": false,
+  "descripcion": ""
+ },
+ {
+  "anio": 1515,
+  "tipo": "pintura",
+  "tipo_texto": "Obra de arte",
+  "region": "Otras regiones",
+  "nombre": "Grünewald",
+  "aproximado": false,
+  "descripcion": "La Crucifixión con el Sol oscurecido: el eclipse como señal de lo sagrado."
+ },
+ {
+  "anio": 1518,
+  "tipo": "pintura",
+  "tipo_texto": "Obra de arte",
+  "region": "Otras regiones",
+  "nombre": "Roma (Rafael)",
+  "aproximado": false,
+  "descripcion": "Fresco del taller de Rafael en la Loggia Vaticana. La reconstrucción da un eclipse parcial profundo en Roma (magnitud 0.926)."
+ },
+ {
+  "anio": 1531,
+  "tipo": "registro",
+  "tipo_texto": "Registro",
+  "region": "México",
+  "nombre": "Telleriano-Remensis",
+  "aproximado": false,
+  "descripcion": "El códice anota «pareze que ubo Ehipse de sol», pero no hay un eclipse verificable ese año."
+ },
+ {
+  "anio": 1610,
+  "tipo": "pintura",
+  "tipo_texto": "Obra de arte",
+  "region": "Otras regiones",
+  "nombre": "Rubens",
+  "aproximado": false,
+  "descripcion": "*La elevación de la cruz*: el cielo oscurecido de la Crucifixión."
+ },
+ {
+  "anio": 1611,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "",
+  "aproximado": false,
+  "descripcion": ""
+ },
+ {
+  "anio": 1625,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "",
+  "aproximado": false,
+  "descripcion": ""
+ },
+ {
+  "anio": 1652,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "Otras regiones",
+  "nombre": "Inglaterra",
+  "aproximado": false,
+  "descripcion": "El *Black Monday*: un eclipse total leído como anuncio del fin de los tiempos tras la ejecución de Carlos I."
+ },
+ {
+  "anio": 1691,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "Sigüenza y Góngora",
+  "aproximado": false,
+  "descripcion": "Carlos de Sigüenza y Góngora observa la totalidad en la Ciudad de México con cuadrante y anteojo. «Se vieron las estrellas, cantaron los gallos»."
+ },
+ {
+  "anio": 1715,
+  "tipo": "registro",
+  "tipo_texto": "Registro",
+  "region": "Otras regiones",
+  "nombre": "Halley, Inglaterra",
+  "aproximado": false,
+  "descripcion": "Edmond Halley publica el primer mapa de un eclipse visto desde arriba e invita al público a medir la totalidad."
+ },
+ {
+  "anio": 1735,
+  "tipo": "pintura",
+  "tipo_texto": "Obra de arte",
+  "region": "Otras regiones",
+  "nombre": "Asam",
+  "aproximado": false,
+  "descripcion": "Cosmas Damian Asam pinta el anillo de diamantes y las perlas de luz de los eclipses reales."
+ },
+ {
+  "anio": 1771,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "Eclipse híbrido",
+  "aproximado": false,
+  "descripcion": ""
+ },
+ {
+  "anio": 1778,
+  "tipo": "registro",
+  "tipo_texto": "Registro",
+  "region": "México",
+  "nombre": "León y Gama",
+  "aproximado": false,
+  "descripcion": "Antonio de León y Gama observa el eclipse desde la Ciudad de México: un parcial muy profundo."
+ },
+ {
+  "anio": 1787,
+  "tipo": "registro",
+  "tipo_texto": "Registro",
+  "region": "México",
+  "nombre": "Chilam Balam",
+  "aproximado": false,
+  "descripcion": "El *Libro de Chilam Balam de Chumayel* llama al eclipse «el comer del Sol» (manuscrito de 1775–1800)."
+ },
+ {
+  "anio": 1803,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "Teotihuacan",
+  "aproximado": false,
+  "descripcion": ""
+ },
+ {
+  "anio": 1804,
+  "tipo": "pintura",
+  "tipo_texto": "Obra de arte",
+  "region": "Otras regiones",
+  "nombre": "Turner",
+  "aproximado": false,
+  "descripcion": "J. M. W. Turner dibuja el eclipse en su cuaderno de bocetos."
+ },
+ {
+  "anio": 1807,
+  "tipo": "pintura",
+  "tipo_texto": "Obra de arte",
+  "region": "Otras regiones",
+  "nombre": "Runge",
+  "aproximado": false,
+  "descripcion": "Philipp Otto Runge rodea el eclipse con un uróboros, el ciclo sin principio ni fin."
+ },
+ {
+  "anio": 1816,
+  "tipo": "pintura",
+  "tipo_texto": "Obra de arte",
+  "region": "Otras regiones",
+  "nombre": "Linnell",
+  "aproximado": false,
+  "descripcion": "John Linnell estudia el eclipse del 19 de noviembre de 1816 con precisión de observatorio."
+ },
+ {
+  "anio": 1820,
+  "tipo": "pintura",
+  "tipo_texto": "Obra de arte",
+  "region": "Otras regiones",
+  "nombre": "Alemania (Friedrich)",
+  "aproximado": false,
+  "descripcion": "Caspar David Friedrich pinta el eclipse sobre el Riesengebirge. La reconstrucción da un parcial de magnitud 0.906."
+ },
+ {
+  "anio": 1878,
+  "tipo": "registro",
+  "tipo_texto": "Registro",
+  "region": "Otras regiones",
+  "nombre": "Wyoming (Trouvelot)",
+  "aproximado": false,
+  "descripcion": "Étienne Léopold Trouvelot dibuja la corona del eclipse total desde Creston, Wyoming."
+ },
+ {
+  "anio": 1907,
+  "tipo": "pintura",
+  "tipo_texto": "Obra de arte",
+  "region": "Otras regiones",
+  "nombre": "Schiele",
+  "aproximado": false,
+  "descripcion": "Egon Schiele: la Crucifixión con el Sol oscurecido, todavía en el siglo XX."
+ },
+ {
+  "anio": 1919,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "Otras regiones",
+  "nombre": "Eddington (Príncipe / Sobral)",
+  "aproximado": false,
+  "descripcion": "Las observaciones del eclipse en Príncipe y Sobral confirman la desviación de la luz que predice la relatividad general."
+ },
+ {
+  "anio": 1923,
+  "tipo": "registro",
+  "tipo_texto": "Registro",
+  "region": "México",
+  "nombre": "Yerbanís, Dgo. (Gallo)",
+  "aproximado": false,
+  "descripcion": "La Comisión Nacional Astronómica, encabezada por Joaquín Gallo, observa la totalidad desde Yerbanís, Durango."
+ },
+ {
+  "anio": 1946,
+  "tipo": "pintura",
+  "tipo_texto": "Obra de arte",
+  "region": "Otras regiones",
+  "nombre": "Tamayo (Nueva York)",
+  "aproximado": false,
+  "descripcion": "Rufino Tamayo pinta *Eclipse total*: el paisaje desaparece y solo quedan los cuerpos y el cielo."
+ },
+ {
+  "anio": 1967,
+  "tipo": "pintura",
+  "tipo_texto": "Obra de arte",
+  "region": "México",
+  "nombre": "Tamayo (Cuernavaca)",
+  "aproximado": false,
+  "descripcion": ""
+ },
+ {
+  "anio": 1970,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "Miahuatlán, Oax. (Monsiváis)",
+  "aproximado": false,
+  "descripcion": "Carlos Monsiváis hace la crónica del eclipse total en Miahuatlán, Oaxaca."
+ },
+ {
+  "anio": 1991,
+  "tipo": "mencion",
+  "tipo_texto": "Eclipse reconstruido o mencionado",
+  "region": "México",
+  "nombre": "Teotihuacan",
+  "aproximado": false,
+  "descripcion": "El gran eclipse total del 11 de julio de 1991 sobre el centro de México."
+ },
+ {
+  "anio": 2010,
+  "tipo": "pintura",
+  "tipo_texto": "Obra de arte",
+  "region": "México",
+  "nombre": "Rina Lazo",
+  "aproximado": true,
+  "descripcion": "Rina Lazo pinta el eclipse como umbral entre estados de la existencia. Fecha aproximada."
+ },
+ {
+  "anio": 2023,
+  "tipo": "hito",
+  "tipo_texto": "Caso de estudio",
+  "region": "México",
+  "nombre": "Anular (Chen Hó)",
+  "aproximado": false,
+  "descripcion": "Eclipse anular del 14 de octubre de 2023, observado en el sitio arqueológico de Chen Hó."
+ },
+ {
+  "anio": 2024,
+  "tipo": "hito",
+  "tipo_texto": "Caso de estudio",
+  "region": "México",
+  "nombre": "Total (Ojuela, Dgo.)",
+  "aproximado": false,
+  "descripcion": "Eclipse total del 8 de abril de 2024, registrado desde el Puente de Ojuela, Durango."
+ }
+]

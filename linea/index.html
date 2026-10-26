@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es" data-root="../">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-23EL8D2L9E"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-23EL8D2L9E');</script>
+<title>Línea del tiempo · Umbrhalia</title>
+<link rel="icon" type="image/svg+xml" href="../assets/img/umbrhalia-marca-r2.svg">
+<link rel="stylesheet" href="../css/u.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="top">
+  <div class="wrap">
+    <img class="marca" src="../assets/img/umbrhalia-marca-r2.svg" alt="">
+    <a class="nombre" href="../">UMBRHALIA</a>
+    <nav aria-label="Principal">
+      <a href="../cuentos/">Narrar</a>
+      <a href="../archivo/" aria-current="page">Recordar</a>
+      <a href="../experiencias/">Vivir</a>
+      <a href="../proyecto/">Proyecto</a>
+    </nav>
+  </div>
+</header>
+<main id="contenido">
+<section style="padding-bottom:16px">
+  <div class="wrap">
+    <p class="rotulo">Recordar · cronología</p>
+    <h1>Mil cuatrocientos años de sombras</h1>
+    <p>Eclipses solares reconstruidos para el centro de México desde el siglo VI, los registros y las obras que los guardaron, y los eclipses de otras regiones que el arte y la ciencia convirtieron en memoria. Cierra con los dos eclipses que dieron origen a esta investigación: 2023 y 2024.</p>
+    <div class="filtros" role="group" aria-label="Filtrar por región">
+      <button data-f="todo" aria-pressed="true">Todo</button>
+      <button data-f="México" aria-pressed="false">México</button>
+      <button data-f="Otras regiones" aria-pressed="false">Otras regiones</button>
+      <button data-f="con" aria-pressed="false">Solo con historia</button>
+    </div>
+    <div class="simbolos"><span><svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> Eclipse reconstruido o mencionado</span><span><svg width="12" height="12" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> Registro (códice, crónica, petroglifo)</span><span><svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1 L11 11 L1 11 Z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> Obra de arte</span><span><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="currentColor"/></svg> Caso de estudio</span></div>
+  </div>
+</section>
+<div class="wrap">
+  <ol class="linea" id="linea" aria-label="Cronología"></ol>
+  <p class="chico tenue" style="margin-top:28px">* Fecha aproximada o por confirmar. Fuente: cronología de la tesis de maestría de Gabriela Isabel Vera Garfias (cálculos propios de trayectorias y magnitudes). Versión completa e interactiva, con el catálogo de 177 eclipses: <a href="https://givgme.github.io/memorias-de-la-umbra/" target="_blank" rel="noopener">Memorias de la Umbra ↗</a></p>
+  <div class="acciones" style="margin-bottom:56px"><a class="boton lleno" href="../archivo/dejar/">Súmate a la línea: deja tu palabra</a></div>
+</div>
+</main>
+<footer class="pie"><div class="wrap"><p>Umbrhalia · un proyecto de Gabriela Isabel Vera Garfias. © 2026. Todos los derechos reservados.</p><p>Prototipo en desarrollo. Visitas contadas de forma agregada con Google Analytics.</p></div></footer>
+<script src="../js/u.js"></script>
+<script>
+(function () {
+  var SIM = {"mencion": "<svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\"><circle cx=\"6\" cy=\"6\" r=\"5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg>", "registro": "<svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\"><rect x=\"1\" y=\"1\" width=\"10\" height=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg>", "pintura": "<svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\"><path d=\"M6 1 L11 11 L1 11 Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg>", "hito": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\"><circle cx=\"7\" cy=\"7\" r=\"6\" fill=\"currentColor\"/></svg>"};
+  var ROM = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI'];
+  var datos = [], filtro = 'todo';
+  function md(s) { return U.escapar(s).replace(/\*([^*]+)\*/g, '<em>$1</em>'); }
+  function pintar() {
+    var html = '', siglo = 0;
+    datos.filter(function (e) {
+      if (filtro === 'todo') return true;
+      if (filtro === 'con') return !!e.descripcion;
+      return e.region === filtro;
+    }).forEach(function (e) {
+      var s = Math.floor((e.anio - 1) / 100) + 1;
+      if (s !== siglo) { siglo = s; html += '<li class="siglo" aria-hidden="true">Siglo ' + ROM[s] + '</li>'; }
+      var nombre = e.nombre || (e.region === 'México' ? 'Eclipse reconstruido para el centro de México' : 'Eclipse');
+      var cls = 'evento ' + (e.region === 'México' ? 'mx' : 'otras') + (e.tipo === 'hito' ? ' hito' : '') + (e.descripcion ? '' : ' menor');
+      html += '<li class="' + cls + '"><span class="anio">' + e.anio + (e.aproximado ? '*' : '') + '</span>' +
+        '<span class="marca-t" aria-hidden="true">' + SIM[e.tipo] + '</span>' +
+        '<div class="cuerpo"><h3>' + md(nombre) + '</h3><p class="meta">' + (e.nombre ? e.tipo_texto + ' · ' + e.region : e.region) + '</p>' +
+        (e.descripcion ? '<p>' + md(e.descripcion) + '</p>' : '') + '</div></li>';
+    });
+    document.getElementById('linea').innerHTML = html;
+  }
+  fetch(U.ROOT + 'assets/data/linea_tiempo.json').then(function (r) { return r.json(); }).then(function (d) { datos = d; pintar(); });
+  document.querySelectorAll('[data-f]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      filtro = b.getAttribute('data-f');
+      document.querySelectorAll('[data-f]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+      pintar();
+    });
+  });
+})();
+</script>
+</body>
+</html>
