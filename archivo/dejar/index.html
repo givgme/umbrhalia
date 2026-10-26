@@ -26,6 +26,7 @@
 </header>
 
 <main id="contenido">
+<noscript><p class="aviso-proto">Esta pieza necesita JavaScript. Mientras tanto puedes <a href="../../cuentos/">leer a Ohr</a> o <a href="../../proyecto/">conocer el proyecto</a>.</p></noscript>
 <section>
 <div class="wrap">
   <div class="progreso" id="progreso" aria-hidden="true"></div>
@@ -33,7 +34,7 @@
 
   <!-- 1 -->
   <div class="paso activo" data-paso="1">
-    <p class="rotulo">Recordar · 1</p>
+    <p class="rotulo">Paso 1 de 6</p>
     <p class="ohr-dice" id="saludo">Soy Ohr. Solo puedo hablar con ustedes cuando la Luna tapa al Sol.</p>
     <h1>¿Has visto un eclipse de Sol?</h1>
     <div class="opciones">
@@ -45,7 +46,7 @@
 
   <!-- 2 -->
   <div class="paso" data-paso="2">
-    <p class="rotulo">Recordar · 2</p>
+    <p class="rotulo">Paso 2 de 6</p>
     <h1>¿Cuál?</h1>
     <div id="elige-total">
       <label for="buscar">Escribe el año o busca en la lista</label>
@@ -67,9 +68,9 @@
 
   <!-- 3 -->
   <div class="paso" data-paso="3">
-    <p class="rotulo">Recordar · 3</p>
+    <p class="rotulo">Paso 3 de 6</p>
     <h1>¿Dónde estabas?</h1>
-    <p class="tenue">Toca el mapa. Solo guardamos la ciudad, nunca el punto exacto.</p>
+    <p class="tenue">Toca el mapa o escribe tu ciudad. Solo guardamos una zona de unos 10 km, nunca el punto exacto. Puedes seguir sin marcar nada.</p>
     <div class="mapa chico" id="mapa3" aria-label="Mapa para indicar dónde viste el eclipse"></div>
     <label for="ciudad">Ciudad o lugar (opcional)</label>
     <input id="ciudad" type="text" placeholder="Ej. Mazatlán">
@@ -81,7 +82,7 @@
 
   <!-- 4 -->
   <div class="paso" data-paso="4">
-    <p class="rotulo">Recordar · 4</p>
+    <p class="rotulo">Paso 4 de 6</p>
     <h1>Si tuvieras que nombrar ese momento con una sola palabra…</h1>
     <label for="palabra" class="skip-label">Tu palabra</label>
     <input id="palabra" class="palabra-input" type="text" maxlength="24" autocomplete="off" autocapitalize="none" placeholder="…">
@@ -94,13 +95,13 @@
 
   <!-- 5 -->
   <div class="paso" data-paso="5">
-    <p class="rotulo">Recordar · 5 · opcional</p>
+    <p class="rotulo">Paso 5 de 6 · opcional</p>
     <h1>¿Quieres contar más?</h1>
     <label for="relato">Un relato breve</label>
     <textarea id="relato" rows="4" maxlength="500" placeholder="Qué viste, qué oíste, quién estaba contigo…"></textarea>
     <label>Una nota de voz, para quien prefiere no escribir</label>
     <button class="boton" disabled>Grabar · disponible en la versión financiada</button>
-    <label for="foto">Una foto tuya del momento</label>
+    <label for="foto">Una foto tuya del momento (en este prototipo no se guarda)</label>
     <input id="foto" type="file" accept="image/*">
     <div class="acciones">
       <button class="boton" data-atras>Atrás</button>
@@ -110,14 +111,14 @@
 
   <!-- 6 -->
   <div class="paso" data-paso="6">
-    <p class="rotulo">Recordar · 6</p>
+    <p class="rotulo">Paso 6 de 6</p>
     <h1>Tu palabra, tus reglas</h1>
     <label for="nombre">Nombre o seudónimo</label>
     <input id="nombre" type="text" autocomplete="nickname" placeholder="Puede quedar en blanco">
     <label class="check"><input type="checkbox" id="anonimo"> Prefiero aparecer como anónimo/a</label>
     <label class="check"><input type="checkbox" id="ok-archivo"> Acepto que mi testimonio se muestre en el archivo de Umbrhalia. Sigo siendo su autor/a.</label>
     <label class="check"><input type="checkbox" id="ok-usos"> (Opcional) Acepto que se use en exposiciones y en el documental.</label>
-    <p class="aviso-proto">Prototipo: nada se envía a ningún servidor. Tu testimonio se queda solo en este navegador. El texto de consentimiento definitivo está en revisión legal.</p>
+    <p class="aviso-proto">Prototipo: tu testimonio no se envía a ningún servidor; se queda solo en este navegador. Este sitio cuenta visitas de forma agregada con Google Analytics. El texto de consentimiento definitivo está en revisión legal.</p>
     <div class="acciones">
       <button class="boton" data-atras>Atrás</button>
       <button class="boton lleno" id="sig6" disabled>Dejar mi palabra</button>
@@ -127,7 +128,7 @@
   <!-- 7 -->
   <div class="paso" data-paso="7">
     <p class="rotulo">La ventana sigue abierta</p>
-    <h1 id="titulo7">Tu palabra ya está en el mapa.</h1>
+    <h1 id="titulo7">Tu palabra ya está en tu mapa.</h1>
     <p class="tenue" id="resumen7"></p>
     <div class="mapa chico" id="mapa7" aria-label="Tu palabra sobre la franja de tu eclipse, junto a los primeros testigos"></div>
     <div class="leyenda">
@@ -182,7 +183,7 @@
 </section>
 </main>
 
-<footer class="pie"><div class="wrap"><p>Umbrhalia · un proyecto de Gabriela Isabel Vera Garfias. © 2026. Todos los derechos reservados.</p></div></footer>
+<footer class="pie"><div class="wrap"><p>Umbrhalia · un proyecto de Gabriela Isabel Vera Garfias. © 2026. Todos los derechos reservados. Este sitio cuenta visitas de forma agregada con Google Analytics.</p></div></footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="../../js/u.js"></script>
