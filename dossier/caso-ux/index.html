@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Umbrhalia: caso de diseño</title>
+<style>
+/* Layout: una sola columna de lectura sobre negro; las fotos rompen la columna como la totalidad rompe el día. */
+:root{
+  --luna:#000000; --umbra:#141413; --ceniza:#3D3D3B; --penumbra:#7A7A78; --bruma:#A3A3A1; --corona:#F4F4F2; --rojo:#DA291C;
+  --sans:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono:Menlo, "SF Mono", Consolas, monospace;
+  --medida:40rem;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--luna);color:var(--corona);font-family:var(--sans);font-size:17px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+a{color:var(--corona);text-underline-offset:3px}
+a:hover{color:var(--bruma)}
+a:focus-visible{outline:2px solid var(--corona);outline-offset:3px}
+main{max-width:68rem;margin:0 auto;display:flex;flex-direction:column;gap:6rem;padding-block:4rem 5rem}
+.col{max-width:var(--medida);display:flex;flex-direction:column;gap:1rem}
+h1,h2,h3{font-weight:300;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.08;letter-spacing:-0.015em}
+h2{font-size:clamp(1.7rem,3.4vw,2.4rem);line-height:1.15}
+h3{font-size:1.15rem;font-weight:400}
+p{margin:0}
+.nota{font-size:.875rem;color:var(--bruma)}
+.folio{font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;color:var(--penumbra)}
+figure{margin:0;display:flex;flex-direction:column;gap:.6rem}
+figcaption{font-size:.8125rem;color:var(--bruma)}
+img{display:block;max-width:100%;height:auto}
+
+.portada{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:3rem;align-items:center}
+.portada .col{gap:1.4rem}
+.lead{font-size:1.2rem;color:var(--corona)}
+.enlaces{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;font-size:.95rem}
+
+.fases{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.75rem}
+.fases figure img{aspect-ratio:1/1;object-fit:cover;width:100%}
+
+.publicos{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:2rem 2.5rem}
+.publicos div{display:flex;flex-direction:column;gap:.35rem;min-width:0}
+.publicos p{font-size:.95rem;color:var(--bruma)}
+
+.flujo{overflow-x:auto}
+.flujo ol{list-style:none;margin:0;padding:0;display:flex;align-items:flex-start;min-width:44rem}
+.flujo li{flex:1;display:flex;flex-direction:column;align-items:center;gap:.6rem;text-align:center;position:relative;font-size:.9rem}
+.flujo li::before{content:"";position:absolute;top:22px;left:-50%;width:100%;height:1px;background:var(--penumbra);z-index:0}
+.flujo li:first-child::before{display:none}
+.disco{width:44px;height:44px;border-radius:50%;border:2px solid var(--corona);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.75rem;background:var(--luna);position:relative;z-index:1}
+.disco.lleno{background:var(--corona);color:var(--luna)}
+.disco.contacto{background:var(--rojo);border-color:var(--rojo)}
+.disco.opcional{border-style:dashed;border-color:var(--penumbra);color:var(--bruma)}
+
+.hallazgos{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--ceniza)}
+.hallazgo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem;padding-block:1.25rem;border-bottom:1px solid var(--ceniza)}
+.hallazgo p{font-size:.95rem}
+.hallazgo .hoy{color:var(--bruma)}
+.etiqueta{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--penumbra);display:block;margin-bottom:.3rem}
+
+.decision{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3rem;align-items:center}
+.decision.invertida figure{order:-1}
+
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+
+.arcos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem}
+.arcos div{display:flex;flex-direction:column;gap:.4rem;min-width:0}
+.arcos p{font-size:.95rem;color:var(--bruma)}
+
+.sigue{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:2rem}
+.sigue ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.4rem;font-size:.95rem;color:var(--bruma)}
+.sigue li::marker{color:var(--penumbra)}
+
+footer{border-top:1px solid var(--ceniza);padding-top:2rem;display:flex;flex-direction:column;gap:.5rem}
+
+@media (max-width:760px){
+  main{gap:4.5rem;padding-block:2.5rem 4rem}
+  .portada,.decision,.hallazgo{grid-template-columns:minmax(0,1fr)}
+  .decision.invertida figure{order:0}
+  .fases{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .arcos{grid-template-columns:minmax(0,1fr)}
+  .hallazgo{gap:.5rem}
+}
+@media (prefers-reduced-motion:no-preference){
+  .fases img{transition:filter .6s ease}
+  .fases figure:hover img{filter:brightness(1.25)}
+}
+</style>
+</head>
+<body>
+
+<main>
+  <section class="portada" aria-labelledby="titulo">
+    <div class="col">
+      <span class="folio">UMBRHALIA · CASO DE DISEÑO · DIPLOMADO DE NARRATIVAS TRANSMEDIA, CENART · 27 OCT 2026</span>
+      <h1 id="titulo">Una ventana que dura minutos</h1>
+      <p class="lead">Cómo se diseñó un sitio que guarde lo que sienten las personas durante un eclipse total, con el ritmo del propio eclipse.</p>
+      <p class="nota">Gabriela Isabel Vera Garfias · Laboratorio de Física, Arte y Existencia (LFAE)</p>
+      <div class="enlaces">
+        <a href="https://givgme.github.io/umbrhalia/">El sitio en vivo</a>
+        <a href="../lienzo/">Lienzo de wireframes</a>
+        <a href="https://givgme.github.io/umbrhalia/ventana/">Entrar como desde un sticker</a>
+      </div>
+    </div>
+    <figure>
+      <img src="img/f4-totalidad.jpg" alt="La corona solar alrededor del disco negro de la Luna, durante la totalidad." width="700" height="394">
+      <figcaption>Totalidad, 8 de abril de 2024, Puente de Ojuela, Durango. Expedición LFAE.</figcaption>
+    </figure>
+  </section>
+
+  <section class="col" aria-labelledby="reto">
+    <h2 id="reto">El reto</h2>
+    <p>Un eclipse solar total dura unos minutos. Las personas que lo viven lo recuerdan toda la vida, pero casi nunca queda registro de lo que sintieron. Umbrhalia es un universo transmedia que intenta guardar eso: cuentos narrados por Ohr, un archivo de testimonios y experiencias en sala.</p>
+    <p>El sitio es la puerta de entrada. Tiene que hacer tres cosas en un teléfono y en menos de cinco minutos: explicar por qué existen los eclipses totales, invitar a escuchar a Ohr y pedir una sola palabra a quien vivió uno.</p>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:1.5rem" aria-labelledby="fases">
+    <div class="col">
+      <h2 id="fases">El eclipse como sistema de diseño</h2>
+      <p>Las fases reales de un eclipse ordenan la interacción. Cada movimiento del sitio corresponde a una fase y significa algo: entrar es el primer contacto, avanzar es el creciente, la palabra que queda es la totalidad. Nada se desvanece: todo se descubre, como el Sol detrás de la Luna.</p>
+    </div>
+    <div class="fases">
+      <figure><img src="img/f2-creciente-delgado.jpg" alt="Sol en creciente ancho." width="700" height="467"><figcaption>Creciente · avanzar</figcaption></figure>
+      <figure><img src="img/f1-creciente.jpg" alt="Sol en creciente delgado." width="700" height="467"><figcaption>Creciente delgado · el umbral</figcaption></figure>
+      <figure><img src="img/f3-perlas.jpg" alt="Perlas de Baily: puntos de luz en el borde de la Luna." width="700" height="394"><figcaption>Perlas de Baily · otras personas antes que tú</figcaption></figure>
+      <figure><img src="img/f4-totalidad.jpg" alt="Totalidad con corona." width="700" height="394"><figcaption>Totalidad · tu palabra queda</figcaption></figure>
+      <figure><img src="img/f5-regreso.jpg" alt="El Sol reaparece del otro lado de la Luna." width="700" height="467"><figcaption>Regreso · volver</figcaption></figure>
+    </div>
+    <p class="nota">Secuencia de la expedición LFAE, convertida a blanco y negro para respetar la paleta.</p>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:2rem" aria-labelledby="publicos">
+    <div class="col">
+      <h2 id="publicos">Para quién</h2>
+      <p>Cinco escenarios reales de llegada, no personajes inventados.</p>
+    </div>
+    <div class="publicos">
+      <div><h3>Llega por un sticker</h3><p>Escanea un QR en una libreta o una computadora. Tiene un minuto y curiosidad. Es el perfil principal.</p></div>
+      <div><h3>Vivió un eclipse</h3><p>Quiere contar lo que sintió. El riesgo es pedirle demasiado antes de su palabra.</p></div>
+      <div><h3>Todavía no ha visto uno</h3><p>Es la mayoría. Deja una palabra de antes y queda esperando el 2 de agosto de 2027.</p></div>
+      <div><h3>Jurado o financiadora</h3><p>Necesita ver qué existe, qué es prototipo y qué se financia.</p></div>
+      <div><h3>Persona ciega o con baja visión</h3><p>Llega con lector de pantalla. Todo lo que se ve tiene que poder oírse y hacerse con teclado.</p></div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:2rem" aria-labelledby="recorrido">
+    <div class="col">
+      <h2 id="recorrido">El recorrido central</h2>
+      <p>Del QR a la totalidad. Solo la palabra es obligatoria; lo demás se puede saltar.</p>
+    </div>
+    <div class="flujo">
+      <ol>
+        <li><span class="disco lleno">QR</span>Sticker</li>
+        <li><span class="disco">P5</span>¿Has visto un eclipse?</li>
+        <li><span class="disco">P6</span>Una palabra</li>
+        <li><span class="disco opcional">P7</span>Cuál y dónde (opcional)</li>
+        <li><span class="disco">P8</span>Tus reglas</li>
+        <li><span class="disco contacto">P9</span>Totalidad: tu palabra quedó</li>
+      </ol>
+    </div>
+    <p class="nota">Solo círculos, discos y anillos: en los esquemas de Umbrhalia no hay cuadrados ni triángulos. El rojo aparece una vez, en el momento de contacto.</p>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:2rem" aria-labelledby="auditoria">
+    <div class="col">
+      <h2 id="auditoria">Lo que prometíamos y lo que el sitio hacía</h2>
+      <p>Antes de dibujar, se contrastó el flujo escrito con el código publicado. Estos fueron los hallazgos principales y lo que se cambió el 26 de octubre.</p>
+    </div>
+    <div class="hallazgos">
+      <div class="hallazgo"><p><span class="etiqueta">HALLAZGO</span>Los cuentos aparecían con cuatro cifras distintas: 7, 8, 10.</p><p class="hoy"><span class="etiqueta">HOY</span>Diez cuentos en tres arcos, en el índice y en cada lámina.</p></div>
+      <div class="hallazgo"><p><span class="etiqueta">HALLAZGO</span>El aviso decía «nada se envía a ningún servidor», pero el sitio cuenta visitas con Google Analytics.</p><p class="hoy"><span class="etiqueta">HOY</span>El aviso dice exactamente qué se queda en el navegador y qué se cuenta.</p></div>
+      <div class="hallazgo"><p><span class="etiqueta">HALLAZGO</span>«Solo guardamos la ciudad», cuando el código guarda una zona de unos 10 km.</p><p class="hoy"><span class="etiqueta">HOY</span>El texto dice lo que hace el código y permite seguir sin marcar nada.</p></div>
+      <div class="hallazgo"><p><span class="etiqueta">HALLAZGO</span>La frase de la totalidad, leída sola, invitaba a mirar el Sol sin protección.</p><p class="hoy"><span class="etiqueta">HOY</span>«Solo dentro de la totalidad, y solo en su franja, se puede mirar sin filtro. Antes y después, nunca.»</p></div>
+      <div class="hallazgo"><p><span class="etiqueta">HALLAZGO</span>«Una palabra primero» no se cumple: la palabra es el paso 4 de 6.</p><p class="hoy"><span class="etiqueta">SIGUE</span>Pasarla al paso 2 y medirlo en la prueba con personas antes de cambiar el orden.</p></div>
+    </div>
+  </section>
+
+  <section class="decision" aria-labelledby="rojo">
+    <div class="col">
+      <h2 id="rojo">Un solo color, y viene del cielo</h2>
+      <p>La interfaz vive en totalidad: el negro es la Luna y el blanco es la corona, que solo aparece donde hay algo que mirar o leer. El único color es el de las protuberancias, que en un eclipse total solo se ven unos minutos en el borde de la Luna.</p>
+      <p>Por eso el rojo marca un solo punto por pantalla: el contacto. Nunca decora, nunca va en botones ni en barras, y la información nunca depende solo de él.</p>
+    </div>
+    <figure>
+      <img src="img/protuberancia.jpg" alt="Acercamiento al borde de la Luna con protuberancias rosadas y rojas sobre la luz de la corona." width="545" height="850" style="max-height:30rem;width:auto;align-self:flex-start">
+      <figcaption>Protuberancias en el borde de la Luna, 8 de abril de 2024. Expedición LFAE.</figcaption>
+    </figure>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:1.5rem" aria-labelledby="dia">
+    <div class="col">
+      <h2 id="dia">El día se equivoca</h2>
+      <p>El momento central del sitio, cuando la palabra queda, reproduce lo que pasa en el paisaje durante la totalidad: la luz baja y todo se calla. Estas dos fotos son del mismo lugar con minutos de diferencia.</p>
+    </div>
+    <div class="duo">
+      <figure><img src="img/ojuela-antes.jpg" alt="Ruina de la mina de Ojuela con el valle al fondo, con luz de día nublado." width="1400" height="932"><figcaption>Antes</figcaption></figure>
+      <figure><img src="img/ojuela-totalidad.jpg" alt="La misma ruina y el valle casi a oscuras durante la totalidad." width="1400" height="932"><figcaption>Totalidad</figcaption></figure>
+    </div>
+    <p class="nota">Timelapse de la expedición LFAE, Ojuela, Durango.</p>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:2rem" aria-labelledby="ohr">
+    <div class="col">
+      <h2 id="ohr">Ohr cambia de forma</h2>
+      <p>Ohr narra los cuentos. No tiene género ni forma fija: en cada cuento toma la forma de la estructura que se cuenta, y lo que lo hace reconocible es la huella de un círculo de trazo constante y el rojo. En el sitio, cada cuento es una lámina con su forma de Ohr, su texto, su audio propio y su ficha científica.</p>
+    </div>
+    <div class="arcos">
+      <div><h3>Origen y expansión del universo</h3><p>Seis cuentos, del Big Bang al Sistema Solar. Eje vertical.</p></div>
+      <div><h3>La coincidencia cósmica</h3><p>La zona habitable, la Luna y la distancia: por qué el Sol y la Luna caben uno en el otro. Eje horizontal.</p></div>
+      <div><h3>Efímera conexión</h3><p>El origen de Umbrhalia, en Tlemcen, 1079. Descenso en diagonal; el vacío es la ventana.</p></div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:2rem" aria-labelledby="sigue">
+    <div class="col">
+      <h2 id="sigue">Lo que sigue</h2>
+    </div>
+    <div class="sigue">
+      <div><h3>Prueba con personas</h3><ul><li>Tareas: dejar una palabra desde un QR, encontrar su eclipse, escuchar un cuento.</li><li>Comparar la palabra en el paso 2 contra el paso 4.</li><li>Incluir personas que usan lector de pantalla.</li></ul></div>
+      <div><h3>Después de la entrega</h3><ul><li>La coincidencia con la secuencia real de fotos.</li><li>Modo sala para talleres con tableta compartida.</li><li>Las láminas de los diez cuentos con su audio.</li></ul></div>
+      <div><h3>Lo que se financia</h3><ul><li>El archivo compartido, con moderación.</li><li>La voz de Ohr como pieza sonora.</li><li>La itinerancia hacia el 2 de agosto de 2027.</li></ul></div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="nota">Fotos: César Simón López-Monsalvo, Alberto Rubio Ponce y Gabriela Isabel Vera Garfias · Expedición LFAE, 8 de abril de 2024, Puente de Ojuela, Durango.</p>
+    <p class="nota">Umbrhalia es un proyecto de Gabriela Isabel Vera Garfias. El LFAE es un proyecto propio, independiente.</p>
+  </footer>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Umbrhalia · Wireframes y sistema</title>
+<style>
+:root{--luna:#000000;--umbra:#141413;--ceniza:#3D3D3B;--penumbra:#7A7A78;--bruma:#A3A3A1;--corona:#F4F4F2}
+html,body{margin:0;height:100%;background:var(--luna);color:var(--corona);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif}
+a{color:var(--corona)}a:hover{color:var(--bruma)}
+#barra{position:fixed;top:0;left:0;right:0;z-index:2;display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--luna);border-bottom:1px solid var(--ceniza)}
+#barra h1{margin:0;font-size:15px;font-weight:400;flex-grow:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#barra button{width:36px;height:36px;border-radius:50%;border:1px solid var(--penumbra);background:none;color:var(--corona);font:inherit;font-size:16px;cursor:pointer;flex-shrink:0;padding:0}
+#barra button.texto{width:auto;border-radius:18px;padding:0 14px;font-size:13px}
+#barra button:hover{border-color:var(--corona)}
+#barra button:focus-visible{outline:2px solid var(--corona);outline-offset:3px}
+#zoom{font-family:Menlo,monospace;font-size:12px;color:var(--bruma);min-width:44px;text-align:right}
+#vista{position:fixed;top:57px;left:0;right:0;bottom:0;overflow:auto;cursor:grab}
+#vista.arrastre{cursor:grabbing;user-select:none}
+#vista.arrastre iframe{pointer-events:none}
+#medida{position:relative}
+#mundo{position:absolute;top:0;left:0;transform-origin:0 0}
+.nota{position:absolute;margin:0;font-size:56px;font-weight:300;line-height:1.15;letter-spacing:-0.01em}
+.tablero{position:absolute}
+.tablero .rotulo{position:absolute;left:0;bottom:100%;margin:0 0 12px;font-size:22px;color:var(--bruma);white-space:nowrap}
+.tablero .rotulo a{color:var(--bruma);text-decoration:none}
+.tablero .rotulo a:hover{color:var(--corona)}
+.tablero .caja{overflow:hidden;outline:1px solid var(--ceniza)}
+.tablero iframe{display:block;border:0;transform-origin:0 0;background:var(--luna)}
+/* Móvil: cuadrícula vertical por filas */
+body.movil #barra .solo-lienzo{display:none}
+body.movil #vista{overflow-x:hidden;cursor:auto}
+body.movil #medida{width:auto!important;height:auto!important}
+body.movil #mundo{position:static;transform:none!important;width:auto!important;height:auto!important;padding:24px 16px 48px;display:flex;flex-wrap:wrap;gap:40px 24px;align-items:flex-start}
+body.movil .nota{position:static;flex-basis:100%;font-size:26px;max-width:none!important;margin-top:16px}
+body.movil .tablero{position:relative;left:auto!important;top:auto!important;margin-top:28px}
+body.movil .tablero .rotulo{font-size:14px;margin-bottom:8px;white-space:normal;width:100%}
+</style>
+</head>
+<body>
+<header id="barra">
+  <h1>Umbrhalia · Wireframes y sistema</h1>
+  <button type="button" class="solo-lienzo" id="menos" aria-label="Alejar">−</button>
+  <span id="zoom" class="solo-lienzo" aria-live="polite">100 %</span>
+  <button type="button" class="solo-lienzo" id="mas" aria-label="Acercar">+</button>
+  <button type="button" class="solo-lienzo texto" id="ancho">Ajustar ancho</button>
+  <button type="button" class="solo-lienzo texto" id="todo">Ver todo</button>
+</header>
+<main id="vista" tabindex="0" aria-label="Lienzo de tableros">
+  <div id="medida"><div id="mundo"></div></div>
+</main>
+<script>
+var LIENZO = {"title": "Umbrhalia · Wireframes y sistema", "boards": {"Main.dc.html": {"x": 0, "y": 0, "w": 1640, "h": 640, "title": "Recorrido: del QR a la totalidad"}, "P1-portada.dc.html": {"x": 0, "y": 1020, "w": 360, "h": 800, "title": "P1 · Portada"}, "P2-coincidencia.dc.html": {"x": 440, "y": 1020, "w": 360, "h": 800, "title": "P2 · La coincidencia", "is_interactive": true}, "P3-cuentos.dc.html": {"x": 880, "y": 1020, "w": 360, "h": 800, "title": "P3 · Índice de cuentos"}, "P4-lamina.dc.html": {"x": 1320, "y": 1020, "w": 360, "h": 800, "title": "P4 · Lámina de cuento"}, "P5-pregunta.dc.html": {"x": 0, "y": 2200, "w": 360, "h": 800, "title": "P5 · ¿Has visto un eclipse?"}, "P6-palabra.dc.html": {"x": 440, "y": 2200, "w": 360, "h": 800, "title": "P6 · Tu palabra", "is_interactive": true}, "P8-reglas.dc.html": {"x": 880, "y": 2200, "w": 360, "h": 800, "title": "P8 · Tu palabra, tus reglas"}, "P9-totalidad.dc.html": {"x": 1320, "y": 2200, "w": 360, "h": 800, "title": "P9 · Totalidad"}, "Sistema.dc.html": {"x": 0, "y": 3380, "w": 1640, "h": 1100, "title": "Sistema: tokens, texto, componentes, movimiento"}, "P2b-coincidencia-fotos.dc.html": {"x": 0, "y": 4860, "w": 360, "h": 800, "title": "P2b · La coincidencia, con fotos propias", "is_interactive": true}, "P9b-ojuela.dc.html": {"x": 440, "y": 4860, "w": 360, "h": 800, "title": "P9b · El día se equivoca, en Ojuela"}}, "order": ["Main.dc.html", "P1-portada.dc.html", "P2-coincidencia.dc.html", "P3-cuentos.dc.html", "P4-lamina.dc.html", "P5-pregunta.dc.html", "P6-palabra.dc.html", "P8-reglas.dc.html", "P9-totalidad.dc.html", "Sistema.dc.html", "P2b-coincidencia-fotos.dc.html", "P9b-ojuela.dc.html"], "notes": {"t1": {"x": 0, "y": -300, "text": "Recorrido", "kind": "title1", "maxW": 1640}, "t2": {"x": 0, "y": 720, "text": "Pantallas clave · narrar", "kind": "title1", "maxW": 1680}, "t3": {"x": 0, "y": 1900, "text": "Pantallas clave · dejar tu palabra", "kind": "title1", "maxW": 1680}, "t4": {"x": 0, "y": 3080, "text": "Sistema visual: el sitio vive en totalidad", "kind": "title1", "maxW": 1640}, "t5": {"x": 0, "y": 4560, "text": "Con fotos propias · expedición LFAE, 8 abril 2024", "kind": "title1", "maxW": 1640}}};
+(function () {
+  var vista = document.getElementById('vista'), medida = document.getElementById('medida'), mundo = document.getElementById('mundo');
+  var PAD = 80, MOVIL = 760;
+  var items = [];
+  Object.keys(LIENZO.notes).forEach(function (k) { var n = LIENZO.notes[k]; items.push({ tipo: 'nota', x: n.x, y: n.y, n: n }); });
+  LIENZO.order.forEach(function (f) { var b = LIENZO.boards[f]; items.push({ tipo: 'tablero', x: b.x, y: b.y, f: f, b: b }); });
+  items.sort(function (a, c) { return a.y - c.y || a.x - c.x; });
+  var minX = 0, minY = 0, maxX = 0, maxY = 0;
+  items.forEach(function (it) {
+    var w = it.tipo === 'nota' ? (it.n.maxW || 1640) : it.b.w, h = it.tipo === 'nota' ? 70 : it.b.h;
+    var top = it.tipo === 'tablero' ? it.y - 50 : it.y;
+    minX = Math.min(minX, it.x); minY = Math.min(minY, top);
+    maxX = Math.max(maxX, it.x + w); maxY = Math.max(maxY, it.y + h);
+  });
+  var W = maxX - minX + 2 * PAD, H = maxY - minY + 2 * PAD;
+  mundo.style.width = W + 'px'; mundo.style.height = H + 'px';
+  var tableros = [];
+  items.forEach(function (it) {
+    var el;
+    if (it.tipo === 'nota') {
+      el = document.createElement('h2'); el.className = 'nota'; el.textContent = it.n.text;
+      el.style.maxWidth = (it.n.maxW || 1640) + 'px';
+    } else {
+      var href = it.f.replace(/\.dc\.html$/, '.html');
+      el = document.createElement('section'); el.className = 'tablero';
+      el.setAttribute('aria-label', it.b.title);
+      el.innerHTML = '<p class="rotulo"><a href="' + href + '" target="_blank" rel="noopener"></a></p><div class="caja"><iframe loading="lazy" scrolling="no"></iframe></div>';
+      el.querySelector('a').textContent = it.b.title;
+      var fr = el.querySelector('iframe');
+      fr.src = href; fr.title = it.b.title; fr.width = it.b.w; fr.height = it.b.h;
+      tableros.push({ el: el, caja: el.querySelector('.caja'), fr: fr, b: it.b });
+    }
+    el.style.left = (it.x - minX + PAD) + 'px'; el.style.top = (it.y - minY + PAD) + 'px';
+    mundo.appendChild(el);
+  });
+
+  var s = 1, movil = null;
+  function escala(nueva, cx, cy) {
+    nueva = Math.max(0.05, Math.min(2, nueva));
+    if (cx == null) { cx = vista.clientWidth / 2; cy = vista.clientHeight / 2; }
+    var wx = (vista.scrollLeft + cx) / s, wy = (vista.scrollTop + cy) / s;
+    s = nueva;
+    mundo.style.transform = 'scale(' + s + ')';
+    medida.style.width = Math.ceil(W * s) + 'px'; medida.style.height = Math.ceil(H * s) + 'px';
+    vista.scrollLeft = wx * s - cx; vista.scrollTop = wy * s - cy;
+    document.getElementById('zoom').textContent = Math.round(s * 100) + ' %';
+  }
+  function ajustarAncho() { escala(vista.clientWidth / W); vista.scrollLeft = 0; vista.scrollTop = 0; }
+  function verTodo() { escala(Math.min(vista.clientWidth / W, vista.clientHeight / H)); vista.scrollLeft = 0; vista.scrollTop = 0; }
+  function disposicion() {
+    var m = window.innerWidth <= MOVIL;
+    if (m === movil && !m) return;
+    movil = m;
+    document.body.classList.toggle('movil', m);
+    tableros.forEach(function (t) {
+      if (m) {
+        var k = Math.min(1, (window.innerWidth - 32) / t.b.w);
+        t.caja.style.width = t.b.w * k + 'px'; t.caja.style.height = t.b.h * k + 'px';
+        t.fr.style.transform = 'scale(' + k + ')';
+        t.el.style.width = t.b.w * k + 'px';
+      } else {
+        t.caja.style.width = t.b.w + 'px'; t.caja.style.height = t.b.h + 'px';
+        t.fr.style.transform = ''; t.el.style.width = t.b.w + 'px';
+      }
+    });
+    if (!m) ajustarAncho();
+  }
+  window.addEventListener('resize', disposicion);
+  disposicion();
+
+  document.getElementById('mas').onclick = function () { escala(s * 1.25); };
+  document.getElementById('menos').onclick = function () { escala(s / 1.25); };
+  document.getElementById('ancho').onclick = ajustarAncho;
+  document.getElementById('todo').onclick = verTodo;
+  vista.addEventListener('wheel', function (e) {
+    if (movil || !(e.ctrlKey || e.metaKey)) return;
+    e.preventDefault();
+    var r = vista.getBoundingClientRect();
+    escala(s * Math.exp(-e.deltaY * 0.01), e.clientX - r.left, e.clientY - r.top);
+  }, { passive: false });
+  document.addEventListener('keydown', function (e) {
+    if (movil || /INPUT|TEXTAREA/.test(document.activeElement.tagName)) return;
+    if (e.key === '+' || e.key === '=') escala(s * 1.25);
+    else if (e.key === '-') escala(s / 1.25);
+    else if (e.key === '0') verTodo();
+  });
+  var arr = null;
+  vista.addEventListener('pointerdown', function (e) {
+    if (movil || e.button !== 0 || e.target.closest('a,iframe')) return;
+    arr = { x: e.clientX, y: e.clientY, l: vista.scrollLeft, t: vista.scrollTop };
+    vista.classList.add('arrastre'); vista.setPointerCapture(e.pointerId);
+  });
+  vista.addEventListener('pointermove', function (e) {
+    if (!arr) return;
+    vista.scrollLeft = arr.l - (e.clientX - arr.x); vista.scrollTop = arr.t - (e.clientY - arr.y);
+  });
+  function fin() { arr = null; vista.classList.remove('arrastre'); }
+  vista.addEventListener('pointerup', fin); vista.addEventListener('pointercancel', fin);
+})();
+</script>
+</body>
+</html>
