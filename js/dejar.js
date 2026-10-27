@@ -95,9 +95,11 @@
     mapas.m2.fitBounds(capa.getBounds(), { maxZoom: 4, padding: [10, 10] });
     $('sig2').disabled = false;
   }
+  var ANIO_MAX = new Date().getFullYear();
+  $('anio').max = ANIO_MAX;
   $('anio').addEventListener('input', function () {
     var v = parseInt(this.value, 10);
-    estado.anio = v >= 1900 && v <= 2026 ? v : null;
+    estado.anio = v >= 1900 && v <= ANIO_MAX ? v : null;
     $('sig2').disabled = !estado.anio;
   });
   $('norecuerdo').addEventListener('click', function () {

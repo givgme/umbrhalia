@@ -7,6 +7,18 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-23EL8D2L9E');</script>
 <title>Umbrhalia</title>
 <meta name="description" content="Umbrhalia: universo narrativo transmedia para la memoria de los eclipses solares, narrado por Ohr.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Umbrhalia">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Umbrhalia">
+<meta property="og:description" content="La Luna se aleja. Mientras todavía cubra al Sol, cada eclipse total es una ventana. Lee a Ohr y guarda tu palabra.">
+<meta property="og:image" content="https://givgme.github.io/umbrhalia/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://givgme.github.io/umbrhalia/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#000000">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
 <link rel="icon" type="image/svg+xml" href="assets/img/umbrhalia-marca-r2.svg">
 <link rel="stylesheet" href="css/u.css">
 </head>
@@ -15,7 +27,7 @@
 
 <header class="top">
   <div class="wrap">
-    <img class="marca" src="assets/img/umbrhalia-marca-r2.svg" alt="">
+    <a class="marca-inicio" href="./" aria-label="Umbrhalia, inicio"><img class="marca" src="assets/img/umbrhalia-marca-r2.svg" alt=""></a>
     <a class="nombre" href="./">UMBRHALIA</a>
     <nav aria-label="Principal">
       <a href="cuentos/">Narrar</a>
@@ -88,8 +100,8 @@
         </a>
         <a class="puerta" href="archivo/dejar/">
           <span class="verbo">Recordar</span>
-          <h3>Deja tu palabra</h3>
-          <p>¿Viste un eclipse? Una palabra basta para entrar al archivo.</p>
+          <h3>Guarda tu palabra</h3>
+          <p>¿Viste un eclipse? Conviértelo en una postal. El archivo público abrirá pronto.</p>
         </a>
         <a class="puerta" href="experiencias/">
           <span class="verbo">Vivir</span>
@@ -100,10 +112,13 @@
     </div>
   </section>
 
-  <div class="franja" aria-label="Palabras de los primeros testigos">
+  <div class="franja" id="franja-caja" aria-label="Palabras de los primeros testigos">
     <div class="franja-track" id="franja"></div>
   </div>
-  <div class="wrap"><p class="chico tenue" style="margin-top:10px">Palabras de los primeros testigos: Xochicalco 664, Tenochtitlan 1496, Ciudad de México 1691, Londres 1715.</p></div>
+  <div class="wrap franja-pie">
+    <p class="chico tenue">Palabras de los primeros testigos: Xochicalco 664, Tenochtitlan 1496, Ciudad de México 1691, Londres 1715.</p>
+    <button class="pausa" id="pausa" type="button" aria-pressed="false" aria-controls="franja">Pausar</button>
+  </div>
 
   <section aria-labelledby="t-apoya">
     <div class="wrap">
@@ -124,6 +139,7 @@
   <div class="wrap">
     <p>Umbrhalia · un proyecto de Gabriela Isabel Vera Garfias. © 2026. Todos los derechos reservados.</p>
     <p>Prototipo en desarrollo. Este sitio cuenta visitas de forma agregada con Google Analytics. <a href="https://policies.google.com/technologies/partner-sites?hl=es" target="_blank" rel="noopener">Cómo usa Google estos datos ↗</a></p>
+    <p class="contacto">Contacto: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></p>
   </div>
 </footer>
 
@@ -159,13 +175,23 @@
     }
   });
 
-  var palabras = U.PALABRAS_TESTIGOS.concat(U.PALABRAS_TESTIGOS);
+  var palabras = U.PALABRAS_TESTIGOS.slice();
   var mia = U.leer();
-  if (mia && mia.palabra) palabras.splice(3, 0, mia.palabra), palabras.splice(3 + U.PALABRAS_TESTIGOS.length + 1, 0, mia.palabra);
-  document.getElementById('franja').innerHTML = palabras.map(function (w) {
+  if (mia && mia.palabra) palabras.splice(3, 0, mia.palabra);
+  var copia = palabras.map(function (w) {
     var esMia = mia && w === mia.palabra;
     return '<span' + (esMia ? ' class="rojo"' : '') + '>' + U.escapar(w) + '</span><span class="sep">·</span>';
   }).join('');
+  // La segunda copia solo sirve para que la franja corra sin corte: el lector de pantalla no la lee.
+  document.getElementById('franja').innerHTML = '<span class="copia">' + copia + '</span><span class="copia" aria-hidden="true">' + copia + '</span>';
+
+  var caja = document.getElementById('franja-caja');
+  var pausa = document.getElementById('pausa');
+  pausa.addEventListener('click', function () {
+    var pausada = caja.classList.toggle('pausada');
+    pausa.setAttribute('aria-pressed', pausada);
+    pausa.textContent = pausada ? 'Reanudar' : 'Pausar';
+  });
 })();
 </script>
 </body>

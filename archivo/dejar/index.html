@@ -14,7 +14,7 @@
 <a class="skip" href="#contenido">Saltar al contenido</a>
 <header class="top">
   <div class="wrap">
-    <img class="marca" src="../../assets/img/umbrhalia-marca-r2.svg" alt="">
+    <a class="marca-inicio" href="../../" aria-label="Umbrhalia, inicio"><img class="marca" src="../../assets/img/umbrhalia-marca-r2.svg" alt=""></a>
     <a class="nombre" href="../../">UMBRHALIA</a>
     <nav aria-label="Principal">
       <a href="../../cuentos/">Narrar</a>
@@ -57,7 +57,7 @@
     </div>
     <div id="elige-anio" hidden>
       <label for="anio">¿En qué año fue, más o menos?</label>
-      <input id="anio" type="number" min="1900" max="2026" placeholder="Ej. 2023">
+      <input id="anio" type="number" min="1900" max="2026" placeholder="Ej. 2023"><!-- dejar.js sube max al año en curso -->
     </div>
     <div class="acciones">
       <button class="boton" data-atras>Atrás</button>
@@ -128,12 +128,13 @@
   <!-- 7 -->
   <div class="paso" data-paso="7">
     <p class="rotulo">La ventana sigue abierta</p>
-    <h1 id="titulo7">Tu palabra ya está en tu mapa.</h1>
+    <h1 id="titulo7">Tu palabra ya es tuya.</h1>
+    <p>Por ahora se guarda solo en este dispositivo. Cuando abra el archivo público te pediremos permiso para sumarla.</p>
     <p class="tenue" id="resumen7"></p>
     <div class="mapa chico" id="mapa7" aria-label="Tu palabra sobre la franja de tu eclipse, junto a los primeros testigos"></div>
     <div class="leyenda">
-      <span><i style="background:#DA291C"></i>Tu eclipse</span>
-      <span><i style="background:#ececee;opacity:.4"></i>Otros eclipses totales</span>
+      <span><i style="background:#DA291C;border-radius:50%"></i>Tu eclipse</span>
+      <span><i style="background:#ececee;opacity:.4;border-radius:50%"></i>Otros eclipses totales</span>
       <span><i style="background:#0b0b0f;border:2px solid #ececee;border-radius:50%;width:10px;height:10px"></i>Primeros testigos</span>
     </div>
     <h2 style="margin-top:40px">Tu postal</h2>
@@ -141,7 +142,6 @@
     <div class="acciones">
       <a class="boton lleno" id="descargar" download="umbrhalia-postal.png" href="#">Descargar postal</a>
       <button class="boton" id="compartir" hidden>Compartir</button>
-      <a class="boton" href="../">Ver el archivo</a>
     </div>
   </div>
 
@@ -183,7 +183,7 @@
 </section>
 </main>
 
-<footer class="pie"><div class="wrap"><p>Umbrhalia · un proyecto de Gabriela Isabel Vera Garfias. © 2026. Todos los derechos reservados. Este sitio cuenta visitas de forma agregada con Google Analytics.</p></div></footer>
+<footer class="pie"><div class="wrap"><p>Umbrhalia · un proyecto de Gabriela Isabel Vera Garfias. © 2026. Todos los derechos reservados. Este sitio cuenta visitas de forma agregada con Google Analytics.</p><p class="contacto">Contacto: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></p></div></footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="../../js/u.js"></script>
