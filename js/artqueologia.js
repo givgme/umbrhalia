@@ -68,6 +68,21 @@
   }
   function modoActual() { return window.innerWidth < 760 ? 'v' : 'h'; }
   function fichaDocked() { return window.innerWidth >= 1200; }
+  // Entre 760 y 1199 px la ficha no flota sobre la línea: en la vista Línea baja
+  // debajo de la escala; en la vista Lista abre una columna que empuja la lista.
+  function fichaEnFlujo() { return window.innerWidth >= 760 && window.innerWidth < 1200; }
+  function fichaModal() { return window.innerWidth < 760; }
+  function rolFicha() {
+    if (S.abierta && fichaModal()) {
+      fichaEl.setAttribute('role', 'dialog');
+      fichaEl.setAttribute('aria-modal', 'true');
+      fichaEl.setAttribute('aria-labelledby', 'aq-ficha-t');
+      fichaEl.removeAttribute('aria-label');
+    } else {
+      fichaEl.removeAttribute('role'); fichaEl.removeAttribute('aria-modal'); fichaEl.removeAttribute('aria-labelledby');
+      fichaEl.setAttribute('aria-label', 'Ficha de la obra');
+    }
+  }
 
   // ---------------------------------------------------------------- datos
   function preparar(d) {
@@ -429,6 +444,7 @@
       h += '<figure class="aq-sello">' + sello(o) + (nota ? '<figcaption>' + nota + '</figcaption>' : '') + '</figure>';
     }
     var recs = o.recorridos.filter(function (r) { return REC[r]; });
+    h += '<div class="aq-f-cuerpo">';
     h += '<p class="aq-f-meta">' + esc(anioTxt(o.anio)) + ' · ' + esc(c.nombre) + (recs.length ? ' · ' + esc(REC[recs[0]].titulo) : '') + '</p>';
     h += '<h2 class="aq-f-t" id="aq-ficha-t" tabindex="-1">' + esc(o.titulo) + '</h2>';
     h += '<div class="aq-tabs" role="tablist" aria-label="Capas de la ficha">' +
@@ -494,6 +510,7 @@
     if (v.prev) h += '<button type="button" class="boton" data-ir="' + v.prev.slug + '">Anterior en el carril</button>';
     if (v.next) h += '<button type="button" class="boton' + (ir >= 0 ? '' : ' lleno') + '" data-ir="' + v.next.slug + '">Siguiente en el carril</button>';
     h += '</div>';
+    h += '</div>'; // .aq-f-cuerpo
     return h;
   }
 
@@ -521,23 +538,24 @@
     if (op.origen) S.origen = op.origen;
     pintarFicha(slug, true, op.origen);
     fichaEl.classList.add('abierta');
-    var modal = window.innerWidth < 760;
-    if (!fichaDocked()) {
-      fichaEl.setAttribute('role', 'dialog');
-      fichaEl.setAttribute('aria-modal', String(modal));
-      fichaEl.setAttribute('aria-labelledby', 'aq-ficha-t');
-      fichaEl.removeAttribute('aria-label');
-      if (modal) {
-        document.documentElement.classList.add('sin-scroll');
-        document.querySelectorAll('.top, .pie, .aq-cabeza, .aq-escena, .skip').forEach(function (el) { el.inert = true; });
-      }
+    rolFicha();
+    var bajar = fichaEnFlujo() && S.vista === 'linea';
+    if (fichaModal()) {
+      document.documentElement.classList.add('sin-scroll');
+      document.querySelectorAll('.top, .pie, .aq-cabeza, .aq-escena, .skip').forEach(function (el) { el.inert = true; });
       if (nueva) fichaEl.scrollTop = 0;
     } else {
       fichaEl.scrollTop = 0;
     }
     marcarActiva();
     estadoURL();
-    if (op.foco !== false) { var t = $('aq-ficha-t'); if (t) t.focus({ preventScroll: fichaDocked() }); }
+    // En la vista Línea de tableta la ficha queda debajo: se lleva a la vista
+    // solo si no se alcanza a ver su título.
+    if (bajar && op.foco !== false) {
+      var ft = fichaEl.getBoundingClientRect();
+      if (ft.top > window.innerHeight - 120 || ft.top < 0) fichaEl.scrollIntoView({ behavior: REDUCIR ? 'auto' : 'smooth', block: 'start' });
+    }
+    if (op.foco !== false) { var t = $('aq-ficha-t'); if (t) t.focus({ preventScroll: !fichaModal() }); }
   }
 
   function cerrar() {
@@ -546,8 +564,7 @@
     S.abierta = null;
     fichaEl.classList.remove('abierta');
     fichaC.hidden = true; fichaC.innerHTML = '';
-    fichaEl.removeAttribute('role'); fichaEl.removeAttribute('aria-modal'); fichaEl.removeAttribute('aria-labelledby');
-    fichaEl.setAttribute('aria-label', 'Ficha de la obra');
+    rolFicha();
     document.documentElement.classList.remove('sin-scroll');
     document.querySelectorAll('[inert]').forEach(function (el) { el.inert = false; });
     marcarActiva();
@@ -620,10 +637,15 @@
       clearTimeout(t);
       t = setTimeout(function () {
         if (S.vista === 'linea') asegurarModo(false);
-        if (S.abierta && fichaDocked()) {
+        if (S.abierta && !fichaModal()) {
           document.documentElement.classList.remove('sin-scroll');
           document.querySelectorAll('[inert]').forEach(function (el) { el.inert = false; });
         }
+        if (S.abierta && fichaModal() && !document.documentElement.classList.contains('sin-scroll')) {
+          document.documentElement.classList.add('sin-scroll');
+          document.querySelectorAll('.top, .pie, .aq-cabeza, .aq-escena, .skip').forEach(function (el) { el.inert = true; });
+        }
+        rolFicha();
       }, 150);
     });
   }

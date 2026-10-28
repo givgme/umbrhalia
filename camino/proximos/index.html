@@ -124,8 +124,9 @@
   }
   function lugares(p) {
     if (p.lugares_mexico) return 'En México: ' + p.lugares_mexico.slice(0, 6).join(', ');
-    // Solo lugares revisados: los «lugares» generales traen atribuciones de país erróneas (ver la nota de revisión).
-    return (p.lugares_destacados || []).join(', ');
+    if (p.lugares_destacados) return p.lugares_destacados.join(', ');
+    // «lugares» ya está revisado (herramientas/limpiar_lugares_eclipses.py): país real y dentro de la franja.
+    return (p.lugares || []).slice(0, 4).join(', ');
   }
   function paises(p) {
     if (p.paises && p.paises.length) {
