@@ -541,3 +541,35 @@ input.enlace { font-size: 16px; font-family: Menlo, monospace; max-width: 30em; 
   .top nav a { padding: 6px 0; }
 }
 @media (max-width: 380px) { .top nav { gap: 2px 11px; font-size: 12.5px; } }
+
+/* Cuentos de Ohr · tratamiento C, Alternancia (28 oct 2026, elegido por Gabriela).
+   El cuento corre en movimientos oscuros; entre ellos, pausas claras que se abren con el
+   recorte circular de U.transiciones() (contacto → totalidad). Un párrafo en grande, el mismo
+   del cuento, en su lugar. La última pausa lleva a Ohr pequeño en tinta negra (su rojo es el único).
+   Texto #0b0b0f sobre #ececee: ~17:1. Con movimiento reducido no hay animación (u.js no la activa). */
+section.cuento-mov, section.cuento-pausa { border-top: 0; }
+.cuento-mov { padding: 88px 0; }
+.cuento-mov.cuento-inicio { padding-top: 64px; }
+.cuento-mov:last-of-type { padding-bottom: 112px; }
+.cuento.sigue p:first-of-type::first-letter { font: inherit; float: none; margin: 0; line-height: inherit; }
+.cuento > p:last-child { margin-bottom: 0; }
+.cuento-volver { margin-top: 20px; }
+.cuento-pausa { padding: 96px 0; }
+.cuento-frase p { font-size: clamp(24px, 4.2vw, 34px); font-weight: 300; line-height: 1.4; margin: 0; max-width: 22em; }
+.cuento-frase.larga p { font-size: clamp(22px, 3.2vw, 28px); line-height: 1.45; max-width: 26em; }
+.cuento-pausa-ohr { display: grid; gap: 28px; align-items: center; }
+.cuento-ohr-chico { margin: 0; width: 160px; }
+.cuento-ohr-chico img { display: block; width: 100%; height: auto; }
+@media (min-width: 900px) {
+  .cuento-pausa-ohr { grid-template-columns: 180px 1fr; gap: 48px; }
+  .cuento-ohr-chico { width: 180px; }
+}
+@media (min-width: 1024px) {
+  .cuento-mov { padding: 112px 0; }
+  .cuento-mov.cuento-inicio { padding-top: 80px; }
+  .cuento-pausa { padding: 144px 0; }
+}
+/* En pantallas anchas Ohr cuelga fuera de la columna y el párrafo queda alineado con el cuento. */
+@media (min-width: 1240px) {
+  .cuento-pausa-ohr { margin-left: -228px; }
+}
