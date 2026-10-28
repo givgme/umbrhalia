@@ -453,12 +453,11 @@ table.sig .vis { max-width: 26em; }
 }
 @media (max-width: 420px) { table.sig tr { grid-template-columns: repeat(2, auto); } table.sig tbody th, table.sig .tipo { grid-column: auto; } }
 
-/* Puertas: cuatro, sin fondo */
+/* Puertas: siete, sin fondo (las siete ramas del esquema, 27 oct 2026) */
 .inicio .puertas { gap: 0; border-top: 1px solid var(--linea); }
 @media (min-width: 560px) { .inicio .puertas { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 980px) { .inicio .puertas { grid-template-columns: repeat(4, 1fr); } }
 .inicio .puerta { background: none; border: 0; border-bottom: 1px solid var(--linea); padding: 26px 20px 28px 0; }
-@media (min-width: 980px) { .inicio .puerta { border-bottom: 0; padding-bottom: 8px; } }
 .inicio .puerta:hover h3, .inicio .puerta:focus-visible h3 { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .inicio .puerta .verbo { font-size: 12px; color: var(--gris); }
 .inicio .puerta h3 { font-weight: 300; font-size: 24px; }
@@ -525,9 +524,20 @@ input.enlace { font-size: 16px; font-family: Menlo, monospace; max-width: 30em; 
 .dona .cierre { padding: 40px 0; }
 .dona .cierre .nota { margin: 0; }
 .top nav a { white-space: nowrap; }
-/* Con siete pestañas: en pantallas medianas y chicas el menú baja a su propio renglón y se acomoda en varias líneas */
+/* Con ocho pestañas (27 oct 2026): el encabezado usa el ancho amplio en todas las páginas y la marca no se encoge.
+   En pantallas medianas y chicas el menú baja a su propio renglón y se acomoda en varias líneas */
+.top .wrap { max-width: 1240px; }
+.top .marca-inicio { flex-shrink: 0; }
 @media (max-width: 1080px) {
   .top .wrap { flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; row-gap: 8px; }
   .top nav { margin-left: 0; width: 100%; flex-wrap: wrap; justify-content: flex-start; gap: 6px 16px; font-size: 14px; }
   .top nav a { padding: 4px 0; }
 }
+/* Nueve pestañas en el celular: letra y separación más compactas, y el encabezado deja de ser fijo
+   para no ocupar un cuarto de la pantalla al desplazarse */
+@media (max-width: 560px) {
+  .top { position: static; }
+  .top nav { gap: 2px 14px; font-size: 13.5px; }
+  .top nav a { padding: 6px 0; }
+}
+@media (max-width: 380px) { .top nav { gap: 2px 11px; font-size: 12.5px; } }
