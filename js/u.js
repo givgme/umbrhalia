@@ -13,7 +13,8 @@ var U = (function () {
     { lat: 36.07, lng: -107.99, ano: '1097', lugar: 'Cañón del Chaco, Nuevo México',
       texto: 'Un petroglifo cerca de Peñasco Blanco se ha interpretado como la corona del eclipse total de 1097: un registro sin palabras, solo forma.',
       fuente: 'Interpretación del High Altitude Observatory (UCAR).' },
-    { lat: 19.435, lng: -99.133, ano: '1496', lugar: 'Tenochtitlan',
+    // 1496 oculto (28 oct 2026): según los elementos de la NASA, la umbra del 8 ago 1496 pasó a unos 110–125 km de Tenochtitlan. [POR CONFIRMAR]
+    { oculto: true, lat: 19.435, lng: -99.133, ano: '1496', lugar: 'Tenochtitlan',
       texto: '«Un eclipse total del Sol, tan oscuro como la noche más profunda, y las estrellas se vieron con total claridad». Tres fuentes independientes registran el mismo eclipse: el Códice Telleriano-Remensis, el Códice Borgia y Chimalpahin.',
       fuente: 'Chimalpahin, citado por Aveni y Calnek (1999).' },
     { lat: 19.426, lng: -99.128, ano: '1691', lugar: 'Ciudad de México',
@@ -22,10 +23,11 @@ var U = (function () {
     { lat: 51.507, lng: -0.128, ano: '1715', lugar: 'Londres',
       texto: 'Edmond Halley publica el primer mapa de un eclipse visto desde arriba, «para que la súbita oscuridad no tome por sorpresa a la gente», e invita al público a medir la totalidad.',
       fuente: 'Pasachoff (1999).' }
-  ];
+  ].filter(function (t) { return !t.oculto; });
 
   // Palabras tomadas de esos testimonios (no son testimonios inventados).
-  var PALABRAS_TESTIGOS = ['estrellas', 'noche', 'gallos', 'oscuridad', 'tinieblas', 'sorpresa', 'alegre', 'anteojo', 'quijada', 'corona', 'sombra', 'claridad'];
+  // Solo las que sostienen las citas mostradas (auditoría de rigor, 28 oct 2026).
+  var PALABRAS_TESTIGOS = ['estrellas', 'noche', 'gallos', 'oscuridad', 'alegre'];
 
   var _eclipses = null;
   function eclipses() {
