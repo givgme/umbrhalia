@@ -524,3 +524,10 @@ input.enlace { font-size: 16px; font-family: Menlo, monospace; max-width: 30em; 
 .dona .regla { margin-top: 36px; }
 .dona .cierre { padding: 40px 0; }
 .dona .cierre .nota { margin: 0; }
+.top nav a { white-space: nowrap; }
+/* Con siete pestañas: en pantallas medianas y chicas el menú baja a su propio renglón y se acomoda en varias líneas */
+@media (max-width: 1080px) {
+  .top .wrap { flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; row-gap: 8px; }
+  .top nav { margin-left: 0; width: 100%; flex-wrap: wrap; justify-content: flex-start; gap: 6px 16px; font-size: 14px; }
+  .top nav a { padding: 4px 0; }
+}
