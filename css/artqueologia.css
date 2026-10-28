@@ -227,6 +227,10 @@
   .aq-vista { margin-left: 0; }
   .aq-item { grid-template-columns: 18px 70px minmax(0, 1fr); gap: 0 10px; }
 }
+/* Tableta angosta: la región va en su renglón y Recorrido comparte el segundo con Línea/Lista. */
+@media (max-width: 939px) and (min-width: 760px) {
+  .aq-region { flex-basis: 100%; }
+}
 @media (max-width: 899px) and (min-width: 760px) {
   .aq-h-cab, .aq-carril, .aq-eje { grid-template-columns: 124px 80px minmax(0, 1fr); }
   .aq-carril-n { font-size: 14px; }
