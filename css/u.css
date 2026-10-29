@@ -857,3 +857,36 @@ main.interior ~ .pie .wrap { max-width: 1040px; }
 .masa .boton { border-color: var(--negro); color: var(--negro); }
 .masa .boton.lleno { background: var(--negro); color: var(--blanco); }
 .masa .boton:hover { background: var(--negro); color: var(--blanco); }
+
+/* ===== Existir como sala (29 oct 2026): portada con foto, cédula con ficha, dos escalas, recorrido, acceso ===== */
+.ex-portada { padding-bottom: 0; }
+.ex-sub { font-size: var(--t-entradilla); font-weight: 200; line-height: 1.35; margin: 12px 0 0; max-width: 22em; }
+.ex-foto { margin: 48px 0 0; }
+.ex-foto img { display: block; width: 100%; height: min(70vh, 720px); object-fit: cover; filter: grayscale(1); }
+.ex-foto figcaption { padding-top: 12px; padding-bottom: 0; }
+.ex-foto .folio { font-family: var(--mono); font-size: var(--t-folio); color: var(--gris); }
+.ex-cedula { display: grid; gap: 40px; }
+@media (min-width: 900px) { .ex-cedula { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 64px; align-items: end; } }
+.ex-ficha { margin: 0; display: grid; }
+.ex-ficha div { display: grid; grid-template-columns: 7.5em 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--linea); }
+.ex-ficha div:last-child { border-bottom: 1px solid var(--linea); }
+.ex-ficha dt { font-family: var(--mono); font-size: var(--t-folio); color: var(--gris); padding-top: 3px; }
+.ex-ficha dd { margin: 0; font-size: var(--t-texto); line-height: 1.45; }
+.ex-escalas { display: grid; gap: 48px; margin: 40px 0 32px; }
+@media (min-width: 760px) { .ex-escalas { grid-template-columns: 1fr 1fr; gap: 64px; } }
+.ex-escalas > div { border-top: 2px solid currentColor; padding-top: 20px; min-width: 0; }
+.ex-cifra { font-size: clamp(64px, 9vw, 128px); font-weight: 200; line-height: 1; letter-spacing: -.02em; margin: 0 0 16px; font-variant-numeric: tabular-nums; }
+.ex-cifra-t { font-size: var(--t-entradilla); font-weight: 300; line-height: 1.35; margin: 0 0 16px; max-width: 20em; }
+.ex-escalas .nota b { font-weight: 500; }
+.ex-fases { list-style: none; padding: 0; margin: 40px 0 0; display: grid; gap: 40px; counter-reset: fase; }
+@media (min-width: 760px) { .ex-fases { grid-template-columns: repeat(3, 1fr); gap: 32px; } }
+.ex-fases li { border-top: 1px solid var(--linea); padding-top: 20px; }
+.ex-fases svg { width: 64px; height: 64px; display: block; margin-bottom: 20px; }
+.ex-fases h3 { font-size: var(--t-entradilla); font-weight: 300; margin: 0 0 8px; }
+.ex-fases p { margin: 0; }
+.ex-medida { max-width: 36em; }
+.ex-sentidos { display: grid; gap: 0; margin: 40px 0 0; }
+@media (min-width: 760px) { .ex-sentidos { grid-template-columns: repeat(4, 1fr); gap: 32px; } }
+.ex-sentidos div { border-top: 2px solid currentColor; padding: 16px 0 24px; }
+.ex-sentidos dt { font-size: clamp(28px, 3vw, 36px); font-weight: 200; margin: 0 0 8px; }
+.ex-sentidos dd { margin: 0; font-size: var(--t-texto); line-height: 1.45; }

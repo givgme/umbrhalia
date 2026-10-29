@@ -43,7 +43,7 @@
       "pie": "La ruina y el valle casi a oscuras.",
       "alt": "La ruina de Ojuela y el valle casi a oscuras durante la totalidad.",
       "autoria": "colectiva", "rostros": "no", "estado": "elegida",
-      "usos": ["dona", "compartir", "cazadores", "existir"] },
+      "usos": ["dona", "compartir", "cazadores"] },
     { "id": "ojuela-02", "archivo": "assets/img/cazadores/f4-totalidad.jpg", "ancho": 700, "alto": 394,
       "actividad": "ojuela-2024", "fecha": "2024-04-08", "fecha_txt": "8 abr 2024", "lugar": "Puente de Ojuela, Durango",
       "titulo": "La corona",
