@@ -23,10 +23,10 @@ var U = (function () {
   // Primeros testigos: registros históricos con su fuente.
   var TESTIGOS = [
     { lat: 18.804, lng: -99.296, ano: '664', lugar: 'Xochicalco, Morelos',
-      texto: 'En el friso de la Pirámide de las Serpientes Emplumadas, una quijada muerde un disco solar. La reconstrucción astronómica sitúa un eclipse el 1 de mayo de 664 (calendario juliano) muy cerca del sitio.',
-      fuente: 'Registro arqueológico; fecha reconstruida por cálculo astronómico.',
-      texto_en: 'On the frieze of the Pyramid of the Feathered Serpents, a jaw bites a solar disc. Astronomical reconstruction places an eclipse on 1 May 664 (Julian calendar) very close to the site.',
-      fuente_en: 'Archaeological record; date reconstructed by astronomical calculation.' },
+      texto: 'En el friso de la Pirámide de las Serpientes Emplumadas, una quijada muerde un disco solar. Se interpreta como un eclipse; qué eclipse es sigue en debate (el INAH propone uno total en 743).',
+      fuente: 'Registro arqueológico; INAH, Zona Arqueológica de Xochicalco.',
+      texto_en: 'On the frieze of the Pyramid of the Feathered Serpents, a jaw bites a solar disc. It is read as an eclipse; which one is still debated (INAH proposes a total eclipse in 743).',
+      fuente_en: 'Archaeological record; INAH, Xochicalco Archaeological Zone.' },
     { lat: 36.07, lng: -107.99, ano: '1097', lugar: 'Cañón del Chaco, Nuevo México',
       texto: 'Un petroglifo en la roca llamada Piedra del Sol se ha interpretado como la corona del eclipse total de 1097: un registro sin palabras, solo forma.',
       fuente: 'Interpretación del High Altitude Observatory (UCAR).',
@@ -41,13 +41,13 @@ var U = (function () {
       texto: '«Se vieron las estrellas, cantaron los gallos y quedó como a prima noche oscuro a las nueve del día». Mientras la plaza corría, Sigüenza y Góngora miraba el Sol con su anteojo, «en extremo alegre».',
       fuente: 'Antonio de Robles y Carlos de Sigüenza y Góngora, en Trabulse (2000).',
       lugar_en: 'Mexico City',
-      texto_en: '“The stars were seen, the roosters crowed, and at nine in the morning it grew as dark as early night.” While the square ran, Sigüenza y Góngora watched the Sun through his spyglass, “extremely joyful.” (Translated from Spanish.)',
+      texto_en: '“The stars were seen, the roosters crowed, and at nine in the morning it grew as dark as early night.” While people ran through the square, Sigüenza y Góngora watched the Sun through his spyglass, “extremely joyful.” (Our translation from the Spanish.)',
       fuente_en: 'Antonio de Robles and Carlos de Sigüenza y Góngora, in Trabulse (2000).' },
     { lat: 51.507, lng: -0.128, ano: '1715', lugar: 'Londres',
-      texto: 'Edmond Halley publica el primer mapa de un eclipse visto desde arriba, «para que la súbita oscuridad no tome por sorpresa a la gente», e invita al público a medir la totalidad.',
+      texto: 'Edmond Halley publica el primer mapa de la trayectoria de un eclipse, para que la súbita oscuridad no tomara por sorpresa a la gente, e invita al público a medir la totalidad.',
       fuente: 'Pasachoff (1999).',
       lugar_en: 'London',
-      texto_en: 'Edmond Halley publishes the first map of an eclipse seen from above, so that the sudden darkness would not take people by surprise, and invites the public to time the totality.',
+      texto_en: 'Edmond Halley publishes the first map of an eclipse path, so that the sudden darkness would not take people by surprise, and invites the public to time the totality.',
       fuente_en: 'Pasachoff (1999).' }
   ].filter(function (t) { return !t.oculto; });
 
