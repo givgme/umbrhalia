@@ -50,6 +50,10 @@
   <div class="wrap">
     <p class="rotulo">Primeros testigos</p>
     <div id="testigos"></div>
+    <div id="participantes" hidden>
+      <p class="rotulo">Archivo participativo</p>
+      <div id="historias"></div>
+    </div>
     <p class="aviso-proto">Prototipo en proceso de búsqueda de financiamiento: cuando lo consigamos, aquí aparecerán los testimonios de todas las personas, después de moderarlos. Hoy solo ves la tuya, si la dejaste en este navegador.</p>
   </div>
 </section>
@@ -76,6 +80,17 @@
     }
     if (mia && mia.palabra && mia.lat !== null) U.marcaPalabra(map, mia.lat, mia.lng, mia.palabra, true);
   });
+  // Archivo participativo: solo historias aprobadas (assets/data/testimonios.json). Vacío, no se muestra.
+  fetch(U.ROOT + 'assets/data/testimonios.json').then(function (r) { return r.json(); }).then(function (d) {
+    var lista = (d.testimonios || []).filter(function (h) { return h.texto && h.palabra; });
+    if (!lista.length) return;
+    document.getElementById('historias').innerHTML = lista.map(function (h) {
+      if (h.lat != null) U.marcaPalabra(map, h.lat, h.lng, h.palabra, false);
+      return '<blockquote class="cita">' + U.escapar(h.texto) + '<cite>«' + U.escapar(h.palabra) + '» · ' + U.escapar(h.firma || 'Anónimo') +
+        (h.eclipse ? ' · ' + U.fecha(h.eclipse) : '') + (h.lugar ? ' · ' + U.escapar(h.lugar) : '') + '</cite></blockquote>';
+    }).join('');
+    document.getElementById('participantes').hidden = false;
+  }).catch(function () { /* sin archivo participativo publicado todavía */ });
   document.getElementById('testigos').innerHTML = U.TESTIGOS.map(function (t) {
     return '<blockquote class="cita">' + t.texto + '<cite>' + t.ano + ' · ' + t.lugar + ' — ' + t.fuente + '</cite></blockquote>';
   }).join('');
