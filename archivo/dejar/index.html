@@ -134,8 +134,16 @@
     <label for="nombre">Nombre o seudónimo</label>
     <input id="nombre" type="text" autocomplete="nickname" placeholder="Puede quedar en blanco">
     <label class="check"><input type="checkbox" id="anonimo"> Prefiero no dar mi nombre</label>
-    <label class="check"><input type="checkbox" id="ok-archivo"> Acepto que mi testimonio se muestre en el archivo de Umbrhalia. Sigo firmando mi testimonio.</label>
-    <label class="check"><input type="checkbox" id="ok-usos"> (Opcional) Acepto que se use en exposiciones y en el documental.</label>
+    <fieldset class="permiso obligatorio">
+      <legend>Obligatorio para dejar tu palabra</legend>
+      <label class="check"><input type="checkbox" id="ok-archivo" aria-describedby="falta-permiso"> Autorizo a Umbrhalia by LFAE a mostrar mi palabra, y mi relato si lo dejé, en el archivo y el mapa del sitio, con la firma que elegí.</label>
+      <p class="nota">Tu palabra sigue siendo tuya: puedes pedir que se retire cuando quieras.</p>
+    </fieldset>
+    <fieldset class="permiso">
+      <legend>Opcional</legend>
+      <label class="check"><input type="checkbox" id="ok-usos"> Que se use también en exposiciones, talleres y el documental de Umbrhalia.</label>
+    </fieldset>
+    <p class="nota falta-permiso" id="falta-permiso">Para dejar tu palabra, marca la casilla obligatoria.</p>
     <p class="aviso-proto">Prototipo: tu testimonio no se envía a ningún servidor; se queda solo en este navegador. Este sitio cuenta visitas de forma anónima, sin cookies. El texto de consentimiento definitivo está en revisión legal.</p>
     <div class="acciones">
       <button class="boton" data-atras>Atrás</button>

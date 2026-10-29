@@ -40,5 +40,12 @@
 </section>
 </main>
 <footer class="pie"><div class="wrap"><p>Umbrhalia by LFAE · un proyecto de Gabriela Isabel Vera Garfias. © 2026. Todos los derechos reservados.</p><p>Prototipo en desarrollo. Contamos visitas de forma anónima, sin cookies. <a href="/umbrhalia/privacidad/">Privacidad</a></p><p class="contacto"><span>Contacto: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></span> · <span>LFAE: <a href="mailto:lfae.physicart@gmail.com">lfae.physicart@gmail.com</a></span></p></div></footer>
+<script>
+// GitHub Pages solo sirve este 404: bajo /en/, se muestra la versión en inglés (en/404.html) sin cambiar la dirección.
+if (/^\/umbrhalia\/en(\/|$)/.test(location.pathname)) {
+  fetch('/umbrhalia/en/404.html').then(function (r) { return r.ok ? r.text() : null; })
+    .then(function (t) { if (t) { document.open(); document.write(t); document.close(); } }).catch(function () {});
+}
+</script>
 </body>
 </html>

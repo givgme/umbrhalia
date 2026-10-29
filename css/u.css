@@ -183,6 +183,12 @@ input:focus, textarea:focus, select:focus { border-color: var(--blanco); outline
 label { display: block; margin: 18px 0 8px; font-size: var(--t-nota); color: var(--gris); }
 .check { display: flex; gap: 12px; align-items: flex-start; margin: 14px 0; color: var(--blanco); font-size: var(--t-texto); }
 .check input { width: 22px; height: 22px; margin-top: 2px; accent-color: var(--blanco); flex-shrink: 0; }
+/* Deja tu palabra, paso 6: el permiso obligatorio va aparte del opcional */
+.permiso { margin: 28px 0 0; padding: 8px 20px 4px; border: 1px solid var(--linea); }
+.permiso.obligatorio { border-color: var(--blanco); }
+.permiso legend { padding: 0 8px; margin-left: -8px; color: var(--blanco); font-size: var(--t-nota); font-weight: 600; }
+.permiso .nota { margin: 0 0 12px 34px; }
+.falta-permiso { margin-top: 16px; }
 .lista-eclipses { max-height: 300px; overflow-y: auto; border: 1px solid var(--linea); }
 .lista-eclipses button { display: flex; justify-content: space-between; width: 100%; font: inherit; font-size: var(--t-texto); color: var(--blanco); background: none; border: 0; border-bottom: 1px solid var(--linea); padding: 14px 16px; cursor: pointer; text-align: left; }
 .lista-eclipses button:hover, .lista-eclipses button[aria-pressed="true"] { background: var(--negro-2); color: var(--blanco); }
@@ -197,7 +203,9 @@ label { display: block; margin: 18px 0 8px; font-size: var(--t-nota); color: var
 .leaflet-container { background: #08080b; font-family: var(--font); }
 .leaflet-popup-content-wrapper, .leaflet-popup-tip { background: var(--negro-2); color: var(--blanco); border-radius: 0; }
 .leaflet-popup-content { font-size: 14px; line-height: 1.45; }
-.leaflet-control-zoom a { background: var(--negro-2) !important; color: var(--blanco) !important; border-color: var(--linea) !important; }
+.leaflet-control-zoom { border: 0 !important; background: none !important; box-shadow: none !important; display: flex; flex-direction: column; gap: 8px; }
+.leaflet-control-zoom a { background: var(--negro-2) !important; color: var(--blanco) !important; border: 1px solid var(--linea) !important; border-radius: 50% !important; width: 36px !important; height: 36px !important; line-height: 34px !important; }
+.leaflet-control-zoom a:hover, .leaflet-control-zoom a:focus-visible { border-color: var(--blanco) !important; }
 .leaflet-control-attribution { background: rgba(11,11,15,.8) !important; color: var(--gris) !important; font-size: var(--t-versalita); }
 .leaflet-control-attribution a { color: var(--gris) !important; }
 .palabra-marca { color: var(--blanco); font-weight: 200; font-size: 18px; letter-spacing: .06em; white-space: nowrap; text-shadow: 0 0 6px #000; }
@@ -428,8 +436,7 @@ input[type=checkbox]:focus-visible{outline:2px solid #ececee;outline-offset:3px}
 .mapa-claro { isolation: isolate; height: clamp(380px, 62vh, 640px); background: var(--papel); }
 @media (min-width: 980px) { .mapa-claro { height: clamp(520px, 74vh, 780px); } }
 .mapa-claro.leaflet-container { background: var(--papel); font-family: var(--font); }
-.mapa-claro .leaflet-control-zoom { border: 1px solid var(--negro) !important; border-radius: 0; }
-.mapa-claro .leaflet-control-zoom a { background: var(--papel) !important; color: var(--negro) !important; border-color: var(--negro) !important; border-radius: 0 !important; width: 36px; height: 36px; line-height: 36px; }
+.mapa-claro .leaflet-control-zoom a { background: var(--papel) !important; color: var(--negro) !important; border-color: var(--negro) !important; }
 .mapa-claro .leaflet-control-zoom a:hover { background: var(--negro) !important; color: var(--papel) !important; }
 .mapa-error { padding: 24px; color: var(--gris-osc); }
 
@@ -905,3 +912,10 @@ main.interior ~ .pie .wrap { max-width: 1040px; }
 @media (max-width: 899px) { .idiomas { margin-left: 0; } }
 .ex-cifra { white-space: nowrap; }
 .ex-cifra small { font-size: .38em; letter-spacing: 0; }
+
+/* Formalidad editorial (decisión de Gabriela, 29 oct 2026): los textos largos van justificados, con partición
+   silábica en la lengua de la página (atributo lang) para que no se abran ríos en columnas angostas.
+   Las frases destacadas, títulos, notas y cédulas cortas siguen en bandera. */
+.cuento p, .lectura p, .ex-cronica p, .aq-item-x {
+  text-align: justify; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 7 3 3; text-wrap: pretty;
+}
