@@ -355,6 +355,17 @@ var U = (function () {
     }
   })();
 
+  // Conteo de visitas con GoatCounter: sin cookies y sin guardar la IP (decisión de Gabriela, 29 oct 2026).
+  // Una sola fuente: el código del sitio está aquí. No cuenta en local ni si el navegador pide «no rastrear».
+  (function contarVisitas() {
+    var CODIGO = 'umbrhalia';
+    if (!/github\.io$/.test(location.hostname) || navigator.doNotTrack === '1') return;
+    window.goatcounter = { endpoint: 'https://' + CODIGO + '.goatcounter.com/count' };
+    var s = document.createElement('script');
+    s.async = true; s.src = 'https://gc.zgo.at/count.js';
+    document.head.appendChild(s);
+  })();
+
   function escapar(s) {
     return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; });
   }
