@@ -134,8 +134,16 @@
     <label for="nombre">Name or pseudonym</label>
     <input id="nombre" type="text" autocomplete="nickname" placeholder="Can be left blank">
     <label class="check"><input type="checkbox" id="anonimo"> I prefer not to give my name</label>
-    <label class="check"><input type="checkbox" id="ok-archivo"> I accept that my testimony is shown in the Umbrhalia archive. I still sign my testimony.</label>
-    <label class="check"><input type="checkbox" id="ok-usos"> (Optional) I accept that it is used in exhibitions and in the documentary.</label>
+    <fieldset class="permiso obligatorio">
+      <legend>Required to leave your word</legend>
+      <label class="check"><input type="checkbox" id="ok-archivo" aria-describedby="falta-permiso"> I authorise Umbrhalia by LFAE to show my word, and my story if I left one, in the archive and on the site&rsquo;s map, with the signature I chose.</label>
+      <p class="nota">Your word remains yours: you can ask for it to be removed at any time.</p>
+    </fieldset>
+    <fieldset class="permiso">
+      <legend>Optional</legend>
+      <label class="check"><input type="checkbox" id="ok-usos"> I also agree to its use in Umbrhalia exhibitions, workshops and the documentary.</label>
+    </fieldset>
+    <p class="nota falta-permiso" id="falta-permiso">To leave your word, tick the required box.</p>
     <p class="aviso-proto">Prototype: your testimony is not sent to any server; it stays only in this browser. This site counts visits anonymously, without cookies. The final consent text is under legal review.</p>
     <div class="acciones">
       <button class="boton" data-atras>Back</button>
