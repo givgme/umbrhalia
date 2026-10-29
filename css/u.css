@@ -903,3 +903,5 @@ main.interior ~ .pie .wrap { max-width: 1040px; }
 .idiomas .pronto { color: var(--gris); cursor: default; gap: 6px; }
 .idiomas .pronto svg { width: 12px; height: 12px; flex: none; }
 @media (max-width: 899px) { .idiomas { margin-left: 0; } }
+.ex-cifra { white-space: nowrap; }
+.ex-cifra small { font-size: .38em; letter-spacing: 0; }
