@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../../../">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-23EL8D2L9E"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-23EL8D2L9E');</script>
+<title>Upcoming total eclipses · Umbrhalia</title>
+<meta name="description" content="Total and hybrid solar eclipses from 2026 to 2126: map of the bands, list by decade, and the three that cross Mexico.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Umbrhalia">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Upcoming total eclipses · Umbrhalia">
+<meta property="og:description" content="Total and hybrid solar eclipses from 2026 to 2126: map of the bands, list by decade, and the three that cross Mexico.">
+<meta property="og:image" content="https://givgme.github.io/umbrhalia/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://givgme.github.io/umbrhalia/en/camino/proximos/"><link rel="alternate" hreflang="es" href="https://givgme.github.io/umbrhalia/camino/proximos/"><link rel="alternate" hreflang="en" href="https://givgme.github.io/umbrhalia/en/camino/proximos/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#000000">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../assets/img/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="../../../assets/img/umbrhalia-marca-r2.svg">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="../../../css/u.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="marca-inicio" href="../../" aria-label="Umbrhalia, home"><img class="marca" src="../../../assets/img/umbrhalia-marca-r2.svg" alt=""></a>
+    <a class="nombre" href="../../">UMBRHALIA</a>
+    <nav aria-label="Main">
+      <a href="../../../cuentos/">The Universe and Ohr</a>
+      <a href="../../camino/" aria-current="page">Path</a>
+      <a href="../../../artqueologia/">ARTqueología del Cielo</a>
+      <a href="../../archivo/">Remember</a>
+      <a href="../../sentir/">Sense</a>
+      <a href="../../existir/">Exist</a>
+      <a href="../../cazadores/">Eclipse Chasers</a>
+      <a href="../../compartir/">Share</a>
+      <a href="../../dona/">Donate</a>
+    </nav>
+  </div>
+</header>
+<main id="contenido" class="camino">
+<section style="padding-bottom:24px">
+  <div class="wrap">
+    <p class="rotulo"><a href="../" style="color:inherit">Path</a> · Upcoming</p>
+    <h1>Total eclipses from 2026 to 2126</h1>
+    <p>Each band is the path of totality of a total or hybrid solar eclipse in the next hundred years. The next window is <strong>2 August 2027</strong>. Three bands cross Mexico: 2052, 2071 and 2078.</p>
+    <p class="nota">Only inside the band, and only during totality, can you look without a filter. Before and after, never. <a href="../#mirar">How to watch</a>.</p>
+  </div>
+</section>
+<div class="mapa" id="mapa" role="region" aria-label="Map of the totality bands from 2026 to 2126. The same information is in the list below."></div>
+<div class="wrap">
+  <div class="leyenda">
+    <span><i style="background:#DA291C"></i>Chosen band (on opening: 2 Aug 2027)</span>
+    <span><i class="borde"></i>Crosses Mexico</span>
+    <span><i style="background:#ececee;opacity:.4"></i>Other total and hybrid (hybrids with a dotted border)</span>
+  </div>
+  <p class="chico tenue" style="margin-top:14px" id="estado" aria-live="polite">Loading the bands…</p>
+</div>
+
+<section id="lista" aria-labelledby="t-lista">
+  <div class="wrap">
+    <p class="rotulo">The list</p>
+    <h2 id="t-lista">Total and hybrid, by decade</h2>
+    <p class="chico tenue">Choose a date to see its band on the map.</p>
+    <div class="filtros-eclipses">
+      <div class="check"><input type="checkbox" id="solo-mx"><label for="solo-mx" style="margin:0;color:var(--blanco)">Only those that cross Mexico</label></div>
+      <div><label for="decada">Decade</label><select id="decada"><option value="">All</option></select></div>
+    </div>
+    <table class="eclipses" id="tabla">
+      <caption>Maximum duration: the totality at the point of maximum eclipse, according to NASA; it is not the duration at every place.</caption>
+      <thead><tr><th scope="col">Date</th><th scope="col">Type</th><th scope="col">Max. duration</th><th scope="col">Countries or places</th></tr></thead>
+    </table>
+    <p class="chico tenue" id="vacio" hidden>No eclipses match this filter.</p>
+
+    <details class="anulares" style="margin-top:36px">
+      <summary>Annular: <span id="n-anulares">77</span> eclipses without totality</summary>
+      <p class="chico">In an annular eclipse it is never safe to look without a filter: there is no totality. They appear without a band on the map.</p>
+      <ul class="lista-anulares" id="anulares"></ul>
+    </details>
+  </div>
+</section>
+
+<section aria-labelledby="t-metodo">
+  <div class="wrap">
+    <p class="rotulo">Nota de método</p>
+    <h2 id="t-metodo" style="font-size:26px">Where these bands come from</h2>
+    <p class="chico">The calculation is our own, made in Wolfram Language with JPL DE440 ephemerides: dates, type, duration, saros and the polygon of each band. It was checked eclipse by eclipse against the NASA/GSFC catalogue (Espenak and Meeus, <em>Five Millennium Canon of Solar Eclipses</em>): from 2026 to 2126 the 151 central eclipses match in date, type and saros. Countries and places: intersection of each band with Natural Earth.</p>
+    <p class="chico">The duration shown is NASA's. Our own calculation gives totalities a few seconds longer, because of the lunar radius each source uses. <span id="nota-asterisco">With an asterisk, the figure from our own calculation, when NASA gives no duration.</span></p>
+    <p class="chico">After ~2060, the time and east-west position of each band are uncertain: they depend on ΔT, the difference between atomic clock time and the time set by the Earth's rotation, which cannot be predicted decades in advance. One minute of ΔT shifts the band ~0.25° in longitude. On a world map this changes nothing; to decide whether a city on the edge falls inside, it does.</p>
+    <p class="chico">For hybrids, countries and places are only those of the total stretch. For the detail on Mexico (local durations, band edges) there is a separate calculation of our own.</p>
+    <p class="chico tenue">Calculation of 27 October 2026. Outlines: world.geo.json.</p>
+  </div>
+</section>
+</main>
+<footer class="pie"><div class="wrap"><p>Umbrhalia by LFAE · a project by Gabriela Isabel Vera Garfias. © 2026. All rights reserved.</p><p>Prototype in development. Visits counted in aggregate with Google Analytics.</p><p class="contacto"><span>Contact: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></span> · <span>LFAE: <a href="mailto:lfae.physicart@gmail.com">lfae.physicart@gmail.com</a></span></p></div></footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="../../../js/nombres-en.js"></script>
+<script src="../../../js/u.js"></script>
+<script>
+(function () {
+  var MESES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var PROXIMA = '2027-08-02';
+  var map = U.mapaBase(document.getElementById('mapa'));
+  var capas = {}, filas = {}, datos = {}, elegido = null;
+  var estado = document.getElementById('estado');
+
+  function fecha(id) { var p = id.split('-'); return parseInt(p[2], 10) + ' ' + MESES[parseInt(p[1], 10) - 1] + ' ' + p[0]; }
+  function dur(p) {
+    var s = p.nasa && p.nasa.dur_s, propio = false;
+    if (!s) { s = Math.round(p.duracion_s); propio = true; }
+    var m = Math.floor(s / 60), r = s % 60;
+    return (m ? m + ' min ' : '') + r + ' s' + (propio ? '*' : '');
+  }
+  function hoy() { return new Date().toISOString().slice(0, 10); }
+  function esPasado(p) { return p.pasado || p.id < hoy(); }
+  function estilo(p) {
+    var dash = p.tipo === 'híbrido' ? '4 4' : null;
+    if (p.id === elegido) return { color: '#DA291C', weight: 1.6, fillColor: '#DA291C', fillOpacity: 0.5, opacity: 1, dashArray: dash };
+    if (p.cruza_mexico) return { color: '#ececee', weight: 1.4, fillColor: '#ececee', fillOpacity: 0.16, opacity: 0.9, dashArray: dash };
+    return { color: '#ececee', weight: 0.6, fillColor: '#ececee', fillOpacity: 0.05, opacity: 0.35, dashArray: dash };
+  }
+  function lugares(p) {
+    if (p.lugares_mexico) return 'In Mexico: ' + p.lugares_mexico.slice(0, 6).map(U.nombre).join(', ');
+    if (p.lugares_destacados) return p.lugares_destacados.map(U.nombre).join(', ');
+    // «lugares» ya está revisado (herramientas/limpiar_lugares_eclipses.py): país real y dentro de la franja.
+    return (p.lugares || []).slice(0, 4).map(U.nombre).join(', ');
+  }
+  function paises(p) {
+    if (p.paises && p.paises.length) {
+      var lista = p.paises.slice(0, 8).map(U.nombre).join(', ');
+      return lista + (p.paises.length > 8 ? ' and ' + (p.paises.length - 8) + ' more' : '');
+    }
+    return 'No dry land: ' + (p.oceanos || []).map(U.nombre).join(', ');
+  }
+  function popup(p) {
+    return '<strong>' + U.fecha(p.id) + '</strong><br>' + U.nombre(p.tipo).replace(/^./, function (c) { return c.toUpperCase(); }) + ' eclipse. Up to ' + dur(p) + ' at the point of maximum eclipse.<br>' + U.escapar(paises(p));
+  }
+
+  function elegir(id, mover) {
+    var anterior = elegido;
+    elegido = id;
+    [anterior, id].forEach(function (k) {
+      if (k && capas[k]) { capas[k].setStyle(estilo(datos[k])); }
+      if (k && filas[k]) {
+        filas[k].classList.toggle('activa', k === id);
+        var b = filas[k].querySelector('button'); if (b) b.setAttribute('aria-pressed', k === id);
+      }
+    });
+    if (capas[id]) {
+      capas[id].bringToFront();
+      if (mover) {
+        map.fitBounds(capas[id].getBounds(), { maxZoom: 4, padding: [20, 20] });
+        var m = document.getElementById('mapa');
+        if (m.getBoundingClientRect().top < 0 || m.getBoundingClientRect().bottom > innerHeight) m.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      }
+      estado.textContent = 'On the map: ' + U.fecha(id) + ', ' + U.nombre(datos[id].tipo) + ' eclipse. Up to ' + dur(datos[id]).replace(/ /g, ' ') + '. ' + paises(datos[id]) + '.';
+      try { history.replaceState(null, '', '?eclipse=' + id + location.hash); } catch (e) {}
+    }
+  }
+
+  fetch(U.ROOT + 'assets/data/eclipses_100.json').then(function (r) { return r.json(); }).then(function (data) {
+    var feats = data.features.slice().sort(function (a, b) { return a.properties.id < b.properties.id ? -1 : 1; });
+    var pedido = new URLSearchParams(location.search).get('eclipse');
+    feats.forEach(function (f) { datos[f.properties.id] = f.properties; });
+    elegido = (pedido && datos[pedido] && !esPasado(datos[pedido])) ? pedido : PROXIMA;
+
+    // Mapa: los pasados no se dibujan.
+    feats.forEach(function (f) {
+      var p = f.properties;
+      if (esPasado(p)) return;
+      var capa = L.geoJSON(f, { style: function () { return estilo(p); } }).addTo(map);
+      capa.bindPopup(popup(p));
+      capa.on('click', function () { elegir(p.id, false); });
+      capas[p.id] = capa;
+    });
+    capas[elegido].bringToFront();
+    map.fitBounds(capas[elegido].getBounds(), { maxZoom: 3, padding: [20, 20] });
+
+    // Tabla agrupada por década.
+    var tabla = document.getElementById('tabla'), sel = document.getElementById('decada');
+    var grupos = {};
+    feats.forEach(function (f) {
+      var p = f.properties, dec = p.id.slice(0, 3) + '0';
+      if (!grupos[dec]) {
+        grupos[dec] = document.createElement('tbody');
+        grupos[dec].dataset.decada = dec;
+        grupos[dec].innerHTML = '<tr class="grupo"><th colspan="4" scope="colgroup">' + dec + 's</th></tr>';
+        tabla.appendChild(grupos[dec]);
+        sel.insertAdjacentHTML('beforeend', '<option value="' + dec + '">' + dec + 's</option>');
+      }
+      var tr = document.createElement('tr');
+      tr.className = 'fila' + (esPasado(p) ? ' pasado' : '');
+      tr.dataset.mx = p.cruza_mexico ? '1' : '';
+      var marcas = '';
+      if (p.id === PROXIMA) marcas += '<span class="marca-t2">Next window</span>';
+      if (p.cruza_mexico) marcas += '<span class="marca-t2">Crosses Mexico</span>';
+      if (esPasado(p)) marcas += '<span class="marca-t2">Already happened</span>';
+      var celdaFecha = esPasado(p)
+        ? '<span>' + fecha(p.id) + '</span>'
+        : '<button type="button" class="fecha" aria-pressed="false" aria-controls="mapa">' + fecha(p.id) + '</button>';
+      var lug = lugares(p);
+      tr.innerHTML = '<td>' + celdaFecha + (marcas ? '<br>' + marcas : '') + '</td>' +
+        '<td class="tipo">' + U.nombre(p.tipo) + '</td>' +
+        '<td class="dur">' + dur(p) + '</td>' +
+        '<td class="paises">' + U.escapar(paises(p)) + (lug ? '<span class="lugares">' + U.escapar(lug) + '</span>' : '') + '</td>';
+      var b = tr.querySelector('button');
+      if (b) b.addEventListener('click', function () { elegir(p.id, true); });
+      grupos[dec].appendChild(tr);
+      filas[p.id] = tr;
+    });
+    elegir(elegido, false);
+
+    function filtrar() {
+      var mx = document.getElementById('solo-mx').checked, dec = sel.value, alguno = false;
+      Object.keys(grupos).forEach(function (k) {
+        var visibles = 0;
+        grupos[k].querySelectorAll('tr.fila').forEach(function (tr) {
+          var ok = (!mx || tr.dataset.mx) && (!dec || dec === k);
+          tr.hidden = !ok; if (ok) visibles++;
+        });
+        grupos[k].hidden = visibles === 0;
+        if (visibles) alguno = true;
+      });
+      document.getElementById('vacio').hidden = alguno;
+      Object.keys(capas).forEach(function (id) {
+        var p = datos[id], ok = (!mx || p.cruza_mexico) && (!dec || id.slice(0, 3) + '0' === dec);
+        if (ok && !map.hasLayer(capas[id])) capas[id].addTo(map);
+        if (!ok && map.hasLayer(capas[id])) map.removeLayer(capas[id]);
+      });
+    }
+    document.getElementById('solo-mx').addEventListener('change', filtrar);
+    sel.addEventListener('change', filtrar);
+
+    // Anulares, sin franja.
+    var an = data.anulares.slice().sort(function (a, b) { return a.id < b.id ? -1 : 1; });
+    document.getElementById('n-anulares').textContent = an.length;
+    document.getElementById('anulares').innerHTML = an.map(function (a) {
+      return '<li' + (esPasado(a) ? ' class="tenue"' : '') + '>' + fecha(a.id) + ' <span class="tenue">· ' + dur(a) + (esPasado(a) ? ' · already happened' : '') + '</span></li>';
+    }).join('');
+  }).catch(function () {
+    estado.textContent = 'The bands could not be loaded. Try reloading the page.';
+  });
+})();
+</script>
+</body>
+</html>

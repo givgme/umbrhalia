@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../../../">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-23EL8D2L9E"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-23EL8D2L9E');</script>
+<title>Leave your word · Umbrhalia</title>
+<link rel="alternate" hreflang="es" href="https://givgme.github.io/umbrhalia/archivo/dejar/">
+<link rel="alternate" hreflang="en" href="https://givgme.github.io/umbrhalia/en/archivo/dejar/">
+<link rel="icon" type="image/svg+xml" href="../../../assets/img/umbrhalia-marca-r2.svg">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="../../../css/u.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="marca-inicio" href="../../" aria-label="Umbrhalia, home"><img class="marca" src="../../../assets/img/umbrhalia-marca-r2.svg" alt=""></a>
+    <a class="nombre" href="../../">UMBRHALIA</a>
+    <nav aria-label="Main">
+      <a href="../../../cuentos/">The Universe and Ohr</a>
+      <a href="../../camino/">Path</a>
+      <a href="../../../artqueologia/">ARTqueología del Cielo</a>
+      <a href="../" aria-current="page">Remember</a>
+      <a href="../../sentir/">Sense</a>
+      <a href="../../existir/">Exist</a>
+      <a href="../../cazadores/">Eclipse Chasers</a>
+      <a href="../../compartir/">Share</a>
+      <a href="../../dona/">Donate</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+<noscript><p class="aviso-proto">This piece needs JavaScript. In the meantime you can <a href="../../../cuentos/">read Ohr</a> or <a href="../../compartir/">learn about the project</a>.</p></noscript>
+<section>
+<div class="wrap">
+  <div class="progreso" id="progreso" aria-hidden="true"></div>
+  <div aria-live="polite">
+
+  <!-- 1 -->
+  <div class="paso activo" data-paso="1">
+    <p class="rotulo">Step 1 of 6</p>
+    <p class="ohr-dice" id="saludo">I am Ohr. I can only speak with you when the Moon covers the Sun.</p>
+    <h1>Have you seen a solar eclipse?</h1>
+    <div class="opciones">
+      <button class="opcion" data-visto="total">Yes, a total eclipse</button>
+      <button class="opcion" data-visto="parcial">Yes, an annular or partial one</button>
+      <button class="opcion" data-visto="no">Not yet</button>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="paso" data-paso="2">
+    <p class="rotulo">Step 2 of 6</p>
+    <h1>Which one?</h1>
+    <div id="elige-total">
+      <label for="buscar">Type the year or search the list</label>
+      <input id="buscar" type="text" inputmode="numeric" placeholder="E.g. 2024" autocomplete="off">
+      <div class="lista-eclipses" id="lista" role="listbox" aria-label="Total solar eclipses"></div>
+      <div class="mapa chico" id="mapa2" style="margin-top:14px" aria-label="Band of the chosen eclipse"></div>
+      <p class="chico tenue" style="margin-top:8px">Total solar eclipses between 1900 and today.</p>
+    </div>
+    <div id="elige-anio" hidden>
+      <label for="anio">Roughly what year was it?</label>
+      <input id="anio" type="number" min="1900" max="2026" placeholder="E.g. 2023"><!-- dejar.js raises max to the current year -->
+    </div>
+    <div class="acciones">
+      <button class="boton" data-atras>Back</button>
+      <button class="boton lleno" id="sig2" disabled>Continue</button>
+      <button class="boton" id="norecuerdo">I don't remember the date</button>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="paso" data-paso="3">
+    <p class="rotulo">Step 3 of 6</p>
+    <h1>Where were you?</h1>
+    <p class="tenue">Tap the map or type your city. We only store an area of about 10 km, never the exact point. You can continue without marking anything.</p>
+    <div class="mapa chico" id="mapa3" aria-label="Map to show where you saw the eclipse"></div>
+    <label for="ciudad">City or place (optional)</label>
+    <input id="ciudad" type="text" placeholder="E.g. Mazatlán">
+    <div class="acciones">
+      <button class="boton" data-atras>Back</button>
+      <button class="boton lleno" data-sig>Continue</button>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="paso" data-paso="4">
+    <p class="rotulo">Step 4 of 6</p>
+    <h1>If you had to name that moment with a single word…</h1>
+    <label for="palabra" class="skip-label">Your word</label>
+    <input id="palabra" class="palabra-input" type="text" maxlength="24" autocomplete="off" autocapitalize="none" placeholder="…">
+    <p class="chico tenue" id="aviso-palabra">One word. The first one that comes.</p>
+    <div class="acciones">
+      <button class="boton" data-atras>Back</button>
+      <button class="boton lleno" id="sig4" disabled>Continue</button>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="paso" data-paso="5">
+    <p class="rotulo">Step 5 of 6 · optional</p>
+    <h1>Would you like to tell more?</h1>
+    <label for="relato">A short account</label>
+    <textarea id="relato" rows="4" maxlength="500" placeholder="What you saw, what you heard, who was with you…"></textarea>
+    <label>A voice note, for those who prefer not to write</label>
+    <button class="boton" disabled>Record · will arrive with the funding we are looking for</button>
+    <label for="foto">A photo of yourself from the moment (not stored in this prototype)</label>
+    <input id="foto" type="file" accept="image/*">
+    <div class="acciones">
+      <button class="boton" data-atras>Back</button>
+      <button class="boton lleno" data-sig>Continue</button>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="paso" data-paso="6">
+    <p class="rotulo">Step 6 of 6</p>
+    <h1>Your word, your rules</h1>
+    <label for="nombre">Name or pseudonym</label>
+    <input id="nombre" type="text" autocomplete="nickname" placeholder="Can be left blank">
+    <label class="check"><input type="checkbox" id="anonimo"> I prefer not to give my name</label>
+    <label class="check"><input type="checkbox" id="ok-archivo"> I accept that my testimony is shown in the Umbrhalia archive. I still sign my testimony.</label>
+    <label class="check"><input type="checkbox" id="ok-usos"> (Optional) I accept that it is used in exhibitions and in the documentary.</label>
+    <p class="aviso-proto">Prototype: your testimony is not sent to any server; it stays only in this browser. This site counts visits in aggregate with Google Analytics. The final consent text is under legal review.</p>
+    <div class="acciones">
+      <button class="boton" data-atras>Back</button>
+      <button class="boton lleno" id="sig6" disabled>Leave my word</button>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="paso" data-paso="7">
+    <p class="rotulo">The window stays open</p>
+    <h1 id="titulo7">Your word is already yours.</h1>
+    <p>For now it is stored only on this device. When the public archive opens, we will ask your permission to add it.</p>
+    <p class="tenue" id="resumen7"></p>
+    <div class="mapa chico" id="mapa7" aria-label="Your word over the band of your eclipse, next to the first witnesses"></div>
+    <div class="leyenda">
+      <span><i style="background:#DA291C;border-radius:50%"></i>Your eclipse</span>
+      <span><i style="background:#ececee;opacity:.4;border-radius:50%"></i>Other total eclipses</span>
+      <span><i style="background:#0b0b0f;border:2px solid #ececee;border-radius:50%;width:10px;height:10px"></i>First witnesses</span>
+    </div>
+    <h2 style="margin-top:40px">Your postcard</h2>
+    <canvas id="postal" width="1080" height="1350" class="postal-vista" role="img" aria-label="Postcard with your word and your eclipse"></canvas>
+    <div class="acciones">
+      <a class="boton lleno" id="descargar" download="umbrhalia-postal.png" href="#">Download postcard</a>
+      <button class="boton" id="compartir" hidden>Share</button>
+    </div>
+  </div>
+
+  <!-- R: not yet -->
+  <div class="paso" data-paso="R1">
+    <p class="rotulo">Not yet</p>
+    <p class="ohr-dice">Then you still owe me a visit.</p>
+    <h1>Next windows</h1>
+    <div class="opciones" id="proximas"></div>
+    <div class="acciones"><button class="boton" data-atras>Back</button></div>
+  </div>
+  <div class="paso" data-paso="R2">
+    <p class="rotulo">The word from before</p>
+    <h1>What do you think you will feel?</h1>
+    <label for="antes" class="skip-label">Your word from before</label>
+    <input id="antes" class="palabra-input" type="text" maxlength="24" autocomplete="off" autocapitalize="none" placeholder="…">
+    <label for="correo">Remind me before the eclipse (optional)</label>
+    <input id="correo" type="email" placeholder="you@email">
+    <p class="chico tenue">After the eclipse, Umbrhalia will write to you: «It has passed. What word is it now?». Together, the two words form your letter to the future.</p>
+    <p class="aviso-proto">Prototype: the email is neither sent nor stored.</p>
+    <div class="acciones">
+      <button class="boton" data-atras>Back</button>
+      <button class="boton lleno" id="sigR2" disabled>Save my word from before</button>
+    </div>
+  </div>
+  <div class="paso" data-paso="R3">
+    <p class="rotulo">Letter to the future</p>
+    <h1 id="tituloR3">We are waiting for you.</h1>
+    <p class="tenue" id="resumenR3"></p>
+    <canvas id="postalR" width="1080" height="1350" class="postal-vista" role="img" aria-label="Postcard with your word from before"></canvas>
+    <div class="acciones">
+      <a class="boton lleno" id="descargarR" download="umbrhalia-carta-al-futuro.png" href="#">Download postcard</a>
+      <a class="boton" href="../../../cuentos/la-distancia/">Meanwhile, listen to Ohr</a>
+    </div>
+  </div>
+
+  </div>
+</div>
+</section>
+</main>
+
+<footer class="pie"><div class="wrap"><p>Umbrhalia by LFAE · a project by Gabriela Isabel Vera Garfias. © 2026. All rights reserved. This site counts visits in aggregate with Google Analytics.</p><p class="contacto"><span>Contact: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></span> · <span>LFAE: <a href="mailto:lfae.physicart@gmail.com">lfae.physicart@gmail.com</a></span></p></div></footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="../../../js/u.js"></script>
+<script src="../../../js/dejar.js"></script>
+</body>
+</html>
