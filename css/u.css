@@ -890,3 +890,7 @@ main.interior ~ .pie .wrap { max-width: 1040px; }
 .ex-sentidos div { border-top: 2px solid currentColor; padding: 16px 0 24px; }
 .ex-sentidos dt { font-size: clamp(28px, 3vw, 36px); font-weight: 200; margin: 0 0 8px; }
 .ex-sentidos dd { margin: 0; font-size: var(--t-texto); line-height: 1.45; }
+.ex-cronica { display: grid; gap: 40px; margin: 32px 0 8px; }
+@media (min-width: 900px) { .ex-cronica { grid-template-columns: 1fr 1fr; gap: 64px; } }
+.ex-cronica h3 { font-family: var(--mono); font-size: var(--t-folio); font-weight: 400; color: var(--gris); letter-spacing: .04em; margin: 0 0 12px; border-top: 1px solid var(--linea); padding-top: 14px; }
+.ex-cronica p { font-size: var(--t-lectura); line-height: 1.6; margin: 0 0 16px; max-width: 34em; }
