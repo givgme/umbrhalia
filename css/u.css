@@ -894,3 +894,12 @@ main.interior ~ .pie .wrap { max-width: 1040px; }
 @media (min-width: 900px) { .ex-cronica { grid-template-columns: 1fr 1fr; gap: 64px; } }
 .ex-cronica h3 { font-family: var(--mono); font-size: var(--t-folio); font-weight: 400; color: var(--gris); letter-spacing: .04em; margin: 0 0 12px; border-top: 1px solid var(--linea); padding-top: 14px; }
 .ex-cronica p { font-size: var(--t-lectura); line-height: 1.6; margin: 0 0 16px; max-width: 34em; }
+
+/* Selector de idioma (29 oct 2026): ES · EN · Nāhuatl (en traducción). Sin rojo; el idioma actual en blanco. */
+.idiomas { display: flex; align-items: center; gap: 4px; margin-left: 20px; font-family: var(--mono); font-size: var(--t-folio); }
+.idiomas a, .idiomas .pronto { display: inline-flex; align-items: center; min-height: 44px; padding: 0 6px; color: var(--gris); text-decoration: none; }
+.idiomas a:hover { color: var(--blanco); text-decoration: underline; text-underline-offset: 4px; }
+.idiomas a[aria-current="true"] { color: var(--blanco); }
+.idiomas .pronto { color: var(--gris); cursor: default; gap: 6px; }
+.idiomas .pronto svg { width: 12px; height: 12px; flex: none; }
+@media (max-width: 899px) { .idiomas { margin-left: 0; } }

@@ -8,7 +8,7 @@
 
   var params = new URLSearchParams(location.search);
   if (params.get('origen')) {
-    document.getElementById('saludo').textContent = 'Encontraste una ventana. Soy Ohr: solo puedo hablar con ustedes cuando la Luna tapa al Sol.';
+    document.getElementById('saludo').textContent = U.tr('Encontraste una ventana. Soy Ohr: solo puedo hablar con ustedes cuando la Luna tapa al Sol.', 'You found a window. I am Ohr: I can only speak with you when the Moon covers the Sun.');
   }
 
   function $(id) { return document.getElementById(id); }
@@ -82,7 +82,7 @@
       var p = f.properties;
       return '<button role="option" data-fecha="' + p.date + '" aria-pressed="' + (estado.eclipse === p.date) + '">' +
         '<span>' + U.fecha(p.date) + '</span><span class="tenue">' + U.duracion(p.duration_s) + '</span></button>';
-    }).join('') || '<p class="chico tenue" style="padding:14px 16px;margin:0">No hay eclipses totales ese año. Prueba «No recuerdo la fecha».</p>';
+    }).join('') || '<p class="chico tenue" style="padding:14px 16px;margin:0">' + U.tr('No hay eclipses totales ese año. Prueba «No recuerdo la fecha».', 'There are no total eclipses that year. Try “I don\u2019t remember the date.”') + '</p>';
     $('lista').querySelectorAll('button').forEach(function (b) {
       b.addEventListener('click', function () { elegirEclipse(b.getAttribute('data-fecha')); });
     });
@@ -132,7 +132,7 @@
   $('palabra').addEventListener('input', function () {
     var v = this.value.trim();
     var varias = /\s/.test(v);
-    $('aviso-palabra').textContent = varias ? 'Solo una. Si son dos, elige la que pese más.' : 'Una palabra. La que llegue primero.';
+    $('aviso-palabra').textContent = varias ? U.tr('Solo una. Si son dos, elige la que pese más.', 'Just one. If there are two, choose the one that weighs more.') : U.tr('Una palabra. La que llegue primero.', 'One word. The first one that comes.');
     $('sig4').disabled = !v || varias;
   });
   $('palabra').addEventListener('keydown', function (e) { if (e.key === 'Enter' && !$('sig4').disabled) siguiente(); });
@@ -154,8 +154,8 @@
 
   // 7 · Resultado
   function prepararPaso7() {
-    var cuando = estado.eclipse ? 'el eclipse del ' + U.fecha(estado.eclipse) : 'un eclipse de ' + estado.anio;
-    $('resumen7').textContent = '«' + estado.palabra + '», ' + cuando + (estado.ciudad ? ', ' + estado.ciudad : '') + '. Junto a ti, quienes vieron la sombra hace siglos.';
+    var cuando = estado.eclipse ? U.tr('el eclipse del ', 'the eclipse of ') + U.fecha(estado.eclipse) : U.tr('un eclipse de ', 'an eclipse in ') + estado.anio;
+    $('resumen7').textContent = U.tr('«', '“') + estado.palabra + U.tr('», ', ',” ') + cuando + (estado.ciudad ? ', ' + estado.ciudad : '') + U.tr('. Junto a ti, quienes vieron la sombra hace siglos.', '. Beside you, those who saw the shadow centuries ago.');
     if (!mapas.m7) {
       mapas.m7 = U.mapaBase($('mapa7'));
       U.capaTestigos(mapas.m7);
@@ -170,7 +170,7 @@
       });
     }
     setTimeout(function () { mapas.m7.invalidateSize(); }, 50);
-    dibujarPostal($('postal'), estado.palabra, estado.eclipse ? U.fecha(estado.eclipse) : 'Eclipse de ' + estado.anio, estado.ciudad, 'La sombra pasa. La memoria se queda.');
+    dibujarPostal($('postal'), estado.palabra, estado.eclipse ? U.fecha(estado.eclipse) : U.tr('Eclipse de ', 'Eclipse of ') + estado.anio, estado.ciudad, U.tr('La sombra pasa. La memoria se queda.', 'The shadow passes. The memory stays.'));
     $('descargar').href = $('postal').toDataURL('image/png');
     activarCompartir($('postal'), 'umbrhalia-postal.png');
   }
@@ -179,8 +179,8 @@
   function prepararR1() {
     U.proximos(3).then(function (lista) {
       $('proximas').innerHTML = lista.map(function (p) {
-        return '<button class="opcion" data-fecha="' + p.date + '"><strong>' + U.fecha(p.date) + '</strong><br><span class="tenue chico">Faltan ' +
-          U.diasHasta(p.date).toLocaleString('es-MX') + ' días · hasta ' + U.duracion(p.duration_s) + ' de totalidad</span></button>';
+        return '<button class="opcion" data-fecha="' + p.date + '"><strong>' + U.fecha(p.date) + '</strong><br><span class="tenue chico">' + U.tr('Faltan ', 'In ') +
+          U.diasHasta(p.date).toLocaleString(U.tr('es-MX', 'en-US')) + U.tr(' días · hasta ', ' days · up to ') + U.duracion(p.duration_s) + U.tr(' de totalidad', ' of totality') + '</span></button>';
       }).join('');
       $('proximas').querySelectorAll('button').forEach(function (b) {
         b.addEventListener('click', function () { estado.proxima = b.getAttribute('data-fecha'); ir('R2'); });
@@ -195,9 +195,9 @@
     ir('R3');
   });
   function prepararR3() {
-    $('tituloR3').textContent = 'Te esperamos el ' + U.fecha(estado.proxima) + '.';
-    $('resumenR3').textContent = 'Tu palabra de antes: «' + estado.antes + '». Después del eclipse te preguntaremos por la de ahora.';
-    dibujarPostal($('postalR'), estado.antes, 'Antes del ' + U.fecha(estado.proxima), '', 'Carta al futuro');
+    $('tituloR3').textContent = U.tr('Te esperamos el ', 'We will wait for you on ') + U.fecha(estado.proxima) + '.';
+    $('resumenR3').textContent = U.tr('Tu palabra de antes: «', 'Your word from before: “') + estado.antes + U.tr('». Después del eclipse te preguntaremos por la de ahora.', '.” After the eclipse we will ask you for the word from after.');
+    dibujarPostal($('postalR'), estado.antes, U.tr('Antes del ', 'Before ') + U.fecha(estado.proxima), '', U.tr('Carta al futuro', 'Letter to the future'));
     $('descargarR').href = $('postalR').toDataURL('image/png');
   }
 
@@ -243,7 +243,7 @@
       var archivo = new File([blob], nombre, { type: 'image/png' });
       if (!navigator.canShare({ files: [archivo] })) return;
       var b = $('compartir'); b.hidden = false;
-      b.onclick = function () { navigator.share({ files: [archivo], title: 'Umbrhalia', text: 'Dejé mi palabra en Umbrhalia.' }).catch(function () {}); };
+      b.onclick = function () { navigator.share({ files: [archivo], title: 'Umbrhalia', text: U.tr('Dejé mi palabra en Umbrhalia.', 'I left my word in Umbrhalia.') }).catch(function () {}); };
     });
   }
 
