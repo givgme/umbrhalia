@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-root="../">
+<html lang="es" data-root="../" data-transicion="travesia">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,7 +54,7 @@
     </nav>
   </div>
 </header>
-<main id="contenido">
+<main id="contenido" class="cazadores interior">
 <!-- Cazadores de eclipses (27 oct 2026). Solo hechos de UMBRHALIA_MAESTRO.md §7, §9 y §10 y del sitio. Página escrita a mano: el menú se actualiza con herramientas/actualizar_menu.py. -->
 <section aria-labelledby="t-caz">
   <div class="wrap">
@@ -62,7 +62,7 @@
     <h1 id="t-caz">Cazadores de eclipses</h1>
     <p class="cz-entrada">Expediciones a la franja de totalidad.</p>
     <p>Un eclipse total solo se vive dentro de la franja donde cae la sombra de la Luna. Esta rama reúne los viajes para estar ahí y lo que cada viaje deja en el archivo.</p>
-    <p class="aviso-proto">Página en preparación. Las fechas de 2027 y 2028 son eclipses, no expediciones confirmadas.</p>
+    <p class="nota">Página en preparación. Las fechas de 2027 y 2028 son eclipses, no expediciones confirmadas.</p>
   </div>
 </section>
 
@@ -71,14 +71,10 @@
     <p class="rotulo">Expedición LFAE · 8 de abril de 2024</p>
     <h2 id="t-ojuela">Puente de Ojuela, Durango</h2>
     <p>La expedición del LFAE vio el eclipse total desde el Puente de Ojuela. La totalidad duró 4&nbsp;min&nbsp;26&nbsp;s, con magnitud 1.025.</p>
-    <figure class="cz-foto">
-      <img src="../assets/img/cazadores/ojuela-totalidad.jpg" alt="La ruina de Ojuela y el valle casi a oscuras durante la totalidad." width="1400" height="932" loading="lazy" decoding="async">
-      <figcaption>Ojuela durante la totalidad.</figcaption>
-    </figure>
-    <figure class="cz-foto">
-      <img src="../assets/img/cazadores/f4-totalidad.jpg" alt="La corona solar alrededor del disco negro de la Luna, durante la totalidad." width="700" height="394" loading="lazy" decoding="async">
-      <figcaption>La corona, el 8 de abril de 2024.</figcaption>
-    </figure>
+    <div id="album" class="album-completo" tabindex="-1">
+      <h3 class="visually-hidden">Álbum completo de la expedición</h3>
+      <div id="album-cazadores"><p class="nota">Cargando el álbum…</p></div>
+    </div>
     <p class="nota">Fotos: César Simón López-Monsalvo, Alberto Rubio Ponce y Gabriela Isabel Vera Garfias · Expedición LFAE, 8 de abril de 2024, Puente de Ojuela, Durango.</p>
   </div>
 </section>
@@ -116,7 +112,7 @@
   </div>
 </section>
 
-<section aria-labelledby="t-escribe">
+<section class="masa" aria-labelledby="t-escribe">
   <div class="wrap">
     <h2 id="t-escribe">¿Vas a la franja?</h2>
     <p>Cuéntanos a dónde y cuándo.</p>
@@ -126,6 +122,10 @@
 </main>
 <footer class="pie"><div class="wrap"><p>Umbrhalia by LFAE · un proyecto de Gabriela Isabel Vera Garfias. © 2026. Todos los derechos reservados.</p><p>Prototipo en desarrollo. Visitas contadas de forma agregada con Google Analytics.</p><p class="contacto">Contacto: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></p></div></footer>
 <script src="../js/u.js"></script>
+<script>
+U.secuencia(document.getElementById('album-cazadores'), 'cazadores');
+U.transiciones();
+</script>
 
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-root="../">
+<html lang="es" data-root="../" data-transicion="luz-baja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +29,7 @@
     </nav>
   </div>
 </header>
-<main id="contenido">
+<main id="contenido" class="existir interior">
 <section>
   <div class="wrap">
     <p class="rotulo">Entra a la sombra</p>
@@ -39,11 +39,15 @@
     <p class="chico tenue">Los talleres y la observación con telescopio están en <a href="../sentir/">Sentir</a>.</p>
   </div>
 </section>
-<section>
+<section class="masa">
   <div class="wrap">
     <p class="rotulo">Instalación multisensorial</p>
     <h2>Unos minutos de noche a mitad del día</h2>
-    <p>Una sala que recorre las fases de un eclipse total. La luz baja, el sonido cambia, aparecen las estrellas, y en la totalidad se enciende la corona. La realidad virtual abre la experiencia, pero no la cierra: el recorrido termina cuando cada persona deja su palabra en el archivo.</p>
+    <p class="entradilla">Una sala que recorre las fases de un eclipse total. La luz baja, el sonido cambia, aparecen las estrellas, y en la totalidad se enciende la corona. La realidad virtual abre la experiencia, pero no la cierra: el recorrido termina cuando cada persona deja su palabra en el archivo.</p>
+  </div>
+</section>
+<section>
+  <div class="wrap">
     <div class="tres">
       <div class="bloque"><h3>Primer contacto</h3><ul><li>La luz empieza a cambiar</li><li>Ohr se presenta por voz</li></ul></div>
       <div class="bloque rojo-borde"><h3>Totalidad</h3><ul><li>Oscuridad, estrellas y corona</li><li>Vibración y sonido para quien no ve</li></ul></div>
@@ -63,6 +67,7 @@
 </main>
 <footer class="pie"><div class="wrap"><p>Umbrhalia by LFAE · un proyecto de Gabriela Isabel Vera Garfias. © 2026. Todos los derechos reservados.</p><p>Prototipo en desarrollo. Visitas contadas de forma agregada con Google Analytics.</p><p class="contacto">Contacto: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></p></div></footer>
 <script src="../js/u.js"></script>
+<script>U.transiciones();</script>
 
 </body>
 </html>

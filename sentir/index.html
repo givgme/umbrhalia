@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-root="../">
+<html lang="es" data-root="../" data-transicion="diamante">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,36 +29,132 @@
     </nav>
   </div>
 </header>
-<main id="contenido">
+<main id="contenido" class="sentir interior">
+<!-- Revisión curatorial (28 oct 2026): los cuatro momentos como pestañas internas (D5) y la ficha de
+     narración oral de «El eclipse», de Augusto Monterroso, en Reconocer (D7). Fuente de la actividad:
+     tesis, cap3.tex §Narración oral (líneas 211–229) y cap_eclipses.tex:469. No se publica el cuento
+     ni citas textuales; la cita breve queda pendiente de cotejo con la edición. -->
 <section aria-labelledby="t-sentir">
   <div class="wrap">
     <p class="rotulo">Mira el cielo</p>
     <h1 id="t-sentir">Sentir</h1>
-    <p style="font-size:22px;font-weight:200;line-height:1.4">Activaciones, talleres y divulgación · observación astronómica, con telescopios y filtros.</p>
-    <h2 style="margin-top:40px">Cuatro momentos</h2>
-    <div class="tres" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
-      <div class="bloque"><h3>Comprender</h3><p class="chico tenue">La geometría: por qué cabe la Luna.</p></div>
-      <div class="bloque"><h3>Sentir</h3><p class="chico tenue">Observación con telescopio y filtros seguros.</p></div>
-      <div class="bloque"><h3>Reconocer</h3><p class="chico tenue">Quiénes miraron antes: códices, crónicas, pintura.</p></div>
-      <div class="bloque rojo-borde"><h3>Devolver la palabra</h3><p class="chico tenue">Cada participante entra al archivo.</p></div>
+    <p class="entrada">Activaciones, talleres y divulgación · observación astronómica, con telescopios y filtros.</p>
+    <p class="lectura">Cada encuentro recorre cuatro momentos. Viajan con cada eclipse, y en los años sin eclipse cercano, a escuelas, museos y plazas. Incluyen material táctil de las fases.</p>
+
+    <div class="pestanas rejilla-4" id="pestanas-momentos">
+      <div role="tablist" aria-label="Cuatro momentos">
+        <button type="button" role="tab" id="tab-comprender" aria-controls="comprender" aria-selected="true"><svg class="fase-icono" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="38" cy="24" r="20" fill="#0b0b0f"/><circle class="diamante" cx="24" cy="4" r="3" fill="currentColor"/></svg>Comprender</button>
+        <button type="button" role="tab" id="tab-sentir" aria-controls="sentir-m" aria-selected="false"><svg class="fase-icono" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="currentColor"/><circle cx="31" cy="24" r="20" fill="#0b0b0f"/><circle class="diamante" cx="8" cy="12" r="3" fill="currentColor"/></svg>Sentir</button>
+        <button type="button" role="tab" id="tab-reconocer" aria-controls="reconocer" aria-selected="false"><svg class="fase-icono" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="2 3"/><circle cx="24" cy="24" r="16" fill="#0b0b0f" stroke="currentColor" stroke-width="2"/><circle class="diamante" cx="38" cy="12" r="3" fill="currentColor"/></svg>Reconocer</button>
+        <button type="button" role="tab" id="tab-devolver" aria-controls="devolver" aria-selected="false"><svg class="fase-icono" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="24" r="4" fill="currentColor"/><circle class="diamante" cx="38" cy="10" r="3" fill="currentColor"/></svg>Devolver la palabra</button>
+      </div>
     </div>
-    <p class="chico tenue" style="margin-top:16px">Viajan con cada eclipse, y en los años sin eclipse cercano, a escuelas, museos y plazas. Incluyen material táctil de las fases.</p>
+  </div>
+
+  <div role="tabpanel" id="comprender" aria-labelledby="tab-comprender" tabindex="0" class="momento">
+    <div class="wrap">
+      <h2>Comprender</h2>
+      <p class="entradilla">La geometría: por qué cabe la Luna.</p>
+      <p><a href="../camino/#por-que">La coincidencia, en Camino (parada 2)</a></p>
+    </div>
+  </div>
+  <div role="tabpanel" id="sentir-m" aria-labelledby="tab-sentir" tabindex="0" class="momento">
+    <div class="wrap">
+      <h2>Sentir</h2>
+      <p class="entradilla">Observación con telescopio y filtros seguros.</p>
+      <p><a href="#observacion">Telescopios y filtros, más abajo</a></p>
+    </div>
+  </div>
+  <div role="tabpanel" id="reconocer" aria-labelledby="tab-reconocer" tabindex="0" class="momento">
+    <div class="wrap">
+      <h2>Reconocer</h2>
+      <p class="entradilla">Quiénes miraron antes: códices, crónicas, pintura.</p>
+      <p><a href="../artqueologia/">ARTqueología del Cielo</a></p>
+    </div>
+    <!-- Ficha de actividad: masa blanca -->
+    <div class="masa" id="monterroso">
+      <div class="wrap ficha-act">
+        <div>
+          <p class="rotulo">Actividad · narración oral</p>
+          <h3 class="titulo-ficha"><i>El eclipse</i>, de Augusto Monterroso</h3>
+          <p>Narración del cuento, leída o representada, y después una conversación.</p>
+          <dl>
+            <dt>Para</dt><dd>Todas las edades</dd>
+            <dt>Dónde</dt><dd>Escuelas, y como representación teatral breve en eventos de divulgación</dd>
+            <dt>Momento</dt><dd>Reconocer, y también la experiencia narrativa</dd>
+          </dl>
+          <p class="nota referencia">Augusto Monterroso, «El eclipse», en <i>Obras completas (y otros cuentos)</i>, México, Imprenta Universitaria, 1959.</p>
+          <p class="nota">Para leerlo completo: <a href="https://www.edicionesera.com.mx/libro/obras-completas-y-otros-cuentos-bolsillo_94193/" rel="noopener"><i>Obras completas (y otros cuentos)</i>, Ediciones Era</a>. El sitio no publica el cuento.</p>
+        </div>
+        <div>
+          <p class="sinopsis">Un fraile español, a punto de ser sacrificado por una comunidad maya, intenta salvarse amenazando con oscurecer el Sol.</p>
+          <div class="capas">
+            <details class="capa" name="monterroso">
+              <summary>El giro (cuenta el final)</summary>
+              <div class="capa-cuerpo"><p>Sus captores ya predicen los eclipses con precisión astronómica.</p></div>
+            </details>
+            <details class="capa" name="monterroso">
+              <summary>Lo que Monterroso invierte</summary>
+              <div class="capa-cuerpo">
+                <p>Alejo I Comneno (1084), Colón (1504) y Mark Twain (1889) cuentan la misma escena: quien predice es europeo y quien se asombra es el otro. Monterroso la invierte.</p>
+                <p class="nota">En ARTqueología del Cielo: <a href="../artqueologia/#memoria-1084-alejo-i">1084</a> · <a href="../artqueologia/#memoria-1504-colon">1504</a> · <a href="../artqueologia/#memoria-1889-twain-yankee">1889</a></p>
+              </div>
+            </details>
+            <details class="capa" name="monterroso">
+              <summary>Después de la lectura</summary>
+              <div class="capa-cuerpo"><p>Una conversación sobre los conocimientos astronómicos de las civilizaciones prehispánicas y los prejuicios que el relato subvierte. Al final, un espacio abierto: qué conocimiento nuevo aporta el cuento y qué prejuicio cuestiona.</p></div>
+            </details>
+            <details class="capa" name="monterroso">
+              <summary>Teatro social · propuesta en desarrollo</summary>
+              <div class="capa-cuerpo"><p>Presentaciones de teatro social con una adaptación del cuento. Una adaptación necesita antes la autorización de quienes tienen los derechos de la obra.</p></div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div role="tabpanel" id="devolver" aria-labelledby="tab-devolver" tabindex="0" class="momento">
+    <div class="wrap">
+      <h2>Devolver la palabra</h2>
+      <p class="entradilla">Cada participante entra al archivo.</p>
+      <p><a href="../archivo/dejar/">Deja tu palabra</a></p>
+    </div>
   </div>
 </section>
+
 <section id="observacion" aria-labelledby="t-obs">
   <div class="wrap">
     <p class="rotulo">Observación astronómica</p>
     <h2 id="t-obs">Telescopios y filtros</h2>
-    <aside class="regla" aria-label="Regla de seguridad">
+    <aside class="regla umbra" aria-label="Regla de seguridad">
       <p class="regla-frase">Solo dentro de la totalidad, y solo en su franja, se puede mirar sin filtro. Antes y después, nunca.</p>
       <p class="chico">Los lentes y visores para mirar el Sol cumplen la norma ISO 12312-2. Los telescopios y binoculares llevan un filtro solar montado al frente, de fabricante reconocido. <a href="../camino/#mirar">Cómo mirar: Camino, parada 5</a></p>
     </aside>
-    <p style="margin-top:28px">¿Quieres una activación en tu escuela, museo o plaza? <a href="../compartir/">Compartir: colaboraciones y contrataciones</a></p>
+  </div>
+</section>
+
+<!-- Álbum B · Secuencia, 3 cuadros (assets/data/album.json, uso «sentir») -->
+<section aria-labelledby="t-album">
+  <div class="wrap">
+    <p class="rotulo">Álbum</p>
+    <h2 id="t-album">Fotos de las actividades</h2>
+    <div id="album-sentir"><p class="nota">Cargando el álbum…</p></div>
+    <div class="album-pie">
+      <p class="nota">Fotos: César Simón López-Monsalvo, Alberto Rubio Ponce y Gabriela Isabel Vera Garfias · Expedición LFAE, 8 de abril de 2024, Puente de Ojuela, Durango.</p>
+      <a href="../cazadores/#album">Ver el álbum completo</a>
+    </div>
+    <p style="margin-top:48px">¿Quieres una activación en tu escuela, museo o plaza? <a href="../compartir/">Compartir: colaboraciones y contrataciones</a></p>
   </div>
 </section>
 </main>
 <footer class="pie"><div class="wrap"><p>Umbrhalia by LFAE · un proyecto de Gabriela Isabel Vera Garfias. © 2026. Todos los derechos reservados.</p><p>Prototipo en desarrollo. Visitas contadas de forma agregada con Google Analytics.</p><p class="contacto">Contacto: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></p></div></footer>
 <script src="../js/u.js"></script>
+<script>
+U.pestanas(document.getElementById('pestanas-momentos'));
+U.secuencia(document.getElementById('album-sentir'), 'sentir', 3);
+U.unoEnUno();
+U.transiciones();
+</script>
 
 </body>
 </html>

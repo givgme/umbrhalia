@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-root="../">
+<html lang="es" data-root="../" data-transicion="avance">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,15 +41,18 @@
     </nav>
   </div>
 </header>
-<main id="contenido" class="camino">
-<!-- Texto: guia_eclipse_borrador1.md (27 oct 2026). Lo que quedó fuera por [PENDIENTE] está en ux/revisiones/camino_2026-10-27.md. -->
+<main id="contenido" class="camino interior">
+<!-- Texto: guia_eclipse_borrador1.md (27 oct 2026). Lo que quedó fuera por [PENDIENTE] está en ux/revisiones/camino_2026-10-27.md.
+     Revisión curatorial (28 oct 2026): las subsecciones van en desplegables que se abren de uno en uno;
+     una masa blanca por parada con la frase que hay que llevarse; el diagrama C1–C4 se toca.
+     La regla de seguridad nunca se pliega. Ningún texto cambió: solo su lugar. -->
 
 <section aria-labelledby="t-entrada">
   <div class="wrap">
     <p class="rotulo">Camino</p>
     <h1 id="t-entrada">Cuando la Luna cubre al Sol</h1>
     <p class="entrada">Un eclipse dura unas horas. La totalidad, unos minutos.</p>
-    <p>Esta guía recorre lo que pasa entre una cosa y la otra: por qué ocurre, qué se ve y cómo mirarlo sin dañarse la vista.</p>
+    <p class="lectura">Esta guía recorre lo que pasa entre una cosa y la otra: por qué ocurre, qué se ve y cómo mirarlo sin dañarse la vista.</p>
     <p class="nota">Cinco paradas: qué es, por qué ocurre, tipos, qué se ve y cómo mirar.</p>
 
     <nav class="paradas" aria-label="Paradas del camino">
@@ -62,7 +65,7 @@
       </ol>
     </nav>
 
-    <aside class="regla" aria-labelledby="t-regla-1">
+    <aside class="regla umbra" aria-labelledby="t-regla-1">
       <p class="rotulo" id="t-regla-1">Antes de seguir</p>
       <p class="regla-frase">Solo dentro de la totalidad, y solo en su franja, se puede mirar sin filtro. Antes y después, nunca.</p>
       <p class="chico"><a href="#mirar">Cuándo y cómo mirar: parada 5</a></p>
@@ -75,16 +78,16 @@
   <div class="wrap">
     <p class="rotulo">Parada 1 de 5 · Qué es un eclipse solar</p>
     <h2 id="t-p1">La Luna se interpone</h2>
-    <div class="bloque-c">
-      <p>Un eclipse solar ocurre cuando la Luna pasa entre el Sol y la Tierra y tapa, desde algún lugar, parte del Sol o todo el disco.</p>
-    </div>
-    <div class="bloque-c">
-      <p>Solo puede pasar en luna nueva. Es la única fase en que la Luna está del lado del Sol.</p>
-    </div>
-    <div class="bloque-c">
-      <p>La Luna proyecta una sombra que recorre la Tierra. Quien queda dentro de esa sombra ve el eclipse; quien queda fuera, no.</p>
+    <p class="lectura">Un eclipse solar ocurre cuando la Luna pasa entre el Sol y la Tierra y tapa, desde algún lugar, parte del Sol o todo el disco.</p>
+    <p class="lectura">Solo puede pasar en luna nueva. Es la única fase en que la Luna está del lado del Sol.</p>
+  </div>
+  <div class="masa">
+    <div class="wrap">
+      <p class="masa-frase">La Luna proyecta una sombra que recorre la Tierra. Quien queda dentro de esa sombra ve el eclipse; quien queda fuera, no.</p>
       <p class="nota">Por eso un eclipse total es local: la franja de totalidad mide unos cuantos cientos de kilómetros de ancho como máximo. En 1991, sobre México, midió unos 258 km.</p>
     </div>
+  </div>
+  <div class="wrap">
     <figure class="lamina chica">
       <svg viewBox="0 0 440 345" role="img" aria-label="La Tierra vista desde el espacio: un disco grande. Sobre él, un disco gris, la penumbra, y en su centro un disco pequeño y oscuro, la umbra, con un punto rojo donde ocurre la totalidad. Una fila de puntos en arco marca la franja que recorre la sombra." xmlns="http://www.w3.org/2000/svg">
 <defs><clipPath id="tierra1"><circle cx="220" cy="150" r="130"/></clipPath></defs>
@@ -131,17 +134,15 @@
   <div class="wrap">
     <p class="rotulo">Parada 2 de 5 · Por qué ocurre</p>
     <h2 id="t-p2">La coincidencia</h2>
-    <div class="bloque-c">
-      <p class="entrada">El Sol es unas 400 veces más ancho que la Luna, y está unas 400 veces más lejos.</p>
-      <p>Por eso, vistos desde la Tierra, los dos discos miden casi lo mismo en el cielo.</p>
+  </div>
+  <div class="masa">
+    <div class="wrap">
+      <p class="masa-frase">El Sol es unas 400 veces más ancho que la Luna, y está unas 400 veces más lejos.</p>
+      <p class="entradilla" style="margin-top:24px">Por eso, vistos desde la Tierra, los dos discos miden casi lo mismo en el cielo.</p>
       <p class="nota">Diámetro del Sol: unos 1.39 millones de km. Diámetro de la Luna: unos 3,475 km. Razón: cerca de 400. Distancia media al Sol: unos 149.6 millones de km. Distancia media a la Luna: unos 384,400 km. Razón: cerca de 390.</p>
     </div>
-    <div class="bloque-c">
-      <h3>Una coincidencia que cambia</h3>
-      <p>La distancia a la Luna varía en cada órbita: de unos 363,000 km en el perigeo a unos 405,000 km en el apogeo.</p>
-      <p>Cerca, la Luna alcanza a cubrir al Sol. Lejos, no le alcanza.</p>
-      <p class="nota">Esa diferencia decide si un eclipse es total o anular (parada 3).</p>
-    </div>
+  </div>
+  <div class="wrap">
     <figure class="lamina">
       <svg viewBox="0 0 600 290" role="img" aria-label="Tres veces el disco del Sol con el disco negro de la Luna encima. Con la Luna cerca, la cubre entera y asoma la corona, con una pequeña protuberancia roja. Con la Luna lejos, queda un anillo de Sol. Con la Luna fuera del nodo, pasa por arriba y no toca al Sol." xmlns="http://www.w3.org/2000/svg">
 <circle cx="100.0" cy="165.0" r="48" fill="#F4F4F2"/>
@@ -160,22 +161,38 @@
 </svg>
       <figcaption>La coincidencia: el mismo Sol con la Luna cerca, lejos y fuera del nodo. Sin escala.</figcaption>
     </figure>
-    <div class="bloque-c">
-      <h3>La ventana se cierra</h3>
-      <p>La Luna se aleja unos centímetros cada año.</p>
-      <p>Se mide rebotando láser en los reflectores que dejaron las misiones Apolo: unos 3.8 cm por año.</p>
-      <p class="nota">Cuándo dejará de haber eclipses totales depende de modelos de largo plazo.</p>
+    <div class="capas">
+      <details class="capa" name="p2">
+        <summary>Una coincidencia que cambia</summary>
+        <div class="capa-cuerpo">
+          <p>La distancia a la Luna varía en cada órbita: de unos 363,000 km en el perigeo a unos 405,000 km en el apogeo.</p>
+          <p>Cerca, la Luna alcanza a cubrir al Sol. Lejos, no le alcanza.</p>
+          <p class="nota">Esa diferencia decide si un eclipse es total o anular (parada 3).</p>
+        </div>
+      </details>
+      <details class="capa" name="p2">
+        <summary>La ventana se cierra</summary>
+        <div class="capa-cuerpo">
+          <p>La Luna se aleja unos centímetros cada año.</p>
+          <p>Se mide rebotando láser en los reflectores que dejaron las misiones Apolo: unos 3.8 cm por año.</p>
+          <p class="nota">Cuándo dejará de haber eclipses totales depende de modelos de largo plazo.</p>
+        </div>
+      </details>
+      <details class="capa" name="p2">
+        <summary>Por qué no hay eclipse cada mes</summary>
+        <div class="capa-cuerpo">
+          <p>La órbita de la Luna está inclinada unos 5.1° respecto a la órbita de la Tierra.</p>
+          <p>Casi todos los meses, la luna nueva pasa un poco arriba o un poco abajo del Sol. La sombra no toca la Tierra.</p>
+        </div>
+      </details>
     </div>
-    <div class="bloque-c">
-      <h3>Por qué no hay eclipse cada mes</h3>
-      <p>La órbita de la Luna está inclinada unos 5.1° respecto a la órbita de la Tierra.</p>
-      <p>Casi todos los meses, la luna nueva pasa un poco arriba o un poco abajo del Sol. La sombra no toca la Tierra.</p>
-    </div>
-    <div class="bloque-c">
-      <h3>Los nodos</h3>
-      <p>Las dos órbitas se cruzan en dos puntos: los <strong>nodos</strong>.</p>
-      <p>Si la luna nueva ocurre cerca de un nodo, a unos 17° o menos, hay eclipse solar en algún lugar de la Tierra.</p>
-    </div>
+    <p class="rotulo capas-titulo">Para saber más</p>
+    <div class="capas" style="margin-top:12px">
+      <details class="capa" name="p2">
+        <summary>Los nodos</summary>
+        <div class="capa-cuerpo">
+          <p>Las dos órbitas se cruzan en dos puntos: los <strong>nodos</strong>.</p>
+          <p>Si la luna nueva ocurre cerca de un nodo, a unos 17° o menos, hay eclipse solar en algún lugar de la Tierra.</p>
     <figure class="lamina">
       <svg viewBox="0 0 600 400" role="img" aria-label="Vista desde arriba de la órbita de la Tierra alrededor del Sol, con cuatro posiciones de la Tierra. Alrededor de cada una, la órbita inclinada de la Luna, con sus dos nodos marcados como puntos. Solo en una posición la luna nueva cae sobre un nodo, alineada con el Sol: ahí hay eclipse, marcado con un punto rojo. En otra, la luna nueva pasa lejos del nodo y no hay eclipse. Inclinación exagerada." xmlns="http://www.w3.org/2000/svg">
 <circle cx="300.0" cy="200.0" r="150" fill="none" stroke="#7A7A78" stroke-width="1.4" stroke-dasharray="1 7" stroke-linecap="round"/>
@@ -211,23 +228,26 @@
 </svg>
       <figcaption>Las dos órbitas. Inclinación exagerada: los 5.1° reales no se leerían en pantalla.</figcaption>
     </figure>
-    <div class="bloque-c">
-      <h3>Temporadas de eclipses</h3>
-      <p>El Sol tarda unos 34.5 días en cruzar la zona de eclipses alrededor de cada nodo. Esa es una <strong>temporada de eclipses</strong>.</p>
-      <p>En cada temporada hay siempre un eclipse solar, y a veces dos.</p>
-      <p class="nota">Las temporadas se repiten cada 173.3 días, casi dos por año. Por eso hay entre 2 y 5 eclipses solares cada año.</p>
-    </div>
-    <div class="bloque-c">
-      <h3>El saros</h3>
-      <p>Cada 18 años, 11 días y 8 horas, el Sol, la Luna y los nodos vuelven casi a la misma posición. Ese ciclo es el <strong>saros</strong>: 223 lunaciones, unos 6,585.3 días.</p>
-      <p>Dos eclipses separados por un saros se parecen: mismo nodo, distancia lunar parecida, misma época del año.</p>
-    </div>
-    <div class="bloque-c">
-      <p>Las 8 horas sobrantes cuentan. En ese tiempo la Tierra gira un tercio de vuelta. Cada eclipse de la serie cae unos 120° más al oeste.</p>
-      <p class="nota">El eclipse total que cruzó México el 11 de julio de 1991 y el del 2 de agosto de 2027 son de la misma familia: el saros 136.</p>
-    </div>
-    <div class="bloque-c">
-      <p>Una serie de saros dura entre unos 1,200 y 1,550 años y reúne de 69 a 87 eclipses.</p>
+        </div>
+      </details>
+      <details class="capa" name="p2">
+        <summary>Temporadas de eclipses</summary>
+        <div class="capa-cuerpo">
+          <p>El Sol tarda unos 34.5 días en cruzar la zona de eclipses alrededor de cada nodo. Esa es una <strong>temporada de eclipses</strong>.</p>
+          <p>En cada temporada hay siempre un eclipse solar, y a veces dos.</p>
+          <p class="nota">Las temporadas se repiten cada 173.3 días, casi dos por año. Por eso hay entre 2 y 5 eclipses solares cada año.</p>
+        </div>
+      </details>
+      <details class="capa" name="p2">
+        <summary>El saros</summary>
+        <div class="capa-cuerpo">
+          <p>Cada 18 años, 11 días y 8 horas, el Sol, la Luna y los nodos vuelven casi a la misma posición. Ese ciclo es el <strong>saros</strong>: 223 lunaciones, unos 6,585.3 días.</p>
+          <p>Dos eclipses separados por un saros se parecen: mismo nodo, distancia lunar parecida, misma época del año.</p>
+          <p>Las 8 horas sobrantes cuentan. En ese tiempo la Tierra gira un tercio de vuelta. Cada eclipse de la serie cae unos 120° más al oeste.</p>
+          <p class="nota">El eclipse total que cruzó México el 11 de julio de 1991 y el del 2 de agosto de 2027 son de la misma familia: el saros 136.</p>
+          <p>Una serie de saros dura entre unos 1,200 y 1,550 años y reúne de 69 a 87 eclipses.</p>
+        </div>
+      </details>
     </div>
     <p class="fuentes-parada">Fuentes: <a href="#f1">F1</a> · <a href="#f2">F2</a> · <a href="#f3">F3</a> · <a href="#f4">F4</a> · <a href="#f5">F5</a> · <a href="#f6">F6</a> · <a href="#f12">F12</a> · <a href="#f13">F13</a> · <a href="#f14">F14</a> · <a href="#f15">F15</a></p>
   </div>
@@ -275,28 +295,42 @@
 </svg>
       <figcaption>Qué sombra toca la Tierra decide el tipo de eclipse. Sin escala.</figcaption>
     </figure>
-    <div class="tipos">
-      <div class="bloque-c">
-        <h3>Total</h3>
-        <p>La umbra toca la Tierra. La Luna está lo bastante cerca para cubrir todo el Sol.</p>
-        <p class="nota">La totalidad más larga posible ronda los 7 min 32 s. La más larga entre los años −1999 y 3000 será la del 16 de julio de 2186: 7 min 29 s.</p>
-      </div>
-      <div class="bloque-c">
-        <h3>Anular</h3>
-        <p>La antumbra toca la Tierra. La Luna está demasiado lejos y queda un anillo de Sol.</p>
-        <p class="nota">En un eclipse anular <strong>nunca</strong> es seguro mirar sin filtro: no hay totalidad.</p>
-      </div>
-      <div class="bloque-c">
-        <h3>Híbrido</h3>
-        <p>Un mismo eclipse se ve anular en unos tramos de su franja y total en otros. La curvatura de la Tierra acerca la superficie a la punta de la sombra.</p>
-        <p class="nota">Es el tipo más raro: 4.8 % de los eclipses solares entre −1999 y 3000.</p>
-      </div>
-      <div class="bloque-c">
-        <h3>Parcial</h3>
-        <p>Solo la penumbra toca la Tierra. En ningún lugar el Sol queda cubierto del todo.</p>
-        <p class="nota">Todo eclipse total o anular se ve como parcial fuera de su franja.</p>
-      </div>
+    <div class="capas">
+      <details class="capa" name="p3">
+        <summary>Total</summary>
+        <div class="capa-cuerpo">
+          <p>La umbra toca la Tierra. La Luna está lo bastante cerca para cubrir todo el Sol.</p>
+          <p class="nota">La totalidad más larga posible ronda los 7 min 32 s. La más larga entre los años −1999 y 3000 será la del 16 de julio de 2186: 7 min 29 s.</p>
+        </div>
+      </details>
+      <details class="capa" name="p3">
+        <summary>Anular</summary>
+        <div class="capa-cuerpo">
+          <p>La antumbra toca la Tierra. La Luna está demasiado lejos y queda un anillo de Sol.</p>
+        </div>
+      </details>
+      <details class="capa" name="p3">
+        <summary>Híbrido</summary>
+        <div class="capa-cuerpo">
+          <p>Un mismo eclipse se ve anular en unos tramos de su franja y total en otros. La curvatura de la Tierra acerca la superficie a la punta de la sombra.</p>
+          <p class="nota">Es el tipo más raro: 4.8 % de los eclipses solares entre −1999 y 3000.</p>
+        </div>
+      </details>
+      <details class="capa" name="p3">
+        <summary>Parcial</summary>
+        <div class="capa-cuerpo">
+          <p>Solo la penumbra toca la Tierra. En ningún lugar el Sol queda cubierto del todo.</p>
+          <p class="nota">Todo eclipse total o anular se ve como parcial fuera de su franja.</p>
+        </div>
+      </details>
     </div>
+  </div>
+  <div class="masa">
+    <div class="wrap">
+      <p class="masa-frase">En un eclipse anular <strong>nunca</strong> es seguro mirar sin filtro: no hay totalidad.</p>
+    </div>
+  </div>
+  <div class="wrap">
     <figure class="lamina">
       <svg viewBox="0 0 640 225" role="img" aria-label="Cuatro discos de Sol vistos desde el suelo. Total: la Luna lo cubre entero y alrededor asoma la corona en arcos finos, con una pequeña protuberancia roja. Anular: la Luna, más pequeña, deja un anillo de Sol. Híbrido: tres discos pequeños sobre una fila de puntos, anular en los extremos y total en el centro. Parcial: la Luna desplazada deja una creciente." xmlns="http://www.w3.org/2000/svg">
 <path d="M 129.4 87.2 A 50 50 0 0 1 129.4 102.8" fill="none" stroke="#F4F4F2" stroke-width="1" stroke-linecap="round"/><path d="M 128.5 116.3 A 53 53 0 0 1 119.6 130.3" fill="none" stroke="#F4F4F2" stroke-width="1" stroke-linecap="round"/><path d="M 121.3 132.8 A 56 56 0 0 1 107.6 143.7" fill="none" stroke="#F4F4F2" stroke-width="1" stroke-linecap="round"/><path d="M 92.8 143.3 A 50 50 0 0 1 77.3 144.9" fill="none" stroke="#F4F4F2" stroke-width="1" stroke-linecap="round"/><path d="M 76.4 147.9 A 53 53 0 0 1 60.3 144.2" fill="none" stroke="#F4F4F2" stroke-width="1" stroke-linecap="round"/><path d="M 46.6 140.0 A 56 56 0 0 1 34.4 127.5" fill="none" stroke="#F4F4F2" stroke-width="1" stroke-linecap="round"/><path d="M 38.9 123.5 A 50 50 0 0 1 32.1 109.4" fill="none" stroke="#F4F4F2" stroke-width="1" stroke-linecap="round"/><path d="M 27.0 96.8 A 53 53 0 0 1 29.1 80.4" fill="none" stroke="#F4F4F2" stroke-width="1" stroke-linecap="round"/><path d="M 26.4 78.9 A 56 56 0 0 1 34.0 63.1" fill="none" stroke="#F4F4F2" stroke-width="1" stroke-linecap="round"/><path d="M 47.5 57.0 A 50 50 0 0 1 60.8 48.8" fill="none" stroke="#F4F4F2" stroke-width="1" stroke-linecap="round"/><path d="M 60.3 45.8 A 53 53 0 0 1 76.4 42.1" fill="none" stroke="#F4F4F2" stroke-width="1" stroke-linecap="round"/><path d="M 90.5 40.0 A 56 56 0 0 1 107.0 46.0" fill="none" stroke="#F4F4F2" stroke-width="1" stroke-linecap="round"/><path d="M 104.7 51.5 A 50 50 0 0 1 116.9 61.3" fill="none" stroke="#F4F4F2" stroke-width="1" stroke-linecap="round"/><path d="M 126.9 70.4 A 53 53 0 0 1 132.2 86.1" fill="none" stroke="#F4F4F2" stroke-width="1" stroke-linecap="round"/><path d="M 139.4 103.4 A 60 60 0 0 1 137.1 113.5" fill="none" stroke="#A3A3A1" stroke-width="0.8" stroke-linecap="round"/><path d="M 133.2 130.5 A 64 64 0 0 1 126.3 139.2" fill="none" stroke="#A3A3A1" stroke-width="0.8" stroke-linecap="round"/><path d="M 110.5 146.7 A 60 60 0 0 1 101.1 151.2" fill="none" stroke="#A3A3A1" stroke-width="0.8" stroke-linecap="round"/><path d="M 85.4 158.8 A 64 64 0 0 1 74.3 158.7" fill="none" stroke="#A3A3A1" stroke-width="0.8" stroke-linecap="round"/><path d="M 58.6 151.1 A 60 60 0 0 1 49.2 146.5" fill="none" stroke="#A3A3A1" stroke-width="0.8" stroke-linecap="round"/><path d="M 33.5 139.0 A 64 64 0 0 1 26.6 130.3" fill="none" stroke="#A3A3A1" stroke-width="0.8" stroke-linecap="round"/><path d="M 22.8 113.3 A 60 60 0 0 1 20.5 103.1" fill="none" stroke="#A3A3A1" stroke-width="0.8" stroke-linecap="round"/><path d="M 16.6 86.1 A 64 64 0 0 1 19.1 75.2" fill="none" stroke="#A3A3A1" stroke-width="0.8" stroke-linecap="round"/><path d="M 30.1 61.7 A 60 60 0 0 1 36.6 53.5" fill="none" stroke="#A3A3A1" stroke-width="0.8" stroke-linecap="round"/><path d="M 47.4 39.9 A 64 64 0 0 1 57.5 35.1" fill="none" stroke="#A3A3A1" stroke-width="0.8" stroke-linecap="round"/><path d="M 74.9 35.2 A 60 60 0 0 1 85.4 35.2" fill="none" stroke="#A3A3A1" stroke-width="0.8" stroke-linecap="round"/><path d="M 102.8 35.2 A 64 64 0 0 1 112.8 40.1" fill="none" stroke="#A3A3A1" stroke-width="0.8" stroke-linecap="round"/><path d="M 123.6 53.8 A 60 60 0 0 1 130.1 61.9" fill="none" stroke="#A3A3A1" stroke-width="0.8" stroke-linecap="round"/><path d="M 141.0 75.5 A 64 64 0 0 1 143.4 86.4" fill="none" stroke="#A3A3A1" stroke-width="0.8" stroke-linecap="round"/><path d="M 106.0 53.4 A 49 49 0 0 1 116.4 62.2" fill="none" stroke="#DA291C" stroke-width="3" stroke-linecap="round"/>
@@ -343,7 +377,7 @@
   </div>
 </section>
 
-<!-- 4 · Qué se ve -->
+<!-- 4 · Qué se ve: el diagrama es la pestaña -->
 <section id="que-se-ve" class="parada" aria-labelledby="t-p4">
   <div class="wrap">
     <p class="rotulo">Parada 4 de 5 · Qué se ve y cuándo</p>
@@ -361,79 +395,122 @@
   </div>
   <figure class="lamina fases">
     <div class="fases-scroll" tabindex="0" aria-label="Esquema de C1 a C4; se desplaza a los lados en pantallas angostas">
-      <img src="../assets/img/camino/fases-del-eclipse.svg" width="1480" height="425" alt="Esquema del paso de un eclipse solar total en nueve discos sobre un arco: primer contacto (C1), creciente, perlas de Baily, anillo de diamante (C2), totalidad con la corona y una protuberancia roja, anillo de diamante (C3), perlas de Baily, regreso y cuarto contacto (C4). Bajo la totalidad, tres arcos: las sombras volantes.">
+      <div class="fases-mapa">
+        <img src="../assets/img/camino/fases-del-eclipse.svg" width="1480" height="425" alt="Esquema del paso de un eclipse solar total en nueve discos sobre un arco: primer contacto (C1), creciente, perlas de Baily, anillo de diamante (C2), totalidad con la corona y una protuberancia roja, anillo de diamante (C3), perlas de Baily, regreso y cuarto contacto (C4). Bajo la totalidad, tres arcos: las sombras volantes.">
+        <!-- Zonas tocables sobre el dibujo: repiten las pestañas de abajo (que son las accesibles por teclado) -->
+        <button type="button" class="zona" data-tab="0" tabindex="-1" aria-hidden="true" style="left:7.3%;top:53.6%"></button>
+        <button type="button" class="zona" data-tab="0" tabindex="-1" aria-hidden="true" style="left:17.4%;top:40.4%"></button>
+        <button type="button" class="zona" data-tab="1" tabindex="-1" aria-hidden="true" style="left:27.2%;top:31%"></button>
+        <button type="button" class="zona" data-tab="1" tabindex="-1" aria-hidden="true" style="left:36.5%;top:25.4%"></button>
+        <button type="button" class="zona" data-tab="2" tabindex="-1" aria-hidden="true" style="left:50%;top:22%;width:12%"></button>
+        <button type="button" class="zona" data-tab="1" tabindex="-1" aria-hidden="true" style="left:63.5%;top:25.4%"></button>
+        <button type="button" class="zona" data-tab="1" tabindex="-1" aria-hidden="true" style="left:72.8%;top:31%"></button>
+        <button type="button" class="zona" data-tab="3" tabindex="-1" aria-hidden="true" style="left:82.6%;top:40.4%"></button>
+        <button type="button" class="zona" data-tab="3" tabindex="-1" aria-hidden="true" style="left:92.7%;top:53.6%"></button>
+      </div>
     </div>
-    <figcaption class="wrap">El paso de un eclipse total, de C1 a C4. Esquema sin escala de tamaño ni de tiempo; la orientación es convencional. <span class="solo-movil">Desliza el esquema a los lados.</span></figcaption>
+    <figcaption class="wrap">El paso de un eclipse total, de C1 a C4. Esquema sin escala de tamaño ni de tiempo; la orientación es convencional. Toca una fase del dibujo o elige abajo. <span class="solo-movil">Desliza el esquema a los lados.</span></figcaption>
   </figure>
   <div class="wrap">
-    <div class="bloque-c">
-      <h3>De C1 a C2: la creciente</h3>
-      <p>El Sol se vuelve una creciente cada vez más delgada. Al principio, casi no se nota.</p>
-      <p class="nota">Bajo un árbol, las sombras de las hojas se llenan de pequeñas crecientes: cada hueco funciona como orificio.</p>
+    <div class="pestanas texto" id="pestanas-contactos">
+      <div role="tablist" aria-label="Fases del eclipse">
+        <button type="button" role="tab" id="tab-c1" aria-controls="fase-c1" aria-selected="true">C1 → C2 · La creciente</button>
+        <button type="button" role="tab" id="tab-c2" aria-controls="fase-c2" aria-selected="false">Perlas y diamante</button>
+        <button type="button" role="tab" id="tab-tot" aria-controls="fase-tot" aria-selected="false">Totalidad</button>
+        <button type="button" role="tab" id="tab-c3" aria-controls="fase-c3" aria-selected="false">C3 → C4 · El regreso</button>
+      </div>
+      <div role="tabpanel" id="fase-c1" aria-labelledby="tab-c1" tabindex="0" class="contactos-panel">
+        <div class="bloque-c">
+          <h3>De C1 a C2: la creciente</h3>
+          <p>El Sol se vuelve una creciente cada vez más delgada. Al principio, casi no se nota.</p>
+          <p class="nota">Bajo un árbol, las sombras de las hojas se llenan de pequeñas crecientes: cada hueco funciona como orificio.</p>
+        </div>
+        <div class="bloque-c">
+          <h3>La luz se vuelve rara</h3>
+          <p>En los últimos minutos, la luz baja y se vuelve metálica. Las sombras se afilan.</p>
+          <p>Baja la temperatura. En un eclipse total, el aire cerca del suelo suele enfriarse entre 2 y 5 °C, y el mínimo llega poco después de la totalidad; con nubes, el descenso es menor.</p>
+        </div>
+        <div class="bloque-c">
+          <h3>Sombras volantes</h3>
+          <p>Uno o dos minutos antes y después de la totalidad pueden aparecer bandas tenues de luz y sombra que corren sobre el suelo o una pared clara.</p>
+          <p class="nota">La explicación más aceptada es el centelleo: la atmósfera turbulenta deforma la luz de una creciente ya muy delgada. Aún se discute; no siempre se ven.</p>
+        </div>
+      </div>
+      <div role="tabpanel" id="fase-c2" aria-labelledby="tab-c2" tabindex="0" class="contactos-panel">
+        <div class="bloque-c">
+          <h3>Perlas de Baily</h3>
+          <p>Justo antes de C2, el último hilo de Sol se rompe en puntos de luz. Es luz que pasa por los valles del borde de la Luna.</p>
+          <p class="nota">Llevan el nombre de Francis Baily.</p>
+        </div>
+        <div class="bloque-c">
+          <h3>Anillo de diamante</h3>
+          <p>Queda una sola perla, muy brillante, junto a un halo tenue: un anillo con su diamante. Ocurre al entrar en C2 y vuelve a ocurrir en C3.</p>
+          <p class="nota">El diamante <strong>todavía es Sol directo</strong>. Se mira con filtro (<a href="#mirar">parada 5</a>).</p>
+        </div>
+      </div>
+      <div role="tabpanel" id="fase-tot" aria-labelledby="tab-tot" tabindex="0" class="contactos-panel">
+        <div class="bloque-c">
+          <h3>La corona</h3>
+          <p>Es la atmósfera exterior del Sol. Solo se ve a simple vista en la totalidad.</p>
+          <p>Es blanca, con plumas y alas que cambian de un eclipse a otro. Llega a unos 2 millones de °C.</p>
+        </div>
+        <div class="capas" style="margin-top:0">
+          <details class="capa" name="p4">
+            <summary>Cromosfera y protuberancias</summary>
+            <div class="capa-cuerpo">
+              <p>Al inicio y al final de la totalidad, en el borde de la Luna, asoma un arco rojo muy fino: la cromosfera.</p>
+              <p>Sobre ella pueden verse las protuberancias: lenguas de plasma rojo sostenidas por campos magnéticos.</p>
+              <p class="nota">El rojo viene de la luz del hidrógeno (línea Hα, 656.3 nm). Es el rojo del proyecto.</p>
+            </div>
+          </details>
+          <details class="capa" name="p4">
+            <summary>El cielo y el horizonte</summary>
+            <div class="capa-cuerpo">
+              <p>Se ven los planetas que estén sobre el horizonte y las estrellas más brillantes.</p>
+              <p>En todo el horizonte queda una franja de luz, como un atardecer en redondo: es la zona fuera de la umbra, donde el eclipse sigue siendo parcial.</p>
+              <p class="nota">Qué planetas se ven depende de cada eclipse.</p>
+            </div>
+          </details>
+          <details class="capa" name="p4">
+            <summary>Los animales</summary>
+            <div class="capa-cuerpo">
+              <p>Muchos animales responden. En un zoológico de Carolina del Sur, en 2017, cerca de tres cuartas partes de los grupos de animales observados cambiaron de conducta: rutinas de anochecer o señales de inquietud.</p>
+              <p class="nota">No todo es el eclipse: la luz, la temperatura y el ruido de la gente también cuentan.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div role="tabpanel" id="fase-c3" aria-labelledby="tab-c3" tabindex="0" class="contactos-panel">
+        <div class="bloque-c">
+          <h3>De C3 a C4: el regreso</h3>
+          <p>Todo ocurre al revés: anillo de diamante, perlas, sombras volantes, la creciente que crece.</p>
+          <p class="nota">Muchas personas dejan de mirar aquí. El eclipse sigue durante más de una hora.</p>
+        </div>
+      </div>
     </div>
-    <div class="bloque-c">
-      <h3>La luz se vuelve rara</h3>
-      <p>En los últimos minutos, la luz baja y se vuelve metálica. Las sombras se afilan.</p>
-      <p>Baja la temperatura. En un eclipse total, el aire cerca del suelo suele enfriarse entre 2 y 5 °C, y el mínimo llega poco después de la totalidad; con nubes, el descenso es menor.</p>
+  </div>
+  <div class="masa">
+    <div class="wrap">
+      <p class="masa-frase">Totalidad. El día se equivoca: aparecen los planetas, las estrellas más brillantes y la corona.</p>
     </div>
-    <div class="bloque-c">
-      <h3>Sombras volantes</h3>
-      <p>Uno o dos minutos antes y después de la totalidad pueden aparecer bandas tenues de luz y sombra que corren sobre el suelo o una pared clara.</p>
-      <p class="nota">La explicación más aceptada es el centelleo: la atmósfera turbulenta deforma la luz de una creciente ya muy delgada. Aún se discute; no siempre se ven.</p>
-    </div>
-    <div class="bloque-c">
-      <h3>Perlas de Baily</h3>
-      <p>Justo antes de C2, el último hilo de Sol se rompe en puntos de luz. Es luz que pasa por los valles del borde de la Luna.</p>
-      <p class="nota">Llevan el nombre de Francis Baily.</p>
-    </div>
-    <div class="bloque-c">
-      <h3>Anillo de diamante</h3>
-      <p>Queda una sola perla, muy brillante, junto a un halo tenue: un anillo con su diamante. Ocurre al entrar en C2 y vuelve a ocurrir en C3.</p>
-      <p class="nota">El diamante <strong>todavía es Sol directo</strong>. Se mira con filtro (<a href="#mirar">parada 5</a>).</p>
-    </div>
-    <div class="bloque-c">
-      <h3>Totalidad</h3>
-      <p class="entrada">Totalidad. El día se equivoca: aparecen los planetas, las estrellas más brillantes y la corona.</p>
-    </div>
-    <div class="bloque-c">
-      <h3>La corona</h3>
-      <p>Es la atmósfera exterior del Sol. Solo se ve a simple vista en la totalidad.</p>
-      <p>Es blanca, con plumas y alas que cambian de un eclipse a otro. Llega a unos 2 millones de °C.</p>
-    </div>
-    <div class="bloque-c">
-      <h3>Cromosfera y protuberancias</h3>
-      <p>Al inicio y al final de la totalidad, en el borde de la Luna, asoma un arco rojo muy fino: la cromosfera.</p>
-      <p>Sobre ella pueden verse las protuberancias: lenguas de plasma rojo sostenidas por campos magnéticos.</p>
-      <p class="nota">El rojo viene de la luz del hidrógeno (línea Hα, 656.3 nm). Es el rojo del proyecto.</p>
-    </div>
-    <div class="bloque-c">
-      <h3>El cielo y el horizonte</h3>
-      <p>Se ven los planetas que estén sobre el horizonte y las estrellas más brillantes.</p>
-      <p>En todo el horizonte queda una franja de luz, como un atardecer en redondo: es la zona fuera de la umbra, donde el eclipse sigue siendo parcial.</p>
-      <p class="nota">Qué planetas se ven depende de cada eclipse.</p>
-    </div>
-    <div class="bloque-c">
-      <h3>Los animales</h3>
-      <p>Muchos animales responden. En un zoológico de Carolina del Sur, en 2017, cerca de tres cuartas partes de los grupos de animales observados cambiaron de conducta: rutinas de anochecer o señales de inquietud.</p>
-      <p class="nota">No todo es el eclipse: la luz, la temperatura y el ruido de la gente también cuentan.</p>
-    </div>
-    <div class="bloque-c">
-      <h3>De C3 a C4: el regreso</h3>
-      <p>Todo ocurre al revés: anillo de diamante, perlas, sombras volantes, la creciente que crece.</p>
-      <p class="nota">Muchas personas dejan de mirar aquí. El eclipse sigue durante más de una hora.</p>
-    </div>
+  </div>
+  <div class="wrap">
     <p class="fuentes-parada">Fuentes: <a href="#f1">F1</a> · <a href="#f6">F6</a> · <a href="#f9">F9</a> · <a href="#f16">F16</a> · <a href="#f17">F17</a> · <a href="#f18">F18</a> · <a href="#f19">F19</a> · <a href="#f20">F20</a> · <a href="#f24">F24</a></p>
   </div>
 </section>
 
-<!-- 5 · Cómo mirar (lámina sin rojo) -->
+<!-- 5 · Cómo mirar (lámina sin rojo). La regla va en masa blanca y nunca se pliega. -->
 <section id="mirar" class="parada" aria-labelledby="t-p5">
   <div class="wrap">
     <p class="rotulo">Parada 5 de 5 · Cuándo y cómo mirar</p>
     <h2 id="t-p5">La regla</h2>
-    <div class="regla regla-grande">
-      <p class="regla-frase">Solo dentro de la totalidad, y solo en su franja, se puede mirar sin filtro. Antes y después, nunca.</p>
+  </div>
+  <div class="masa regla-masa">
+    <div class="wrap">
+      <p class="masa-frase regla-frase">Solo dentro de la totalidad, y solo en su franja, se puede mirar sin filtro. Antes y después, nunca.</p>
     </div>
+  </div>
+  <div class="wrap">
     <figure class="lamina">
       <svg viewBox="0 0 660 335" role="img" aria-label="La regla de seguridad sobre la línea del eclipse, de C1 a C4. En todas las fases parciales, el Sol aparece rodeado de un anillo grueso que representa el filtro puesto, y el texto dice con filtro. Solo en el tramo entre C2 y C3, la totalidad, el disco aparece sin anillo y el texto dice sin filtro." xmlns="http://www.w3.org/2000/svg">
 <path d="M 51.2 290.7 A 285 285 0 0 1 241.9 78.9" fill="none" stroke="#7A7A78" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 7"/>
@@ -466,42 +543,55 @@
 </svg>
       <figcaption>Cuándo sí, cuándo no: el filtro va puesto en todas las fases parciales; solo se quita entre C2 y C3.</figcaption>
     </figure>
-    <div class="bloque-c">
-      <h3>Antes y después: siempre con filtro</h3>
-      <p>Para mirar directo se necesitan filtros solares que cumplan la norma internacional <strong>ISO 12312-2</strong>.</p>
-      <p>Mirar al Sol sin filtro, aunque esté casi cubierto, puede dañar la retina. El daño no duele, los síntomas pueden tardar horas en aparecer y puede ser permanente.</p>
+    <div class="cols3 mirar3">
+      <div>
+        <h3>Antes y después: siempre con filtro</h3>
+        <p>Para mirar directo se necesitan filtros solares que cumplan la norma internacional <strong>ISO 12312-2</strong>.</p>
+        <p>Mirar al Sol sin filtro, aunque esté casi cubierto, puede dañar la retina. El daño no duele, los síntomas pueden tardar horas en aparecer y puede ser permanente.</p>
+      </div>
+      <div>
+        <h3>Cuándo quitarse el filtro</h3>
+        <p>Solo cuando la Luna cubre por completo la cara brillante del Sol y de pronto oscurece.</p>
+        <p>Prueba sencilla: si a través de los lentes de eclipse ya no se ve ninguna parte del Sol, es totalidad.</p>
+      </div>
+      <div>
+        <h3>Cuándo ponérselo de nuevo</h3>
+        <p>En cuanto el Sol brillante empiece a reaparecer. Es decir: con el primer destello del anillo de diamante del final (C3).</p>
+        <p class="nota">En un eclipse anular o parcial no hay ningún momento seguro sin filtro.</p>
+      </div>
     </div>
-    <div class="bloque-c">
-      <h3>Cuándo quitarse el filtro</h3>
-      <p>Solo cuando la Luna cubre por completo la cara brillante del Sol y de pronto oscurece.</p>
-      <p>Prueba sencilla: si a través de los lentes de eclipse ya no se ve ninguna parte del Sol, es totalidad.</p>
-    </div>
-    <div class="bloque-c">
-      <h3>Cuándo ponérselo de nuevo</h3>
-      <p>En cuanto el Sol brillante empiece a reaparecer. Es decir: con el primer destello del anillo de diamante del final (C3).</p>
-      <p class="nota">En un eclipse anular o parcial no hay ningún momento seguro sin filtro.</p>
-    </div>
-    <div class="bloque-c">
-      <h3>Lentes y visores</h3>
-      <ul class="vinetas">
-        <li>Comprar con fabricantes que aparecen en la lista de la American Astronomical Society (AAS). No basta con que digan ISO en la caja.</li>
-        <li>Revisarlos antes de usarlos. Si están rayados, perforados o rotos, se tiran.</li>
-        <li>A niñas y niños siempre hay que supervisarlos mientras usan los lentes de eclipse.</li>
-        <li>Si usas anteojos, déjatelos puestos y ponte encima los lentes de eclipse.</li>
-      </ul>
-    </div>
-    <div class="bloque-c">
-      <h3>Binoculares, telescopios y cámaras</h3>
-      <p>Solo con un filtro solar <strong>montado al frente</strong> del instrumento.</p>
-      <p><strong>Nunca</strong> se mira por un instrumento sin filtro con los lentes de eclipse puestos: la luz concentrada rompe el filtro y entra al ojo.</p>
-      <p class="nota">Los filtros que se enroscan en el ocular son peligrosos y se desechan.</p>
-    </div>
-    <div class="bloque-c">
-      <h3>Proyección por orificio</h3>
-      <p>No hace falta mirar al Sol para ver el eclipse.</p>
-      <p>Con el Sol a la espalda, un orificio pequeño proyecta su imagen en el suelo o en una hoja: un cartón perforado, una coladera, los dedos cruzados o las hojas de un árbol.</p>
-      <p>Se mira la proyección. <strong>Nunca</strong> a través del orificio.</p>
-    </div>
+    <p class="rotulo capas-titulo">Con qué mirar</p>
+    <div class="fichas3">
+      <div class="capas">
+        <details class="capa" open>
+          <summary>Lentes y visores</summary>
+          <div class="capa-cuerpo">
+            <ul class="vinetas">
+              <li>Comprar con fabricantes que aparecen en la lista de la American Astronomical Society (AAS). No basta con que digan ISO en la caja.</li>
+              <li>Revisarlos antes de usarlos. Si están rayados, perforados o rotos, se tiran.</li>
+              <li>A niñas y niños siempre hay que supervisarlos mientras usan los lentes de eclipse.</li>
+              <li>Si usas anteojos, déjatelos puestos y ponte encima los lentes de eclipse.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+      <div class="capas">
+        <details class="capa" open>
+          <summary>Binoculares, telescopios y cámaras</summary>
+          <div class="capa-cuerpo">
+            <p>Solo con un filtro solar <strong>montado al frente</strong> del instrumento.</p>
+            <p><strong>Nunca</strong> se mira por un instrumento sin filtro con los lentes de eclipse puestos: la luz concentrada rompe el filtro y entra al ojo.</p>
+            <p class="nota">Los filtros que se enroscan en el ocular son peligrosos y se desechan.</p>
+          </div>
+        </details>
+      </div>
+      <div class="capas">
+        <details class="capa" open>
+          <summary>Proyección por orificio</summary>
+          <div class="capa-cuerpo">
+            <p>No hace falta mirar al Sol para ver el eclipse.</p>
+            <p>Con el Sol a la espalda, un orificio pequeño proyecta su imagen en el suelo o en una hoja: un cartón perforado, una coladera, los dedos cruzados o las hojas de un árbol.</p>
+            <p>Se mira la proyección. <strong>Nunca</strong> a través del orificio.</p>
     <figure class="lamina">
       <svg viewBox="0 0 520 360" role="img" aria-label="Proyección por orificio. Arriba a la izquierda, el Sol ya en creciente. Al centro, una coladera vista de frente, con sus orificios como puntos. Abajo a la derecha, sobre el suelo en sombra, muchas pequeñas crecientes: las imágenes del Sol que proyecta cada orificio. Una fila de puntos marca el camino de la luz. La persona, de espaldas al Sol, se sugiere con un arco oscuro en el borde." xmlns="http://www.w3.org/2000/svg">
 <circle cx="40.0" cy="470.0" r="150" fill="#141413"/>
@@ -666,7 +756,11 @@
 </svg>
       <figcaption>Mirar sin mirar: la proyección por orificio.</figcaption>
     </figure>
-    <div class="bloque-c">
+          </div>
+        </details>
+      </div>
+    </div>
+    <div class="bloque-c umbra nunca">
       <h3>Lo que nunca se debe usar</h3>
       <ul class="vinetas">
         <li>Lentes de sol, por oscuros que sean.</li>
@@ -746,6 +840,16 @@
 <footer class="pie"><div class="wrap"><p>Umbrhalia by LFAE · un proyecto de Gabriela Isabel Vera Garfias. © 2026. Todos los derechos reservados.</p><p>Prototipo en desarrollo. Visitas contadas de forma agregada con Google Analytics.</p><p class="contacto">Contacto: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></p></div></footer>
 <script src="../js/u.js"></script>
 <script>
+// Diagrama C1–C4: las pestañas son el control accesible; las zonas del dibujo las repiten al tocar.
+(function () {
+  var zonas = document.querySelectorAll('.fases-mapa .zona');
+  var p = U.pestanas(document.getElementById('pestanas-contactos'), function (i) {
+    zonas.forEach(function (z) { z.classList.toggle('activa', +z.getAttribute('data-tab') === i); });
+  });
+  zonas.forEach(function (z) { z.addEventListener('click', function () { p.elegir(+z.getAttribute('data-tab'), false, true); }); });
+  U.unoEnUno();
+  U.transiciones();
+})();
 // Las fuentes están plegadas: al seguir un enlace F#, se abre su grupo.
 (function () {
   function abrir() {

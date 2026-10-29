@@ -137,9 +137,8 @@ var U = (function () {
   // Transiciones entre secciones (portada): las claras se abren con un recorte circular,
   // las oscuras con un fundido. Sin IntersectionObserver o con movimiento reducido, no hay animación.
   function transiciones() {
-    var reducir = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reducir || !('IntersectionObserver' in window)) return;
-    var secciones = document.querySelectorAll('main section.claro, main section.oscuro:not(.portada)');
+    if (sinMovimiento() || !('IntersectionObserver' in window)) return;
+    var secciones = document.querySelectorAll('main section.claro, main section.oscuro:not(.portada), main .masa');
     var io = new IntersectionObserver(function (entradas) {
       entradas.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); }
@@ -148,6 +147,161 @@ var U = (function () {
     document.documentElement.classList.add('con-transiciones');
     secciones.forEach(function (s) { io.observe(s); });
   }
+  function sinMovimiento() {
+    return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  }
+
+  // Pestañas internas (patrón ARIA tabs, activación automática). Sin JS, todos los paneles
+  // quedan a la vista. Flechas, Inicio y Fin mueven entre pestañas. Si la dirección lleva
+  // un ancla que vive dentro de un panel, ese panel se abre. Un solo gesto: el panel elegido
+  // se descubre con un recorte circular que nace de la pestaña tocada (CSS .entra).
+  function pestanas(raiz, alCambiar) {
+    var lista = raiz.querySelector('[role="tablist"]');
+    var tabs = Array.prototype.slice.call(lista.querySelectorAll('[role="tab"]'));
+    var paneles = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+    function elegir(i, foco, animar) {
+      tabs.forEach(function (t, k) {
+        var si = k === i;
+        t.setAttribute('aria-selected', String(si));
+        t.tabIndex = si ? 0 : -1;
+        paneles[k].hidden = !si;
+        paneles[k].classList.remove('entra');
+      });
+      if (foco) tabs[i].focus();
+      if (animar && !sinMovimiento()) {
+        var p = paneles[i], r = tabs[i].getBoundingClientRect(), pr = p.getBoundingClientRect();
+        p.style.setProperty('--ox', Math.round(r.left + r.width / 2 - pr.left) + 'px');
+        void p.offsetWidth;
+        p.classList.add('entra');
+      }
+      if (alCambiar) alCambiar(i, tabs[i], paneles[i]);
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { elegir(i, false, true); });
+      t.addEventListener('keydown', function (e) {
+        var n = tabs.length, j = null;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') j = (i + 1) % n;
+        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') j = (i - 1 + n) % n;
+        else if (e.key === 'Home') j = 0;
+        else if (e.key === 'End') j = n - 1;
+        if (j !== null) { e.preventDefault(); elegir(j, true, true); }
+      });
+    });
+    function porAncla() {
+      var id = decodeURIComponent(location.hash.slice(1));
+      if (!id) return false;
+      var el = document.getElementById(id);
+      if (!el) return false;
+      for (var k = 0; k < paneles.length; k++) {
+        if (paneles[k] === el || paneles[k].contains(el)) { elegir(k, false, false); return true; }
+      }
+      return false;
+    }
+    var inicial = tabs.findIndex(function (t) { return t.getAttribute('aria-selected') === 'true'; });
+    elegir(inicial < 0 ? 0 : inicial, false, false);
+    if (porAncla()) {
+      var el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (el) setTimeout(function () { el.scrollIntoView(); }, 0);
+    }
+    window.addEventListener('hashchange', porAncla);
+    raiz.classList.add('con-js');
+    return { elegir: elegir, tabs: tabs, paneles: paneles };
+  }
+
+  // Desplegables que se abren de uno en uno (atributo name). Respaldo para navegadores sin soporte.
+  function unoEnUno() {
+    document.querySelectorAll('details[name]').forEach(function (d) {
+      d.addEventListener('toggle', function () {
+        if (!d.open) return;
+        document.querySelectorAll('details[name="' + d.getAttribute('name') + '"]').forEach(function (o) {
+          if (o !== d && o.open) o.open = false;
+        });
+      });
+    });
+  }
+
+  // Álbum de actividades: una sola fuente (assets/data/album.json).
+  var _album = null;
+  function album() {
+    if (!_album) _album = fetch(ROOT + 'assets/data/album.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
+    return _album;
+  }
+  var ICONO_PARCIAL = '<svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 1a6 6 0 0 1 0 12z" fill="currentColor"/></svg>';
+  function vacio(el, mensaje) {
+    el.innerHTML = '<div class="album-vacio"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="40" fill="none" stroke="#9a9aa2" stroke-width="2"/><circle cx="74" cy="60" r="40" fill="#15151b"/></svg>' +
+      '<div><p class="entradilla" style="margin-bottom:8px">El álbum se está armando.</p><p class="nota">' + (mensaje || 'Estamos eligiendo las fotos de cada actividad, con su crédito y sin rostros sin permiso.') + '</p></div></div>';
+  }
+  function fotoHTML(f, cargar) {
+    if (f.estado !== 'elegida' || !f.archivo) {
+      return '<div class="por-elegir"><i class="anillo" aria-hidden="true"></i><span>Foto por elegir · ' + escapar(f.falta || f.actividad) + '</span></div>';
+    }
+    return '<img src="' + ROOT + f.archivo + '" alt="' + escapar(f.alt) + '" width="' + (f.ancho || '') + '" height="' + (f.alto || '') + '" loading="' + (cargar || 'lazy') + '" decoding="async">';
+  }
+  // B · Secuencia: una imagen grande con su pie al lado; las perlas son la navegación.
+  function secuencia(el, uso, limite) {
+    album().then(function (d) {
+      var fotos = d.fotos.filter(function (f) { return f.usos.indexOf(uso) >= 0; });
+      if (limite) fotos = fotos.slice(0, limite);
+      if (!fotos.length || !fotos.some(function (f) { return f.estado === 'elegida'; })) { vacio(el); return; }
+      var i = 0, n = fotos.length;
+      el.innerHTML = '<div class="secuencia" role="group" aria-roledescription="secuencia de fotos" aria-label="Álbum de actividades">' +
+        '<figure><div class="album-foto"></div></figure>' +
+        '<div class="pie-sec"><p class="folio sec-folio"></p><h3 class="sec-t"></h3><p class="nota sec-x"></p>' +
+        '<div class="perlas" role="group" aria-label="Fotos"></div>' +
+        '<div class="flechas"><button type="button" class="flecha-c" data-d="-1" aria-label="Foto anterior"><span aria-hidden="true">←</span></button><button type="button" class="flecha-c" data-d="1" aria-label="Foto siguiente"><span aria-hidden="true">→</span></button></div>' +
+        '<p class="nota" aria-live="polite" style="position:absolute;left:-9999px" data-vivo></p></div></div>';
+      var caja = el.querySelector('.album-foto'), perlas = el.querySelector('.perlas'), vivo = el.querySelector('[data-vivo]');
+      perlas.innerHTML = fotos.map(function (f, k) { return '<button type="button" class="perla" aria-label="Foto ' + (k + 1) + ' de ' + n + '"></button>'; }).join('') + '<span class="folio sec-n"></span>';
+      function poner(k, anunciar) {
+        i = (k + n) % n;
+        var f = fotos[i];
+        caja.innerHTML = fotoHTML(f, i === 0 ? 'lazy' : 'eager');
+        el.querySelector('.sec-folio').textContent = (f.fecha_txt || '') + (f.lugar ? ' · ' + f.lugar : '');
+        el.querySelector('.sec-t').textContent = f.titulo || (f.estado === 'elegida' ? '' : 'Por elegir');
+        el.querySelector('.sec-x').textContent = f.pie || '';
+        el.querySelector('.sec-n').textContent = (i + 1) + ' / ' + n;
+        perlas.querySelectorAll('.perla').forEach(function (b, j) { b.setAttribute('aria-current', j === i ? 'true' : 'false'); });
+        if (anunciar) vivo.textContent = 'Foto ' + (i + 1) + ' de ' + n + (f.titulo ? ': ' + f.titulo : '');
+      }
+      perlas.addEventListener('click', function (e) {
+        var b = e.target.closest('.perla'); if (!b) return;
+        poner(Array.prototype.indexOf.call(perlas.querySelectorAll('.perla'), b), true);
+      });
+      el.querySelectorAll('.flecha-c').forEach(function (b) { b.addEventListener('click', function () { poner(i + parseInt(b.getAttribute('data-d'), 10), true); }); });
+      poner(0, false);
+    }).catch(function () { vacio(el, 'No pudimos cargar el álbum. Vuelve a intentarlo más tarde.'); });
+  }
+  // C · Bitácora: una fila por actividad. Con fotos, la fila se despliega en tres; sin fotos, es texto.
+  function bitacora(el) {
+    album().then(function (d) {
+      el.innerHTML = '<div class="bitacora">' + d.actividades.map(function (a) {
+        var fotos = d.fotos.filter(function (f) { return f.actividad === a.id; }).slice(0, 3);
+        var fecha = a.fecha_txt ? '<span class="folio">' + escapar(a.fecha_txt) + '</span>' : '<span class="parcial">' + ICONO_PARCIAL + 'Fecha por confirmar</span>';
+        var titulo = '<div><h3>' + escapar(a.titulo) + '</h3>' + (a.nota ? '<p class="nota">' + a.nota + '</p>' : '') + '</div>';
+        if (!fotos.length) return '<div class="bit-fila"><div class="bit-cab">' + fecha + titulo + '<span></span></div></div>';
+        return '<details class="bit-fila"><summary class="bit-cab">' + fecha + titulo + '<span class="abre" aria-hidden="true"></span></summary>' +
+          '<div class="bit-fotos">' + fotos.map(function (f) { return '<figure class="album-foto">' + fotoHTML(f) + '</figure>'; }).join('') + '</div></details>';
+      }).join('') + '</div>';
+    }).catch(function () { vacio(el, 'No pudimos cargar la bitácora. Vuelve a intentarlo más tarde.'); });
+  }
+
+  // Dona: el regreso de la luz nace donde se tocó. Se guarda el punto del clic en un enlace interno.
+  (function origenTransicion() {
+    try {
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href]');
+        if (!a || a.target === '_blank') return;
+        sessionStorage.setItem('umbrhalia.vt', Math.round(100 * e.clientX / innerWidth) + '% ' + Math.round(100 * e.clientY / innerHeight) + '%');
+      }, true);
+      var o = sessionStorage.getItem('umbrhalia.vt');
+      if (o && document.documentElement.getAttribute('data-transicion') === 'regreso') {
+        var p = o.split(' ');
+        document.documentElement.style.setProperty('--vt-x', p[0]);
+        document.documentElement.style.setProperty('--vt-y', p[1]);
+      }
+    } catch (err) { /* sin sessionStorage: el recorte nace arriba al centro */ }
+  })();
+
   function escapar(s) {
     return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; });
   }
@@ -156,6 +310,7 @@ var U = (function () {
     ROOT: ROOT, TESTIGOS: TESTIGOS, PALABRAS_TESTIGOS: PALABRAS_TESTIGOS,
     eclipses: eclipses, proximos: proximos, fecha: fecha, fechaCorta: fechaCorta, duracion: duracion, diasHasta: diasHasta,
     leer: leer, guardar: guardar, mapaBase: mapaBase, estiloFranja: estiloFranja, capaTestigos: capaTestigos,
-    marcaPalabra: marcaPalabra, escapar: escapar, puntoEnFranja: puntoEnFranja, transiciones: transiciones, ampliable: ampliable
+    marcaPalabra: marcaPalabra, escapar: escapar, puntoEnFranja: puntoEnFranja, transiciones: transiciones, ampliable: ampliable,
+    pestanas: pestanas, unoEnUno: unoEnUno, album: album, secuencia: secuencia, bitacora: bitacora, sinMovimiento: sinMovimiento
   };
 })();
