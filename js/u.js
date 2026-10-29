@@ -22,7 +22,7 @@ var U = (function () {
 
   // Primeros testigos: registros históricos con su fuente.
   var TESTIGOS = [
-    { lat: 18.804, lng: -99.296, ano: '664', lugar: 'Xochicalco, Morelos',
+    { lat: 18.804, lng: -99.296, ano: 's. VII–VIII', ano_en: '7th–8th c.', lugar: 'Xochicalco, Morelos',
       texto: 'En el friso de la Pirámide de las Serpientes Emplumadas, una quijada muerde un disco solar. Se interpreta como un eclipse; qué eclipse es sigue en debate (el INAH propone uno total en 743).',
       fuente: 'Registro arqueológico; INAH, Zona Arqueológica de Xochicalco.',
       texto_en: 'On the frieze of the Pyramid of the Feathered Serpents, a jaw bites a solar disc. It is read as an eclipse; which one is still debated (INAH proposes a total eclipse in 743).',
@@ -146,8 +146,8 @@ var U = (function () {
   function capaTestigos(map) {
     var icono = L.divIcon({ className: '', html: '<div class="testigo-marca"></div>', iconSize: [14, 14] });
     TESTIGOS.forEach(function (t) {
-      L.marker([t.lat, t.lng], { icon: icono, title: campo(t, 'lugar') + ', ' + t.ano })
-        .bindPopup('<strong>' + t.ano + ' · ' + campo(t, 'lugar') + '</strong><br>' + campo(t, 'texto') + '<br><span style="color:#9a9aa2">' + campo(t, 'fuente') + '</span>')
+      L.marker([t.lat, t.lng], { icon: icono, title: campo(t, 'lugar') + ', ' + campo(t, 'ano') })
+        .bindPopup('<strong>' + campo(t, 'ano') + ' · ' + campo(t, 'lugar') + '</strong><br>' + campo(t, 'texto') + '<br><span style="color:#9a9aa2">' + campo(t, 'fuente') + '</span>')
         .addTo(map);
     });
   }
