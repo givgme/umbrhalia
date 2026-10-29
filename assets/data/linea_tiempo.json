@@ -41,8 +41,8 @@
   "tipo_texto": "Registro",
   "region": "México",
   "nombre": "Xochicalco",
-  "aproximado": false,
-  "descripcion": "En el friso de la Pirámide de las Serpientes Emplumadas, una quijada muerde un disco solar. La reconstrucción sitúa un eclipse el 1 de mayo de 664 (juliano) muy cerca del sitio."
+  "aproximado": true,
+  "descripcion": "En el friso de la Pirámide de las Serpientes Emplumadas, una quijada muerde un disco solar. Se interpreta como un eclipse; qué eclipse es sigue en debate (aquí, 664; el INAH propone uno total en 743)."
  },
  {
   "anio": 837,
