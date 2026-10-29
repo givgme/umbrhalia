@@ -254,6 +254,7 @@ table.simple th { font-weight: 400; color: var(--gris); font-size: 12px; letter-
 .pie { border-top: 1px solid var(--linea); padding: 36px 0 48px; font-size: var(--t-nota); color: var(--gris); }
 .pie a { color: var(--gris); }
 .pie .contacto a { color: var(--blanco); }
+.pie .contacto span { white-space: nowrap; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
