@@ -36,8 +36,9 @@
     if (i >= 0 && i < ruta.length - 1) ir(ruta[i + 1]);
   }
   function pintarProgreso(id) {
-    var ruta = RUTA[estado.visto] || RUTA.total;
-    var i = ruta.indexOf(id);
+    // Un segmento por pregunta («Paso 1 de 6»…): la pantalla final (7) no cuenta como paso y la marca completa.
+    var ruta = (RUTA[estado.visto] || RUTA.total).filter(function (p) { return p !== '7'; });
+    var i = id === '7' ? ruta.length : ruta.indexOf(id);
     $('progreso').innerHTML = ruta.map(function (_, k) {
       return '<span class="' + (k < i ? 'hecho' : k === i ? 'actual' : '') + '"></span>';
     }).join('');
@@ -139,7 +140,7 @@
   $('sig4').addEventListener('click', siguiente);
 
   // 6 · Consentimiento
-  $('ok-archivo').addEventListener('change', function () { $('sig6').disabled = !this.checked; });
+  $('ok-archivo').addEventListener('change', function () { $('sig6').disabled = !this.checked; $('falta-permiso').hidden = this.checked; });
   $('sig6').addEventListener('click', function () {
     estado.palabra = $('palabra').value.trim().toLowerCase();
     estado.relato = $('relato').value.trim();

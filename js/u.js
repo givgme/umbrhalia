@@ -115,6 +115,11 @@ var U = (function () {
   function ampliable(map) {
     var el = map.getContainer();
     if (el.querySelector('.mapa-ampliar')) return;
+    // Los botones de zoom de Leaflet vienen en inglés: se nombran en la lengua de la página.
+    [['.leaflet-control-zoom-in', tr('Acercar', 'Zoom in')], ['.leaflet-control-zoom-out', tr('Alejar', 'Zoom out')]].forEach(function (z) {
+      var a = el.querySelector(z[0]);
+      if (a) { a.title = z[1]; a.setAttribute('aria-label', z[1]); }
+    });
     var b = document.createElement('button');
     b.type = 'button';
     b.className = 'mapa-ampliar';
@@ -345,8 +350,8 @@ var U = (function () {
     nav.className = 'idiomas';
     nav.setAttribute('aria-label', tr('Idioma', 'Language'));
     nav.innerHTML =
-      '<a href="' + es + '" lang="es" hreflang="es"' + (LANG === 'es' ? ' aria-current="true"' : '') + '>ES</a>' +
-      '<a href="' + en + '" lang="en" hreflang="en"' + (LANG === 'en' ? ' aria-current="true"' : '') + '>EN</a>' +
+      '<a href="' + es + '" lang="es" hreflang="es" aria-label="Español"' + (LANG === 'es' ? ' aria-current="true"' : '') + '>ES</a>' +
+      '<a href="' + en + '" lang="en" hreflang="en" aria-label="English"' + (LANG === 'en' ? ' aria-current="true"' : '') + '>EN</a>' +
       '<span class="pronto" lang="nah" title="' + tr('Náhuatl de la Huasteca: en traducción', 'Huasteca Nahuatl: translation in progress') + '">' + ICONO_PARCIAL + 'Nāhuatl<span class="visually-hidden"> (' + tr('en traducción', 'translation in progress') + ')</span></span>';
     barra.appendChild(nav);
     if (LANG === 'es' && rel && window.fetch) {
