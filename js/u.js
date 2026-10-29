@@ -341,6 +341,11 @@ var U = (function () {
     var rel = location.pathname.indexOf(raiz) === 0 ? location.pathname.slice(raiz.length) : '';
     rel = rel.replace(/index\.html$/, '').replace(/^en\//, '').replace(/^en$/, '');
     var es = raiz + rel, en = raiz + 'en/' + rel;
+    // Si la página declara sus versiones (<link rel="alternate" hreflang>), mandan esas rutas
+    // (por ejemplo /privacidad/ ↔ /en/privacy/).
+    var alt = function (l) { var a = document.querySelector('link[rel="alternate"][hreflang="' + l + '"]'); return a && new URL(a.href).pathname; };
+    var conAlt = !!alt('en');
+    es = alt('es') || es; en = alt('en') || en;
     var nav = document.createElement('nav');
     nav.className = 'idiomas';
     nav.setAttribute('aria-label', tr('Idioma', 'Language'));
@@ -349,7 +354,7 @@ var U = (function () {
       '<a href="' + en + '" lang="en" hreflang="en"' + (LANG === 'en' ? ' aria-current="true"' : '') + '>EN</a>' +
       '<span class="pronto" lang="nah" title="' + tr('Náhuatl de la Huasteca: en traducción', 'Huasteca Nahuatl: translation in progress') + '">' + ICONO_PARCIAL + 'Nāhuatl<span class="visually-hidden"> (' + tr('en traducción', 'translation in progress') + ')</span></span>';
     barra.appendChild(nav);
-    if (LANG === 'es' && rel && window.fetch) {
+    if (LANG === 'es' && rel && !conAlt && window.fetch) {
       fetch(en, { method: 'HEAD' }).then(function (r) { if (!r.ok) nav.children[1].href = raiz + 'en/'; })
         .catch(function () { nav.children[1].href = raiz + 'en/'; });
     }
