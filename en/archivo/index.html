@@ -35,7 +35,7 @@
     <p class="rotulo">Remember</p>
     <h1>The archive of the shadow</h1>
     <p style="font-size:22px;font-weight:200;line-height:1.4">Living memory and a participatory archive of witnesses.</p>
-    <p>Each band is the path of totality of a total solar eclipse between 1900 and 2100. Here will remain the words of those who were there. For now, the first witnesses speak, with their sources.</p>
+    <p>Each band is the path of totality of a total solar eclipse between 1900 and 2100. This is where the words of those who were there will stay. For now, the first witnesses speak, with their sources.</p>
     <div class="acciones"><a class="boton lleno" href="dejar/">Leave your word</a><a class="boton" href="../../artqueologia/">ARTqueología del Cielo</a></div>
   </div>
 </section>
@@ -46,17 +46,17 @@
     <span><i style="background:#DA291C"></i>Chosen eclipse</span>
     <span><i style="background:#0b0b0f;border:2px solid #ececee;border-radius:50%;width:10px;height:10px"></i>First witnesses</span>
   </div>
-  <p class="chico tenue" style="margin-top:14px">Trajectories: Michael Zeiler, based on calculations by Xavier Jubier. Outlines: world.geo.json. Tap a band to see its date and duration.</p>
+  <p class="chico tenue" style="margin-top:14px">Eclipse paths: Michael Zeiler, based on calculations by Xavier Jubier. Base map: world.geo.json. Tap a band to see its date and duration.</p>
 </div>
 <section>
   <div class="wrap">
     <p class="rotulo">First witnesses</p>
     <div id="testigos"></div>
-    <p class="aviso-proto">Prototype looking for funding: when we get it, the testimonies of everyone will appear here, after moderation. Today you only see your own, if you left it in this browser.</p>
+    <p class="aviso-proto">This prototype is seeking funding. Once funded, everyone's testimonies will appear here after moderation. For now you can see only your own, if you left it in this browser.</p>
   </div>
 </section>
 </main>
-<footer class="pie"><div class="wrap"><p>Umbrhalia by LFAE · a project by Gabriela Isabel Vera Garfias. © 2026. All rights reserved.</p><p>Prototype in development. We count visits anonymously, without cookies. <a href="../../en/privacy/">Privacy</a></p><p class="contacto"><span>Contact: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></span> · <span>LFAE: <a href="mailto:lfae.physicart@gmail.com">lfae.physicart@gmail.com</a></span></p></div></footer>
+<footer class="pie"><div class="wrap"><p>Umbrhalia by LFAE · a project by Gabriela Isabel Vera Garfias. © 2026. All rights reserved.</p><p>Prototype · work in progress. We count visits anonymously, without cookies. <a href="../../en/privacy/">Privacy</a></p><p class="contacto"><span>Contact: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></span> · <span>LFAE: <a href="mailto:lfae.physicart@gmail.com">lfae.physicart@gmail.com</a></span></p></div></footer>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="../../js/u.js"></script>
 <script>
@@ -70,7 +70,7 @@
       style: function (f) { return U.estiloFranja(f.properties.date === elegido); },
       onEachFeature: function (f, l) {
         var p = f.properties;
-        l.bindPopup('<strong>' + U.fecha(p.date) + '</strong><br>Totality: up to ' + U.duracion(p.duration_s) + '<br>Width of the band: ' + p.path_width_km + ' km<br><a href="dejar/">Were you there?</a>');
+        l.bindPopup('<strong>' + U.fecha(p.date) + '</strong><br>Totality: up to ' + U.duracion(p.duration_s) + '<br>Path width: ' + p.path_width_km + ' km<br><a href="dejar/">Were you there?</a>');
       }
     }).addTo(map);
     if (elegido) {

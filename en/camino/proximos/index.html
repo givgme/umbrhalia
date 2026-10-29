@@ -46,15 +46,15 @@
     <p class="rotulo"><a href="../" style="color:inherit">Path</a> · Upcoming</p>
     <h1>Total eclipses from 2026 to 2126</h1>
     <p>Each band is the path of totality of a total or hybrid solar eclipse in the next hundred years. The next window is <strong>2 August 2027</strong>. Three bands cross Mexico: 2052, 2071 and 2078.</p>
-    <p class="nota">Only inside the band, and only during totality, can you look without a filter. Before and after, never. <a href="../#mirar">How to watch</a>.</p>
+    <p class="nota">Only during totality, and only inside the path of totality, is it safe to look without a filter. Before and after, never. <a href="../#mirar">How to watch</a>.</p>
   </div>
 </section>
 <div class="mapa" id="mapa" role="region" aria-label="Map of the totality bands from 2026 to 2126. The same information is in the list below."></div>
 <div class="wrap">
   <div class="leyenda">
-    <span><i style="background:#DA291C"></i>Chosen band (on opening: 2 Aug 2027)</span>
+    <span><i style="background:#DA291C"></i>Selected path (default: 2 Aug 2027)</span>
     <span><i class="borde"></i>Crosses Mexico</span>
-    <span><i style="background:#ececee;opacity:.4"></i>Other total and hybrid (hybrids with a dotted border)</span>
+    <span><i style="background:#ececee;opacity:.4"></i>Other total and hybrid eclipses (hybrids dotted)</span>
   </div>
   <p class="chico tenue" style="margin-top:14px" id="estado" aria-live="polite">Loading the bands…</p>
 </div>
@@ -69,7 +69,7 @@
       <div><label for="decada">Decade</label><select id="decada"><option value="">All</option></select></div>
     </div>
     <table class="eclipses" id="tabla">
-      <caption>Maximum duration: the totality at the point of maximum eclipse, according to NASA; it is not the duration at every place.</caption>
+      <caption>Maximum duration: the totality at the greatest eclipse, according to NASA; it is not the duration everywhere along the path.</caption>
       <thead><tr><th scope="col">Date</th><th scope="col">Type</th><th scope="col">Max. duration</th><th scope="col">Countries or places</th></tr></thead>
     </table>
     <p class="chico tenue" id="vacio" hidden>No eclipses match this filter.</p>
@@ -84,17 +84,17 @@
 
 <section aria-labelledby="t-metodo">
   <div class="wrap">
-    <p class="rotulo">Nota de método</p>
+    <p class="rotulo">Method note</p>
     <h2 id="t-metodo" style="font-size:26px">Where these bands come from</h2>
     <p class="chico">The calculation is our own, made in Wolfram Language with JPL DE440 ephemerides: dates, type, duration, saros and the polygon of each band. It was checked eclipse by eclipse against the NASA/GSFC catalogue (Espenak and Meeus, <em>Five Millennium Canon of Solar Eclipses</em>): from 2026 to 2126 the 151 central eclipses match in date, type and saros. Countries and places: intersection of each band with Natural Earth.</p>
-    <p class="chico">The duration shown is NASA's. Our own calculation gives totalities a few seconds longer, because of the lunar radius each source uses. <span id="nota-asterisco">With an asterisk, the figure from our own calculation, when NASA gives no duration.</span></p>
+    <p class="chico">The duration shown is NASA's. Our own calculation gives totalities a few seconds longer, because of the lunar radius each source uses. <span id="nota-asterisco">An asterisk marks our own figure where NASA gives no duration.</span></p>
     <p class="chico">After ~2060, the time and east-west position of each band are uncertain: they depend on ΔT, the difference between atomic clock time and the time set by the Earth's rotation, which cannot be predicted decades in advance. One minute of ΔT shifts the band ~0.25° in longitude. On a world map this changes nothing; to decide whether a city on the edge falls inside, it does.</p>
     <p class="chico">For hybrids, countries and places are only those of the total stretch. For the detail on Mexico (local durations, band edges) there is a separate calculation of our own.</p>
-    <p class="chico tenue">Calculation of 27 October 2026. Outlines: world.geo.json.</p>
+    <p class="chico tenue">Calculation of 27 October 2026. Base map: world.geo.json.</p>
   </div>
 </section>
 </main>
-<footer class="pie"><div class="wrap"><p>Umbrhalia by LFAE · a project by Gabriela Isabel Vera Garfias. © 2026. All rights reserved.</p><p>Prototype in development. We count visits anonymously, without cookies. <a href="../../../en/privacy/">Privacy</a></p><p class="contacto"><span>Contact: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></span> · <span>LFAE: <a href="mailto:lfae.physicart@gmail.com">lfae.physicart@gmail.com</a></span></p></div></footer>
+<footer class="pie"><div class="wrap"><p>Umbrhalia by LFAE · a project by Gabriela Isabel Vera Garfias. © 2026. All rights reserved.</p><p>Prototype · work in progress. We count visits anonymously, without cookies. <a href="../../../en/privacy/">Privacy</a></p><p class="contacto"><span>Contact: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></span> · <span>LFAE: <a href="mailto:lfae.physicart@gmail.com">lfae.physicart@gmail.com</a></span></p></div></footer>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="../../../js/nombres-en.js"></script>
 <script src="../../../js/u.js"></script>
@@ -132,10 +132,10 @@
       var lista = p.paises.slice(0, 8).map(U.nombre).join(', ');
       return lista + (p.paises.length > 8 ? ' and ' + (p.paises.length - 8) + ' more' : '');
     }
-    return 'No dry land: ' + (p.oceanos || []).map(U.nombre).join(', ');
+    return 'Over ocean only: ' + (p.oceanos || []).map(U.nombre).join(', ');
   }
   function popup(p) {
-    return '<strong>' + U.fecha(p.id) + '</strong><br>' + U.nombre(p.tipo).replace(/^./, function (c) { return c.toUpperCase(); }) + ' eclipse. Up to ' + dur(p) + ' at the point of maximum eclipse.<br>' + U.escapar(paises(p));
+    return '<strong>' + U.fecha(p.id) + '</strong><br>' + U.nombre(p.tipo).replace(/^./, function (c) { return c.toUpperCase(); }) + ' eclipse. Up to ' + dur(p) + ' at the greatest eclipse.<br>' + U.escapar(paises(p));
   }
 
   function elegir(id, mover) {
@@ -153,7 +153,7 @@
       if (mover) {
         map.fitBounds(capas[id].getBounds(), { maxZoom: 4, padding: [20, 20] });
         var m = document.getElementById('mapa');
-        if (m.getBoundingClientRect().top < 0 || m.getBoundingClientRect().bottom > innerHeight) m.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+        if (m.getBoundingClientRect().top < 0 || m.getBoundingClientRect().bottom > innerHeight) m.scrollIntoView({ behaviour: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
       }
       estado.textContent = 'On the map: ' + U.fecha(id) + ', ' + U.nombre(datos[id].tipo) + ' eclipse. Up to ' + dur(datos[id]).replace(/ /g, ' ') + '. ' + paises(datos[id]) + '.';
       try { history.replaceState(null, '', '?eclipse=' + id + location.hash); } catch (e) {}
