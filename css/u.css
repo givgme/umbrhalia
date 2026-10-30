@@ -946,3 +946,17 @@ main.interior ~ .pie .wrap { max-width: 1040px; }
 .ex-mono { background: #000; padding-block: 96px; }
 .ex-mono-video { display: block; width: min(92vw, 640px); aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 30%; margin: 40px auto 24px; }
 .ex-mono .nota { max-width: 40em; }
+
+/* Dona y comparte luz, una sola pieza (29 oct 2026): las cuatro pestañas comparten diseño; fotos al final. */
+.dona-pestanas [role="tab"] { font-size: var(--t-entradilla); font-weight: 300; }
+.dona-pestanas > [role="tabpanel"] { padding-top: 40px; }
+.dona-h { font-size: var(--t-seccion); margin: 0 0 16px; }
+.dona-pestanas .dos { margin-top: 0; }
+.dona-fotos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 32px 0 24px; }
+@media (min-width: 900px) { .dona-fotos { grid-template-columns: repeat(4, 1fr); } }
+.dona-fotos figure { margin: 0; }
+.dona-fotos img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.dona-fotos figcaption { display: grid; gap: 2px; margin-top: 8px; font-size: var(--t-nota); }
+.dona-fotos figcaption .folio { color: var(--gris); }
+.dona-pestanas [role="tablist"] { flex-wrap: wrap; overflow: visible; }
+@media (max-width: 600px) { .dona-pestanas [role="tab"] { font-size: var(--t-texto); padding-right: 20px; } }
