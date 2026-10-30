@@ -146,7 +146,7 @@ var U = (function () {
   function estiloFranja(activa) {
     return activa
       ? { color: '#DA291C', weight: 1.6, fillColor: '#DA291C', fillOpacity: 0.45, opacity: 1 }
-      : { color: '#ececee', weight: 0.5, fillColor: '#ececee', fillOpacity: 0.035, opacity: 0.22 };
+      : { color: '#ececee', weight: 0.5, fillColor: '#ececee', fillOpacity: 0.035, opacity: 0.4 };
   }
   function capaTestigos(map) {
     var icono = L.divIcon({ className: '', html: '<div class="testigo-marca"></div>', iconSize: [14, 14] });
