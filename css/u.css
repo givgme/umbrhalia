@@ -989,3 +989,9 @@ main.interior ~ .pie .wrap { max-width: 1040px; }
 .comp-circulo figcaption { text-align: center; }
 .comp-arco { margin: 40px 0 8px; }
 .comp-fila { margin: 32px 0 40px; }
+.comp-anillo-sec { padding-block: 24px 56px; }
+.comp-anillo { width: min(92vw, 560px); margin: 0 auto; }
+.comp-anillo-caja { position: relative; }
+.comp-anillo-boton { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); white-space: nowrap; }
+.comp-anillo figcaption { text-align: center; }
+@media (max-width: 480px) { .comp-anillo-boton { padding: 12px 16px; font-size: 15px; } }
