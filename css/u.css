@@ -926,6 +926,12 @@ main.interior ~ .pie .wrap { max-width: 1040px; }
 /* Formalidad editorial (decisión de Gabriela, 29 oct 2026): los textos largos van justificados, con partición
    silábica en la lengua de la página (atributo lang) para que no se abran ríos en columnas angostas.
    Las frases destacadas, títulos, notas y cédulas cortas siguen en bandera. */
-.cuento p, .lectura p, .ex-cronica p, .aq-item-x {
+.cuento p, .lectura p, p.lectura, .ex-cronica p, .aq-item-x {
   text-align: justify; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 7 3 3; text-wrap: pretty;
 }
+
+/* Dona y comparte luz · Prensa e instituciones */
+.prensa-datos { display: grid; gap: 14px 32px; margin: 28px 0; max-width: 44em; }
+@media (min-width: 700px) { .prensa-datos { grid-template-columns: 1fr 1fr; } }
+.prensa-datos dt { font-size: var(--t-versalita); letter-spacing: .16em; text-transform: uppercase; color: var(--gris-osc); margin: 0 0 4px; }
+.prensa-datos dd { margin: 0; font-size: var(--t-texto); font-weight: 300; }
