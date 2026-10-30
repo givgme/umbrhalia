@@ -41,64 +41,26 @@
   </div>
 </header>
 <main id="contenido" class="dona interior">
-<!-- Give and share light (29 Oct 2026): merges the former Give and Share. Order: the entry, the proof (logbook with photos), the donation, the collaborations and commissions, sharing and contact. Keep in sync with web/dona/index.html. -->
-
-<!-- 1 · Entry: one sentence and three paths -->
+<!-- Give and share light (29 Oct 2026, second version): one piece. The four ways to support are tabs with the same design; the text is shorter and four representative photos close the page. Keep in sync with web/dona/index.html. -->
 <section aria-labelledby="t-entrada">
   <div class="wrap">
     <p class="rotulo">Umbrhalia by LFAE</p>
     <h1 id="t-entrada">Give and share light</h1>
     <p class="entrada">Everything rests on the same thing: bringing the eclipse to those who cannot travel to the shadow.</p>
-    <div class="acciones"><a class="boton lleno" href="#niveles">Give</a><a class="boton" href="#colaboraciones">Collaborate or hire us</a><a class="boton" href="#comparte">Share</a><a class="boton" href="#prensa">Press</a></div>
-  </div>
-</section>
 
-<!-- 2 · White mass: the proof before the ask. Logbook, activity by activity, with photos. -->
-<section class="masa" id="bitacora" aria-labelledby="t-hicimos">
-  <div class="wrap">
-    <p class="rotulo">With your support</p>
-    <h2 id="t-hicimos">What we have already done</h2>
-    <p class="lectura">The LFAE has existed since 2021 and takes the science of the sky to schools, museums and squares. Open each activity to see its photos.</p>
-    <div id="bitacora-lista"><p class="nota">Loading the logbook…</p></div>
-    <p class="nota album-credito"><a href="../cazadores/#album">See the full album of the expedition to Ojuela</a></p>
-  </div>
-</section>
+    <div class="pestanas texto dona-pestanas" id="pestanas-dona">
+      <div role="tablist" aria-label="How to support">
+        <button type="button" role="tab" id="tab-dona" aria-controls="niveles" aria-selected="true">Give</button>
+        <button type="button" role="tab" id="tab-colaboraciones" aria-controls="colaboraciones" aria-selected="false">Collaborate or hire us</button>
+        <button type="button" role="tab" id="tab-comparte" aria-controls="comparte-panel" aria-selected="false">Share</button>
+        <button type="button" role="tab" id="tab-prensa" aria-controls="prensa" aria-selected="false">Press</button>
+      </div>
 
-<!-- 3 · What we do with your donation: three in view, three in a fold -->
-<section aria-labelledby="t-que">
-  <div class="wrap">
-    <p class="rotulo">What we do with your donation</p>
-    <h2 id="t-que">A total eclipse lasts a few minutes</h2>
-    <p class="lectura">What surrounds it takes months: bringing the sky to those who cannot travel to the shadow, and keeping what people feel when the light goes.</p>
-    <div class="cols3">
-      <div><h3>Workshops in public schools</h3><p class="gris">Each workshop goes through four moments: understanding, sensing, recognising the history and answering.</p></div>
-      <div><h3>The installation</h3><p class="gris">A room where the light dims, the sound changes and stars appear at noon.</p></div>
-      <div><h3>The eclipse of 2 August 2027</h3><p class="gris">Travelling to the band of totality to document it and gather testimonies.</p></div>
-    </div>
-    <div class="capas">
-      <details class="capa">
-        <summary>The other three destinations of your donation</summary>
-        <div class="capa-cuerpo">
-          <h3>Telescope observation</h3>
-          <p class="gris">Watching the Sun with a filter, or the Moon at night, with someone who explains what you're seeing.</p>
-          <h3>Tactile and accessible material</h3>
-          <p class="gris">Reliefs of the phases of the eclipse and pieces you can listen to, so that no one is left out because they cannot see.</p>
-          <h3>Ohr's sound stories</h3>
-          <p class="gris">Recording and producing Ohr's voice so that each story can be heard in full, without depending on the images.</p>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- 4 · Levels: tabs by phase, one panel -->
-<section id="niveles" aria-labelledby="t-como">
-  <div class="wrap">
-    <p class="rotulo">How to support</p>
-    <h2 id="t-como">From penumbra to umbra</h2>
-    <p class="nota">The levels follow the phases of an eclipse, from partial shadow to totality. Suggested amounts, in Mexican pesos.</p>
-    <p>While we open payments, write to us: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></p>
-    <div class="pestanas rejilla" id="pestanas-niveles">
+      <div role="tabpanel" id="niveles" aria-labelledby="tab-dona" tabindex="0">
+        <h2 class="dona-h">From penumbra to umbra</h2>
+        <p class="lectura">Your donation takes workshops to public schools, builds the installation and takes us to the band of the total eclipse of 2 August 2027. The levels follow the phases of an eclipse; suggested amounts, in Mexican pesos.</p>
+        <p>While we open payments, write to us: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></p>
+        <div class="pestanas rejilla" id="pestanas-niveles">
       <div role="tablist" aria-label="Support levels">
         <button type="button" role="tab" id="tab-penumbra" aria-controls="nivel-penumbra" aria-selected="true"><svg class="fase-icono" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="18" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="36" cy="22" r="18" fill="#0b0b0f"/><circle class="protu" cx="22" cy="4" r="3" fill="#DA291C"/></svg>Penumbra<span class="tab-sub">150 MXN</span></button>
         <button type="button" role="tab" id="tab-contacto" aria-controls="nivel-contacto" aria-selected="false"><svg class="fase-icono" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="18" fill="currentColor"/><circle cx="42" cy="22" r="18" fill="#0b0b0f"/><circle class="protu" cx="22" cy="4" r="3" fill="#DA291C"/></svg>First contact<span class="tab-sub">300 MXN</span></button>
@@ -145,26 +107,11 @@
       </div>
     </div>
     <p class="nota" style="margin-top:32px">Credit is published only if you authorise it, with your name, a pseudonym, or anonymously.</p>
-  </div>
-</section>
-
-<!-- 5 · Collaborations and commissions: tabs Institutions / Collaborate / The project -->
-<section id="colaboraciones" aria-labelledby="t-colaboraciones">
-  <div class="wrap">
-    <p class="rotulo">Collaborations and commissions</p>
-    <h2 id="t-colaboraciones">Bring Umbrhalia to your space</h2>
-    <p class="lectura">We bring Umbrhalia's activations and transmedia products to museums, schools, festivals and institutions. Commissions fund the growth of the project.</p>
-    <div class="pestanas texto" id="pestanas-compartir">
-      <div role="tablist" aria-label="Who for">
-        <button type="button" role="tab" id="tab-inst" aria-controls="instituciones" aria-selected="true">Institutions</button>
-        <button type="button" role="tab" id="tab-colabora" aria-controls="colaborar" aria-selected="false">Collaborate</button>
-        <button type="button" role="tab" id="tab-proyecto" aria-controls="el-proyecto" aria-selected="false">The project</button>
       </div>
 
-      <div role="tabpanel" id="instituciones" aria-labelledby="tab-inst" tabindex="0">
-        <p class="rotulo" id="patrocinio">Institutional sponsorship</p>
-        <h2 id="t-patrocinio">Three ways to sustain a window</h2>
-        <p class="lectura">For companies, museums, planetariums, universities and public agencies. Amounts are agreed case by case, and any support can be given in kind: printing, equipment, a venue or transport.</p>
+      <div role="tabpanel" id="colaboraciones" aria-labelledby="tab-colaboraciones" tabindex="0">
+        <h2 class="dona-h" id="instituciones">Bring Umbrhalia to your space</h2>
+        <p class="lectura" id="patrocinio">We bring Umbrhalia's activations to museums, schools, festivals and institutions. Amounts are agreed case by case, and support can also be in kind: printing, equipment, a venue or transport.</p>
         <div class="cols3">
           <div><p class="folio">Contact</p><h3>One component</h3><p class="gris">A set of glasses for workshops, the light sonifier, the tactile kit or the shadow observatory.</p><p class="nota">Named acknowledgement and a report with photos of where the support was used.</p></div>
           <div><p class="folio">Totality</p><h3>One cycle</h3><p class="gris">A cycle of workshops or the prototype of the installation at your venue.</p><p class="nota">“With the support of” credit on the pieces of the cycle and an activity for your community.</p></div>
@@ -182,56 +129,14 @@
             </div>
           </details>
         </div>
-        <p class="aviso-proto">Proposal under review. Write to us and we will build it with your institution: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></p>
+
+        <p class="lectura" id="colabora">We are also looking for collaborators in art (illustration, sound, animation), science and memory (astronomy, history, translation), production (documentary, web, accessibility) and allied spaces. Each collaboration is credited.</p>
+        <div class="acciones"><a class="boton lleno" href="mailto:umbrhalia@gmail.com?subject=Collaboration%20%C2%B7%20Umbrhalia">Write to us</a></div>
       </div>
 
-      <div role="tabpanel" id="colaborar" aria-labelledby="tab-colabora" tabindex="0">
-        <p class="rotulo" id="colabora">Collaborate</p>
-        <h2>We are looking for people who watch the sky with other tools</h2>
-        <p class="lectura">Umbrhalia grows with each eclipse and with each person who joins. We are looking for collaboration in:</p>
-        <div class="cols4">
-          <div><h3>Art</h3><ul class="lista-puntos"><li>Illustration and printmaking</li><li>Sound, music and voice</li><li>Animation</li></ul></div>
-          <div><h3>Science and memory</h3><ul class="lista-puntos"><li>Astronomy and eclipse calculation</li><li>History, archive and heritage</li><li>Translation</li></ul></div>
-          <div><h3>Production</h3><ul class="lista-puntos"><li>Documentary and audiovisual recording</li><li>Web development and interaction</li><li>Accessibility: audio description, sign language, tactile materials</li></ul></div>
-          <div><h3>Spaces and allies</h3><ul class="lista-puntos"><li>Museums, festivals and schools that host the installation and the workshops</li><li>Communities in the bands of 2027, 2028 and 2030</li><li>Co-producers and funders</li></ul></div>
-        </div>
-        <p class="lectura" style="margin-top:32px">Each collaboration is credited on the pieces and on this site, and each person keeps authorship of what they create.</p>
-      </div>
-
-      <div role="tabpanel" id="el-proyecto" aria-labelledby="tab-proyecto" tabindex="0">
-        <p class="rotulo">What Umbrhalia is</p>
-        <h2 id="t-que-es">A transmedia narrative universe to preserve what solar eclipses leave in people's memory</h2>
-        <blockquote class="cita">Ohr can make contact with us only in the few minutes when the Moon fully covers the Sun. Each person who lives an eclipse and tells it keeps that window open before it closes for good.</blockquote>
-        <h3>How do you keep an experience that lasts minutes and marks a life?</h3>
-        <p class="lectura">Eclipses of the coming decades are predicted to the second. What people feel in front of them stays in no archive, and outreach usually explains the phenomenon and leaves the experience out.</p>
-        <div class="capas">
-          <details class="capa" name="proyecto">
-            <summary>One project, four values</summary>
-            <div class="capa-cuerpo">
-              <h3>Scientific</h3><p class="gris">Calculated paths, safe observation and the mechanics of the sky, told rigorously.</p>
-              <h3>Historical</h3><p class="gris">More than a thousand years of records, from codices to chronicles, connected with today's testimonies.</p>
-              <h3>Social</h3><p class="gris">An open, accessible archive where anyone is a co-author.</p>
-              <h3>Cultural</h3><p class="gris">Art, narrative and collective memory around a phenomenon that many cultures have named and recorded.</p>
-            </div>
-          </details>
-          <details class="capa" name="proyecto" id="itinerancia">
-            <summary>Travelling: the project follows the shadow</summary>
-            <div class="capa-cuerpo">
-              <table class="simple"><thead><tr><th>Total eclipse</th><th>Activation</th></tr></thead><tbody id="itinerario"><tr><td colspan="2" class="nota">Loading the dates…</td></tr></tbody></table>
-              <p class="nota" style="margin-top:10px">Dates taken from the set of paths on the map. In years without a nearby eclipse, the installation and the workshops do not depend on the sky.</p>
-            </div>
-          </details>
-        </div>
-        <blockquote class="cita">The Moon is leaving. Slowly, a few centimetres a year, but it is leaving. While it still covers the Sun, every eclipse is a window. Umbrhalia is a way of keeping it open.</blockquote>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 6 · Share and glasses, in two columns. The safety notice is never folded. -->
-<section aria-label="Share light and Umbrhalia glasses">
-  <div class="wrap dos">
-    <div id="comparte">
+      <div role="tabpanel" id="comparte-panel" aria-labelledby="tab-comparte" tabindex="0">
+        <div class="dos">
+          <div id="comparte">
       <p class="rotulo">Share light</p>
       <h2 id="t-comparte">Pass the window on to someone else</h2>
       <p>Sharing the site also sustains the project: each person who arrives can leave their word in the archive.</p>
@@ -264,50 +169,45 @@
         <p class="chico"><a href="../camino/#mirar">When and how to watch an eclipse</a></p>
       </aside>
     </div>
-  </div>
-</section>
+        </div>
+      </div>
 
-<!-- Press and institutions (29 Oct 2026). Keep in sync with web/dona/index.html. -->
-<section class="masa" id="prensa" aria-labelledby="t-prensa">
-  <div class="wrap">
-    <p class="rotulo">Press and institutions</p>
-    <h2 id="t-prensa">Umbrhalia in one paragraph</h2>
-    <p class="lectura">Umbrhalia by LFAE is a transmedia project of art and science about total solar eclipses and the memory of those who live them. It brings together Ohr's stories, a guide to watching the sky safely, a digital museum of the eclipse in art and history, a participatory archive of testimonies, outreach workshops and an immersive installation. It is produced by the Laboratory of Physics, Art and Existence (LFAE), active since 2021, on the way to the total eclipse of 2 August 2027.</p>
-    <dl class="prensa-datos">
+      <div role="tabpanel" id="prensa" aria-labelledby="tab-prensa" tabindex="0">
+        <h2 class="dona-h">Umbrhalia in one paragraph</h2>
+        <p class="lectura">Umbrhalia by LFAE is a transmedia project of art and science about total solar eclipses and the memory of those who live them: Ohr's stories, a guide to watching the sky safely, a digital museum, a participatory archive, workshops and an immersive installation. It is produced by the Laboratory of Physics, Art and Existence (LFAE), active since 2021, on the way to the total eclipse of 2 August 2027.</p>
+        <dl class="prensa-datos">
       <div><dt>Project</dt><dd>Umbrhalia by LFAE · Cazando Eclipses</dd></div>
       <div><dt>Direction</dt><dd>Gabriela Isabel Vera Garfias</dd></div>
       <div><dt>Next window</dt><dd>2 August 2027 · up to 6&nbsp;min 23&nbsp;s of totality</dd></div>
       <div><dt>Languages</dt><dd>Spanish; English in preparation</dd></div>
     </dl>
-    <p class="lectura">Photos from the expedition to Ojuela and from the activities, with their credit, in <a href="#bitacora">the logbook</a> and in <a href="../cazadores/#album">the album</a>. To publish them, write to us: we will send the high-resolution files with the correct credit.</p>
-    <p class="parcial"><svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 1a6 6 0 0 1 0 12z" fill="currentColor"/></svg>Press kit in preparation</p>
-    <div class="acciones"><a class="boton lleno" href="mailto:umbrhalia@gmail.com?subject=Press%20%C2%B7%20Umbrhalia">Write to us (press)</a></div>
+        <p class="lectura">Photos in high resolution and with their credit, on request. <span class="parcial"><svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 1a6 6 0 0 1 0 12z" fill="currentColor"/></svg>Press kit in preparation</span></p>
+        <div class="acciones"><a class="boton lleno" href="mailto:umbrhalia@gmail.com?subject=Press%20%C2%B7%20Umbrhalia">Write to us (press)</a></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- 7 · Contact, once -->
-<section id="contacto" aria-labelledby="t-contacto">
+<!-- At the end: what we have already done, in four photos. -->
+<section id="bitacora" aria-labelledby="t-hicimos">
   <div class="wrap">
-    <h2 id="t-contacto">Write to us</h2>
-    <p class="escribenos"><a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></p>
-    <p class="nota">To collaborate with the LFAE · Laboratory of Physics, Art and Existence (since 2021): <a href="mailto:lfae.physicart@gmail.com">lfae.physicart@gmail.com</a></p>
+    <p class="rotulo">With your support</p>
+    <h2 id="t-hicimos">What we have already done</h2>
+    <div class="dona-fotos">
+      <figure><img src="../../assets/img/album/velada-2026-3.jpg" alt="A smart telescope on a table at night, next to a tablet showing the Moon." decoding="async"><figcaption><span>The Moon on the screen</span><span class="folio">Velada Astronómica · 25 Feb 2026</span></figcaption></figure>
+      <figure><img src="../../assets/img/album/endc-gravedad-mano.jpg" alt="A hand on a black stretched cloth that sinks; two marbles roll towards the hollows." decoding="async"><figcaption><span>Gravity with the hands</span><span class="folio">Encuentro Nacional de Divulgación Científica · Oct 2025</span></figcaption></figure>
+      <figure><img src="../../assets/img/album/velada-2026-1.jpg" alt="A hand holding an illustrated postcard of an eclipse, at night." decoding="async"><figcaption><span>A postcard of an eclipse</span><span class="folio">Velada Astronómica · 25 Feb 2026</span></figcaption></figure>
+      <figure><img src="../../assets/img/album/ojuela-telescopios.jpg" alt="Two telescopes on tripods on the summit, in front of a rock wall of the sierra." decoding="async"><figcaption><span>The telescopes on the summit</span><span class="folio">Ojuela expedition · 8 Apr 2024</span></figcaption></figure>
+    </div>
+    <p class="nota">Photos: LFAE; the summit of Ojuela, LFAE expedition (César Simón López-Monsalvo, Alberto Rubio Ponce and Gabriela Isabel Vera Garfias). The LFAE has existed since 2021. <span id="contacto">Write to us: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a> · LFAE: <a href="mailto:lfae.physicart@gmail.com">lfae.physicart@gmail.com</a></span></p>
   </div>
 </section>
 </main>
 <footer class="pie"><div class="wrap"><p>Umbrhalia by <a href="https://givgme.github.io/lfae/">LFAE</a> · a project by Gabriela Isabel Vera Garfias. © 2026. All rights reserved.</p><p>Prototype · work in progress. We count visits anonymously, without cookies. <a href="../privacy/">Privacy</a></p><p class="contacto"><span>Contact: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></span> · <span>LFAE: <a href="mailto:lfae.physicart@gmail.com">lfae.physicart@gmail.com</a></span></p></div></footer>
 <script src="../../js/u.js"></script>
 <script>
+U.pestanas(document.getElementById('pestanas-dona'));
 U.pestanas(document.getElementById('pestanas-niveles'));
-U.pestanas(document.getElementById('pestanas-compartir'));
-U.bitacora(document.getElementById('bitacora-lista'));
-U.proximos(3).then(function (l) {
-  var act = ['The archive goes international', 'Expansion to the southern hemisphere', 'Consolidation'];
-  document.getElementById('itinerario').innerHTML = l.map(function (p, i) {
-    return '<tr><td>' + U.fecha(p.date) + '<br><span class="tenue chico">until ' + U.duracion(p.duration_s) + '</span></td><td>' + act[i] + '</td></tr>';
-  }).join('');
-}).catch(function () {
-  document.getElementById('itinerario').innerHTML = '<tr><td colspan="2" class="nota">We could not load the dates. Please try again later.</td></tr>';
-});
 U.transiciones();
 (function () {
   var URL_SITIO = 'https://givgme.github.io/umbrhalia/en/';
