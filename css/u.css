@@ -940,3 +940,9 @@ main.interior ~ .pie .wrap { max-width: 1040px; }
 @media (min-width: 700px) { .prensa-datos { grid-template-columns: 1fr 1fr; } }
 .prensa-datos dt { font-size: var(--t-versalita); letter-spacing: .16em; text-transform: uppercase; color: var(--gris-osc); margin: 0 0 4px; }
 .prensa-datos dd { margin: 0; font-size: var(--t-texto); font-weight: 300; }
+
+/* Videos de la expedición (29 oct 2026): con controles, sin arrancar solos, se cargan al darles reproducir. */
+.video-obra { margin: 32px 0; max-width: 960px; }
+.video-obra video { display: block; width: 100%; height: auto; background: #000; }
+.video-obra.vertical { max-width: 360px; }
+.video-obra figcaption { margin-top: 10px; }
