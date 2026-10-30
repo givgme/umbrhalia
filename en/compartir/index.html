@@ -1,177 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" data-root="../../" data-transicion="contacto">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Share · Umbrhalia</title>
-<meta name="description" content="Share: collaborations and commissions with institutions. We bring Umbrhalia's activations and transmedia products to museums, schools, festivals and institutions.">
-<link rel="alternate" hreflang="es" href="https://givgme.github.io/umbrhalia/compartir/">
-<link rel="alternate" hreflang="en" href="https://givgme.github.io/umbrhalia/en/compartir/">
-<link rel="alternate" hreflang="x-default" href="https://givgme.github.io/umbrhalia/compartir/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Umbrhalia">
-<meta property="og:locale" content="en_GB">
-<meta property="og:title" content="Share · Umbrhalia">
-<meta property="og:description" content="Share: collaborations and commissions with institutions. We bring Umbrhalia&#x27;s activations and transmedia products to museums, schools, festivals and institutions.">
-<meta property="og:image" content="https://givgme.github.io/umbrhalia/assets/img/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:url" content="https://givgme.github.io/umbrhalia/en/compartir/">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#000000">
+<!-- Redirect (29 Oct 2026): Share (formerly Project) merged with Donate into «Give and share light», /en/dona/. The script keeps the anchor (#instituciones, #colabora, #patrocinio, #itinerancia, #bitacora, #contacto) and sends #apoya to the levels; without an anchor, to collaborations. The meta refresh is the fallback without JavaScript. Keep in sync with web/compartir/index.html. -->
+<title>Give and share light · Umbrhalia</title>
+<link rel="canonical" href="https://givgme.github.io/umbrhalia/en/dona/">
+<meta name="robots" content="noindex">
+<script>location.replace('../dona/' + location.search + ({ '': '#colaboraciones', '#apoya': '#niveles' }[location.hash] || location.hash));</script>
+<meta http-equiv="refresh" content="0; url=../dona/#colaboraciones">
 <link rel="icon" type="image/svg+xml" href="../../assets/img/umbrhalia-marca-r2.svg">
 <link rel="stylesheet" href="../../css/u.css">
 </head>
 <body>
-<a class="skip" href="#contenido">Skip to content</a>
-<header class="top">
-  <div class="wrap">
-    <a class="marca-inicio" href="../" aria-label="Umbrhalia, home"><img class="marca" src="../../assets/img/umbrhalia-marca-r2.svg" alt=""></a>
-    <a class="nombre" href="../">UMBRHALIA</a>
-    <nav aria-label="Main">
-      <a href="../cuentos/">The Universe and Ohr</a>
-      <a href="../camino/">Path</a>
-      <a href="../../artqueologia/" lang="es" hreflang="es">Memorias de la Umbra</a>
-      <a href="../archivo/">Remember</a>
-      <a href="../sentir/">Sense</a>
-      <a href="../existir/">Exist</a>
-      <a href="../dona/">Give and share light</a>
-    </nav>
-  </div>
-</header>
-<main id="contenido" class="compartir interior">
-<!-- Curatorial review (28 Oct 2026): internal tabs Institutions / Collaborate / The project.
-     «Un punto de encuentro y siete maneras de llegar a él» was removed (it repeats the front page) and «Apoya» (it repeats Donate). Keep in sync with web/compartir/index.html. -->
-<section aria-labelledby="t-compartir">
-  <div class="wrap">
-    <p class="rotulo">Umbrhalia by LFAE</p>
-    <h1 id="t-compartir">Share</h1>
-    <p class="entrada">Collaborations and commissions with institutions.</p>
-    <p class="lectura">We bring Umbrhalia's activations and transmedia products to museums, schools, festivals and institutions. Commissions fund the growth of the project.</p>
-  </div>
-</section>
-
-<!-- White mass: the figure is the pause of the page -->
-<section class="masa" aria-labelledby="t-cifra">
-  <div class="wrap">
-    <h2 id="t-cifra" class="visually-hidden">How people respond</h2>
-    <p class="cifra">58–68%</p>
-    <p class="entradilla">of a sample of 317 words left by the public after activities about the total eclipse of 2024 were classified as emotional, aesthetic or spiritual (coding in progress). The most repeated: <em>darkness</em>.</p>
-    <p class="nota">Earlier research by the author (master's thesis in cultural processes for design and art).</p>
-  </div>
-</section>
-
-<section aria-label="Institutions, collaborate and the project">
-  <div class="wrap">
-    <div class="pestanas texto" id="pestanas-compartir">
-      <div role="tablist" aria-label="Who for">
-        <button type="button" role="tab" id="tab-inst" aria-controls="instituciones" aria-selected="true">Institutions</button>
-        <button type="button" role="tab" id="tab-colabora" aria-controls="colaborar" aria-selected="false">Collaborate</button>
-        <button type="button" role="tab" id="tab-proyecto" aria-controls="el-proyecto" aria-selected="false">The project</button>
-      </div>
-
-      <div role="tabpanel" id="instituciones" aria-labelledby="tab-inst" tabindex="0">
-        <p class="rotulo" id="patrocinio">Institutional sponsorship</p>
-        <h2 id="t-patrocinio">Three ways to sustain a window</h2>
-        <p class="lectura">For companies, museums, planetariums, universities and public agencies. Amounts are agreed case by case, and any support can be given in kind: printing, equipment, a venue or transport.</p>
-        <div class="cols3">
-          <div><p class="folio">Contact</p><h3>One component</h3><p class="gris">A set of glasses for workshops, the light sonifier, the tactile kit or the shadow observatory.</p><p class="nota">Named acknowledgement and a report with photos of where the support was used.</p></div>
-          <div><p class="folio">Totality</p><h3>One cycle</h3><p class="gris">A cycle of workshops or the prototype of the installation at your venue.</p><p class="nota">“With the support of” credit on the pieces of the cycle and an activity for your community.</p></div>
-          <div><p class="folio">Window</p><h3>A co-production</h3><p class="gris">The travelling installation, or the documentation of the 2027 eclipse and the sound stories.</p><p class="nota">Co-production credit and public presentation of the result.</p></div>
-        </div>
-        <div class="capas">
-          <details class="capa">
-            <summary>What we don't offer</summary>
-            <div class="capa-cuerpo">
-              <ul class="vinetas">
-                <li>Brands inside Ohr's stories, in Ohr, or in the participatory archive.</li>
-                <li>Deciding the scientific or narrative content.</li>
-                <li>Audience data or mailing lists.</li>
-              </ul>
-            </div>
-          </details>
-        </div>
-        <p class="aviso-proto">Proposal under review. Write to us and we will build it with your institution: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></p>
-      </div>
-
-      <div role="tabpanel" id="colaborar" aria-labelledby="tab-colabora" tabindex="0">
-        <p class="rotulo" id="colabora">Collaborate</p>
-        <h2>We are looking for people who watch the sky with other tools</h2>
-        <p class="lectura">Umbrhalia grows with each eclipse and with each person who joins. We are looking for collaboration in:</p>
-        <div class="cols4">
-          <div><h3>Art</h3><ul class="lista-puntos"><li>Illustration and printmaking</li><li>Sound, music and voice</li><li>Animation</li></ul></div>
-          <div><h3>Science and memory</h3><ul class="lista-puntos"><li>Astronomy and eclipse calculation</li><li>History, archive and heritage</li><li>Translation</li></ul></div>
-          <div><h3>Production</h3><ul class="lista-puntos"><li>Documentary and audiovisual recording</li><li>Web development and interaction</li><li>Accessibility: audio description, sign language, tactile materials</li></ul></div>
-          <div><h3>Spaces and allies</h3><ul class="lista-puntos"><li>Museums, festivals and schools that host the installation and the workshops</li><li>Communities in the bands of 2027, 2028 and 2030</li><li>Co-producers and funders</li></ul></div>
-        </div>
-        <p class="lectura" style="margin-top:32px">Each collaboration is credited on the pieces and on this site, and each person keeps authorship of what they create.</p>
-      </div>
-
-      <div role="tabpanel" id="el-proyecto" aria-labelledby="tab-proyecto" tabindex="0">
-        <p class="rotulo">What Umbrhalia is</p>
-        <h2 id="t-que-es">A transmedia narrative universe to preserve what solar eclipses leave in people's memory</h2>
-        <blockquote class="cita">Ohr, the consciousness of matter that has watched the universe take shape, can make contact with us only in the few minutes when the Moon fully covers the Sun. Each person who lives an eclipse and tells it keeps that window open before it closes for good.</blockquote>
-        <h3>How do you keep an experience that lasts minutes and marks a life?</h3>
-        <p class="lectura">Eclipses in the coming decades are predicted to within seconds. What people feel in front of them stays in no archive, and outreach usually explains the phenomenon and leaves the experience out.</p>
-        <div class="capas">
-          <details class="capa" name="proyecto">
-            <summary>One project, four values</summary>
-            <div class="capa-cuerpo">
-              <h3>Scientific</h3><p class="gris">Calculated paths, safe observation and the mechanics of the sky, told rigorously.</p>
-              <h3>Historical</h3><p class="gris">More than a thousand years of records, from codices to chronicles, connected with today's testimonies.</p>
-              <h3>Social</h3><p class="gris">An open, accessible archive where anyone is a co-author.</p>
-              <h3>Cultural</h3><p class="gris">Art, narrative and collective memory around a phenomenon that every culture has named.</p>
-            </div>
-          </details>
-          <details class="capa" name="proyecto" id="itinerancia">
-            <summary>Travelling: the project follows the shadow</summary>
-            <div class="capa-cuerpo">
-              <table class="simple"><thead><tr><th>Total eclipse</th><th>Activation</th></tr></thead><tbody id="itinerario"><tr><td colspan="2" class="nota">Loading the dates…</td></tr></tbody></table>
-              <p class="nota" style="margin-top:10px">Dates taken from the set of paths on the map. In years without a nearby eclipse, the installation and the workshops do not depend on the sky.</p>
-            </div>
-          </details>
-        </div>
-        <blockquote class="cita">The Moon is leaving. Slowly, a few centimetres a year, but it is leaving. While it still covers the Sun, every eclipse is a window. Umbrhalia is a way of keeping it open.</blockquote>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- White mass: logbook of activities (album C), the proof for whoever hires -->
-<section class="masa" id="bitacora" aria-labelledby="t-bitacora">
-  <div class="wrap">
-    <p class="rotulo">Logbook</p>
-    <h2 id="t-bitacora">What we have already done</h2>
-    <div id="bitacora-lista"><p class="nota">Loading the logbook…</p></div>
-    <p class="nota album-credito">Photos: César Simón López-Monsalvo, Alberto Rubio Ponce and Gabriela Isabel Vera Garfias · LFAE expedition, 8 April 2024, Puente de Ojuela, Durango. <a href="../cazadores/#album">See the full album</a></p>
-  </div>
-</section>
-
-<!-- Contact, once -->
-<section id="contacto" aria-labelledby="t-contacto">
-  <div class="wrap">
-    <h2 id="t-contacto">Write to us</h2>
-    <p class="escribenos"><a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></p>
-    <p class="nota">To collaborate with the LFAE · Laboratory of Physics, Art and Existence: <a href="mailto:lfae.physicart@gmail.com">lfae.physicart@gmail.com</a></p>
-    <p id="apoya" style="margin-top:32px">Want to support with a donation? <a href="../dona/">Donate and share light</a></p>
-  </div>
-</section>
-</main>
-<footer class="pie"><div class="wrap"><p>Umbrhalia by LFAE · a project by Gabriela Isabel Vera Garfias. © 2026. All rights reserved.</p><p>Prototype · work in progress. We count visits anonymously, without cookies. <a href="../../en/privacy/">Privacy</a></p><p class="contacto"><span>Contact: <a href="mailto:umbrhalia@gmail.com">umbrhalia@gmail.com</a></span> · <span>LFAE: <a href="mailto:lfae.physicart@gmail.com">lfae.physicart@gmail.com</a></span></p></div></footer>
-<script src="../../js/u.js"></script>
-<script>
-U.pestanas(document.getElementById('pestanas-compartir'));
-U.bitacora(document.getElementById('bitacora-lista'));
-U.unoEnUno();
-U.transiciones();
-U.proximos(3).then(function (l) {
-  var act = ['The archive goes international', 'Expansion to the southern hemisphere', 'Consolidation'];
-  document.getElementById('itinerario').innerHTML = l.map(function (p, i) {
-    return '<tr><td>' + U.fecha(p.date) + '<br><span class="tenue chico">until ' + U.duracion(p.duration_s) + '</span></td><td>' + act[i] + '</td></tr>';
-  }).join('');
-}).catch(function () {
-  document.getElementById('itinerario').innerHTML = '<tr><td colspan="2" class="nota">We could not load the dates. Please try again later.</td></tr>';
-});
-</script>
+<main id="contenido"><section><div class="wrap">
+<p class="rotulo">Umbrhalia</p>
+<h1>Share is now Give and share light</h1>
+<p><a href="../dona/#colaboraciones">Go to Give and share light</a></p>
+</div></section></main>
 </body>
 </html>
