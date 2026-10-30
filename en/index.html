@@ -80,60 +80,42 @@
       </div>
 
       <div class="siguientes" aria-labelledby="t-sig">
-        <h3 id="t-sig">The five eclipses that follow</h3>
-        <table class="sig">
-          <thead>
-            <tr><th scope="col">Date · UTC</th><th scope="col">Eclipse</th><th scope="col">Magnitude</th><th scope="col">Gamma</th><th scope="col">Duration</th><th scope="col">Saros</th><th scope="col">Seen from</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">17 Aug 2027 <span>07:14</span></th>
-              <td class="tipo"><i class="disco luna" aria-hidden="true"></i>Lunar penumbral</td>
-              <td data-k="Magnitude">0.546 <span>penumbral</span></td>
-              <td data-k="Gamma">1.280</td>
-              <td data-k="Duration">218.6 min <span>penumbral</span></td>
-              <td data-k="Saros">148</td>
-              <td class="vis">Night over the Pacific and the Americas</td>
-            </tr>
-            <tr>
-              <th scope="row">12 Jan 2028 <span>04:13</span></th>
-              <td class="tipo"><i class="disco luna" aria-hidden="true"></i>Lunar partial</td>
-              <td data-k="Magnitude">0.066 <span>umbral</span></td>
-              <td data-k="Gamma">0.982</td>
-              <td data-k="Duration">56.0 min <span>partial</span></td>
-              <td data-k="Saros">115</td>
-              <td class="vis">Night over the Americas, Europe and Africa</td>
-            </tr>
-            <tr>
-              <th scope="row">26 Jan 2028 <span>15:08</span></th>
-              <td class="tipo"><i class="disco sol-anular" aria-hidden="true"></i>Annular solar</td>
-              <td data-k="Magnitude">0.921</td>
-              <td data-k="Gamma">0.390</td>
-              <td data-k="Duration">10 min 27 s <span>annular</span></td>
-              <td data-k="Saros">141</td>
-              <td class="vis">Annular: Ecuador, Peru, Brazil, Suriname, Spain and Portugal. Partial: eastern North America, Central and South America, western Europe, northwest Africa</td>
-            </tr>
-            <tr>
-              <th scope="row">6 Jul 2028 <span>18:20</span></th>
-              <td class="tipo"><i class="disco luna" aria-hidden="true"></i>Lunar partial</td>
-              <td data-k="Magnitude">0.389 <span>umbral</span></td>
-              <td data-k="Gamma">−0.790</td>
-              <td data-k="Duration">141.5 min <span>partial</span></td>
-              <td data-k="Saros">120</td>
-              <td class="vis">Night over Europe, Africa, Asia and Australia</td>
-            </tr>
-            <tr>
-              <th scope="row">22 Jul 2028 <span>02:55</span></th>
-              <td class="tipo"><i class="disco sol" aria-hidden="true"></i>Total solar</td>
-              <td data-k="Magnitude">1.056</td>
-              <td data-k="Gamma">−0.606</td>
-              <td data-k="Duration">5 min 10 s <span>total</span></td>
-              <td data-k="Saros">146</td>
-              <td class="vis">Total: Australia and New Zealand. Partial: southeast Asia, the Malay Archipelago, Australia and New Zealand</td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="fuente">Lunar eclipses have no band: they can be seen from the whole hemisphere where it is night. Times of maximum, rounded to the minute. Sources: <a href="https://eclipse.gsfc.nasa.gov/LEcat5/LE2001-2100.html" rel="noopener">NASA/GSFC (Espenak)</a>; own calculation.</p>
+        <p class="rotulo">After 2027</p>
+        <h3 id="t-sig">The next five eclipses</h3>
+        <p class="sig-leyenda"><span><i class="disco sol" aria-hidden="true"></i>Total solar</span><span><i class="disco sol-anular" aria-hidden="true"></i>Annular solar</span><span><i class="disco luna" aria-hidden="true"></i>Lunar</span></p>
+        <ol class="sig-lista">
+          <li class="sig-fila">
+            <div class="sig-cuando"><p class="sig-fecha">17 Aug 2027</p><p class="sig-hora">07:14 UTC</p></div>
+            <div class="sig-que"><p class="sig-tipo"><i class="disco luna" aria-hidden="true"></i>Lunar penumbral</p><p class="sig-dur">218.6 min<span> of penumbral phase</span></p>
+              <p class="sig-datos">Magnitude 0.546 (penumbral) · Gamma 1.280 · Saros 148</p></div>
+            <div class="sig-donde"><p class="sig-k">Visible from</p><p>Night over the Pacific and the Americas</p></div>
+          </li>
+          <li class="sig-fila">
+            <div class="sig-cuando"><p class="sig-fecha">12 Jan 2028</p><p class="sig-hora">04:13 UTC</p></div>
+            <div class="sig-que"><p class="sig-tipo"><i class="disco luna" aria-hidden="true"></i>Lunar partial</p><p class="sig-dur">56.0 min<span> of partial phase</span></p>
+              <p class="sig-datos">Magnitude 0.066 (umbral) · Gamma 0.982 · Saros 115</p></div>
+            <div class="sig-donde"><p class="sig-k">Visible from</p><p>Night over the Americas, Europe and Africa</p></div>
+          </li>
+          <li class="sig-fila">
+            <div class="sig-cuando"><p class="sig-fecha">26 Jan 2028</p><p class="sig-hora">15:08 UTC</p></div>
+            <div class="sig-que"><p class="sig-tipo"><i class="disco sol-anular" aria-hidden="true"></i>Annular solar</p><p class="sig-dur">10 min 27 s<span> of annular phase</span></p>
+              <p class="sig-datos">Magnitude 0.921 · Gamma 0.390 · Saros 141</p></div>
+            <div class="sig-donde"><p class="sig-k">Visible from</p><p>Annular: Ecuador, Peru, Brazil, Suriname, Spain and Portugal. Partial: eastern North America, Central and South America, western Europe, northwest Africa</p></div>
+          </li>
+          <li class="sig-fila">
+            <div class="sig-cuando"><p class="sig-fecha">6 Jul 2028</p><p class="sig-hora">18:20 UTC</p></div>
+            <div class="sig-que"><p class="sig-tipo"><i class="disco luna" aria-hidden="true"></i>Lunar partial</p><p class="sig-dur">141.5 min<span> of partial phase</span></p>
+              <p class="sig-datos">Magnitude 0.389 (umbral) · Gamma −0.790 · Saros 120</p></div>
+            <div class="sig-donde"><p class="sig-k">Visible from</p><p>Night over Europe, Africa, Asia and Australia</p></div>
+          </li>
+          <li class="sig-fila">
+            <div class="sig-cuando"><p class="sig-fecha">22 Jul 2028</p><p class="sig-hora">02:55 UTC</p></div>
+            <div class="sig-que"><p class="sig-tipo"><i class="disco sol" aria-hidden="true"></i>Total solar</p><p class="sig-dur">5 min 10 s<span> of total phase</span></p>
+              <p class="sig-datos">Magnitude 1.056 · Gamma −0.606 · Saros 146</p></div>
+            <div class="sig-donde"><p class="sig-k">Visible from</p><p>Total: Australia and New Zealand. Partial: southeast Asia, the Malay Archipelago, Australia and New Zealand</p></div>
+          </li>
+        </ol>
+        <p class="fuente">Lunar eclipses have no band: they can be seen from the whole hemisphere where it is night. Times of greatest eclipse, rounded to the minute. Sources: <a href="https://eclipse.gsfc.nasa.gov/LEcat5/LE2001-2100.html" rel="noopener">NASA/GSFC (Espenak)</a>; our own calculations.</p>
       </div>
     </div>
   </section>
