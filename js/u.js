@@ -307,7 +307,7 @@ var U = (function () {
   // C · Bitácora: una fila por actividad. Con fotos, la fila se despliega en tres; sin fotos, es texto.
   function bitacora(el) {
     album().then(function (d) {
-      el.innerHTML = '<div class="bitacora">' + d.actividades.map(function (a) {
+      el.innerHTML = '<div class="bitacora">' + d.actividades.map(function (a, k) {
         // Hasta seis fotos por actividad: primero las marcadas para la bitácora («bitacora» en usos).
         var todas = d.fotos.filter(function (f) { return f.actividad === a.id && f.estado === 'elegida'; });
         var marcadas = todas.filter(function (f) { return f.usos.indexOf('bitacora') >= 0; });
@@ -315,7 +315,8 @@ var U = (function () {
         var fecha = a.fecha ? '<span class="folio">' + escapar(campo(a, 'fecha_txt') && LANG === 'es' ? a.fecha_txt : fechaCorta(a.fecha)) + '</span>' : '<span class="parcial">' + ICONO_PARCIAL + tr('Fecha por confirmar', 'Date to be confirmed') + '</span>';
         var titulo = '<div><h3>' + escapar(campo(a, 'titulo')) + '</h3>' + (campo(a, 'nota') ? '<p class="nota">' + campo(a, 'nota') + '</p>' : '') + '</div>';
         if (!fotos.length) return '<div class="bit-fila"><div class="bit-cab">' + fecha + titulo + '<span></span></div></div>';
-        return '<details class="bit-fila"><summary class="bit-cab">' + fecha + titulo + '<span class="abre" aria-hidden="true"></span></summary>' +
+        // La actividad más reciente (la primera) se abre sola, para que se vean sus fotos.
+        return '<details class="bit-fila"' + (k === 0 ? ' open' : '') + '><summary class="bit-cab">' + fecha + titulo + '<span class="abre" aria-hidden="true"></span></summary>' +
           '<div class="bit-fotos">' + fotos.map(function (f) { return '<figure class="album-foto">' + fotoHTML(f) + '<figcaption class="nota">' + escapar(campo(f, 'titulo') || '') + '</figcaption></figure>'; }).join('') + '</div>' +
           (campo(a, 'credito') ? '<p class="nota bit-credito">' + escapar(campo(a, 'credito')) + '</p>' : '') + '</details>';
       }).join('') + '</div>';
