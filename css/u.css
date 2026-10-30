@@ -458,6 +458,10 @@ input[type=checkbox]:focus-visible{outline:2px solid #ececee;outline-offset:3px}
 .disco.sol { background: var(--negro); }
 .disco.sol-anular { border: 3px solid var(--negro); }
 .disco.luna { border: 1.5px solid var(--negro); }
+/* Lunar: anillo con un punto al centro (mancha solar y chalchihuite), 30 oct 2026. */
+.disco.luna { position: relative; box-sizing: border-box; }
+.disco.luna::after { content: ""; position: absolute; left: 50%; top: 50%; width: 4px; height: 4px; margin: -2px 0 0 -2px; border-radius: 50%; background: currentColor; }
+.sig-tipo .disco.luna::after { width: 5px; height: 5px; margin: -2.5px 0 0 -2.5px; }
 
 /* Los cinco que siguen */
 /* Los cinco eclipses que siguen (29 oct 2026): filas con jerarquía; los solares van como masa negra. */
