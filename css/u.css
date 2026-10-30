@@ -979,3 +979,13 @@ main.interior ~ .pie .wrap { max-width: 1040px; }
 .bienvenida-lfae { font-size: var(--t-nota); color: var(--gris); margin: 0; }
 .bienvenida-lfae a { color: var(--blanco); }
 .nowrap { white-space: nowrap; }
+
+/* Composiciones propias de las fases (30 oct 2026): el negro de la foto se funde con el fondo (lighten). */
+.comp { margin: 32px 0; }
+.comp img { display: block; width: 100%; height: auto; mix-blend-mode: lighten; }
+.comp figcaption { display: grid; gap: 2px; margin-top: 10px; font-size: var(--t-nota); color: var(--gris); }
+.comp-seccion { padding-bottom: 48px; }
+.comp-circulo { width: min(92vw, 820px); margin: 24px auto 0; }
+.comp-circulo figcaption { text-align: center; }
+.comp-arco { margin: 40px 0 8px; }
+.comp-fila { margin: 32px 0 40px; }
