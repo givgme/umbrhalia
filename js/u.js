@@ -340,7 +340,7 @@ var U = (function () {
     } catch (err) { /* sin sessionStorage: el recorte nace arriba al centro */ }
   })();
 
-  // Selector de idioma en la barra: ES · EN · Nāhuatl (en traducción). Las páginas en inglés viven
+  // Selector de idioma en la barra: ES · EN (el náhuatl entra con traducción humana). Las páginas en inglés viven
   // en /en/ con la misma ruta; si una página aún no tiene versión en inglés, EN lleva a la portada en inglés.
   (function selectorIdioma() {
     var barra = document.querySelector('header.top .wrap');
@@ -361,8 +361,8 @@ var U = (function () {
     nav.setAttribute('aria-label', tr('Idioma', 'Language'));
     nav.innerHTML =
       '<a href="' + es + '" lang="es" hreflang="es" aria-label="Español"' + (LANG === 'es' ? ' aria-current="true"' : '') + '>ES</a>' +
-      '<a href="' + en + '" lang="en" hreflang="en" aria-label="English"' + (LANG === 'en' ? ' aria-current="true"' : '') + '>EN</a>' +
-      '<span class="pronto" lang="nah" title="' + tr('Náhuatl de la Huasteca: en traducción', 'Huasteca Nahuatl: translation in progress') + '">' + ICONO_PARCIAL + 'Nāhuatl<span class="visually-hidden"> (' + tr('en traducción', 'translation in progress') + ')</span></span>';
+      '<a href="' + en + '" lang="en" hreflang="en" aria-label="English"' + (LANG === 'en' ? ' aria-current="true"' : '') + '>EN</a>';
+    // El náhuatl de la Huasteca se agrega aquí cuando haya traducción de una persona hablante (decisión de Gabriela, 29 oct 2026).
     barra.appendChild(nav);
     // Sin versión en inglés de esta página: EN lleva a su sección en inglés (p. ej. un cuento → /en/cuentos/)
     // y, si tampoco existe, a la portada en inglés.
