@@ -308,12 +308,16 @@ var U = (function () {
   function bitacora(el) {
     album().then(function (d) {
       el.innerHTML = '<div class="bitacora">' + d.actividades.map(function (a) {
-        var fotos = d.fotos.filter(function (f) { return f.actividad === a.id; }).slice(0, 3);
-        var fecha = a.fecha ? '<span class="folio">' + escapar(fechaCorta(a.fecha)) + '</span>' : '<span class="parcial">' + ICONO_PARCIAL + tr('Fecha por confirmar', 'Date to be confirmed') + '</span>';
+        // Hasta seis fotos por actividad: primero las marcadas para la bitácora («bitacora» en usos).
+        var todas = d.fotos.filter(function (f) { return f.actividad === a.id && f.estado === 'elegida'; });
+        var marcadas = todas.filter(function (f) { return f.usos.indexOf('bitacora') >= 0; });
+        var fotos = (marcadas.length ? marcadas : todas).slice(0, 6);
+        var fecha = a.fecha ? '<span class="folio">' + escapar(campo(a, 'fecha_txt') && LANG === 'es' ? a.fecha_txt : fechaCorta(a.fecha)) + '</span>' : '<span class="parcial">' + ICONO_PARCIAL + tr('Fecha por confirmar', 'Date to be confirmed') + '</span>';
         var titulo = '<div><h3>' + escapar(campo(a, 'titulo')) + '</h3>' + (campo(a, 'nota') ? '<p class="nota">' + campo(a, 'nota') + '</p>' : '') + '</div>';
         if (!fotos.length) return '<div class="bit-fila"><div class="bit-cab">' + fecha + titulo + '<span></span></div></div>';
         return '<details class="bit-fila"><summary class="bit-cab">' + fecha + titulo + '<span class="abre" aria-hidden="true"></span></summary>' +
-          '<div class="bit-fotos">' + fotos.map(function (f) { return '<figure class="album-foto">' + fotoHTML(f) + '</figure>'; }).join('') + '</div></details>';
+          '<div class="bit-fotos">' + fotos.map(function (f) { return '<figure class="album-foto">' + fotoHTML(f) + '<figcaption class="nota">' + escapar(campo(f, 'titulo') || '') + '</figcaption></figure>'; }).join('') + '</div>' +
+          (campo(a, 'credito') ? '<p class="nota bit-credito">' + escapar(campo(a, 'credito')) + '</p>' : '') + '</details>';
       }).join('') + '</div>';
     }).catch(function () { vacio(el, tr('No pudimos cargar la bitácora. Vuelve a intentarlo más tarde.', 'We could not load the log. Please try again later.')); });
   }

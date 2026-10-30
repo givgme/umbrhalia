@@ -693,7 +693,7 @@ html.sin-movimiento [role="tabpanel"].entra { animation: none; }
 .claro .parcial, .masa .parcial { color: var(--gris-osc); }
 
 /* ===== Álbum de actividades (una sola fuente: assets/data/album.json) ===== */
-.album-foto img { filter: grayscale(1); } /* D3: fotos de actividades en escala de grises */
+/* Fotos de actividades a color (29 oct 2026: en grises se veían demasiado oscuras). */
 /* B · Secuencia: imagen grande, pie al lado, perlas de Baily como navegación */
 .secuencia { display: grid; gap: 24px; margin: 40px 0 0; }
 @media (min-width: 900px) { .secuencia { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 40px; align-items: end; } }
@@ -742,8 +742,11 @@ details.bit-fila > summary:hover h3 { text-decoration: underline; text-underline
 .bit-fotos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 0 0 24px; }
 @media (min-width: 760px) { .bit-fotos { margin-left: 224px; } }
 @media (max-width: 600px) { .bit-fotos { grid-template-columns: 1fr 1fr; } }
-.bit-fotos figure { margin: 0; aspect-ratio: 3 / 2; background: #dcdcdf; overflow: hidden; }
-.bit-fotos img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.bit-fotos figure { margin: 0; }
+.bit-fotos img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; background: #dcdcdf; }
+.bit-fotos figcaption { margin: 6px 0 0; }
+.bit-credito { margin: -8px 0 0; padding: 0 0 24px; }
+@media (min-width: 760px) { .bit-credito { margin-left: 224px; } }
 
 /* ===== Camino: el diagrama C1–C4 se toca ===== */
 .fases-mapa { position: relative; min-width: 720px; }
@@ -869,7 +872,7 @@ main.interior ~ .pie .wrap { max-width: 1040px; }
 .ex-portada { padding-bottom: 0; }
 .ex-sub { font-size: var(--t-entradilla); font-weight: 200; line-height: 1.35; margin: 12px 0 0; max-width: 22em; }
 .ex-foto { margin: 48px 0 0; }
-.ex-foto img { display: block; width: 100%; height: min(70vh, 720px); object-fit: cover; filter: grayscale(1); }
+.ex-foto img { display: block; width: 100%; height: min(70vh, 720px); object-fit: cover; }
 .ex-foto figcaption { padding-top: 12px; padding-bottom: 0; }
 .ex-foto .folio { font-family: var(--mono); font-size: var(--t-folio); color: var(--gris); }
 .ex-cedula { display: grid; gap: 40px; }

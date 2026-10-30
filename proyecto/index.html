@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Redirección (27 oct 2026): «Proyecto» se llama ahora «Compartir: colaboraciones y contrataciones» y vive en /compartir/. El script conserva el ancla (#apoya, #colabora); el meta refresh es el respaldo sin JavaScript. -->
-<title>Compartir · Umbrhalia</title>
-<link rel="canonical" href="https://givgme.github.io/umbrhalia/compartir/">
+<!-- Redirección (29 oct 2026): Compartir (antes Proyecto) se unió a Dona en «Dona y comparte luz», /dona/. El script conserva el ancla (#instituciones, #colabora, #patrocinio, #itinerancia, #bitacora, #contacto) y manda #apoya a los niveles; sin ancla, a las colaboraciones. El meta refresh es el respaldo sin JavaScript. -->
+<title>Dona y comparte luz · Umbrhalia</title>
+<link rel="canonical" href="https://givgme.github.io/umbrhalia/dona/">
 <meta name="robots" content="noindex">
-<script>location.replace('../compartir/' + location.search + location.hash);</script>
-<meta http-equiv="refresh" content="0; url=../compartir/">
+<script>location.replace('../dona/' + location.search + ({ '': '#colaboraciones', '#apoya': '#niveles' }[location.hash] || location.hash));</script>
+<meta http-equiv="refresh" content="0; url=../dona/#colaboraciones">
 <link rel="icon" type="image/svg+xml" href="../assets/img/umbrhalia-marca-r2.svg">
 <link rel="stylesheet" href="../css/u.css">
 </head>
 <body>
 <main id="contenido"><section><div class="wrap">
 <p class="rotulo">Umbrhalia</p>
-<h1>Compartir cambió de lugar</h1>
-<p><a href="../compartir/">Ir a Compartir</a></p>
+<h1>Compartir ahora es Dona y comparte luz</h1>
+<p><a href="../dona/#colaboraciones">Ir a Dona y comparte luz</a></p>
 </div></section></main>
 </body>
 </html>
