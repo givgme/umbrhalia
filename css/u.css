@@ -960,3 +960,10 @@ main.interior ~ .pie .wrap { max-width: 1040px; }
 .dona-fotos figcaption .folio { color: var(--gris); }
 .dona-pestanas [role="tablist"] { flex-wrap: wrap; overflow: visible; }
 @media (max-width: 600px) { .dona-pestanas [role="tab"] { font-size: var(--t-texto); padding-right: 20px; } }
+
+/* Portada: bienvenida e introducción antes de la cuenta regresiva (30 oct 2026). */
+.bienvenida { max-width: 640px; margin: 0 auto 56px; }
+.bienvenida h1 { font-size: var(--t-titulo); font-weight: 200; letter-spacing: .02em; margin: 6px 0 18px; }
+.bienvenida-intro { font-size: var(--t-entradilla); font-weight: 300; line-height: 1.45; color: var(--blanco); margin: 0 auto 18px; text-wrap: balance; }
+.bienvenida-lfae { font-size: var(--t-nota); color: var(--gris); margin: 0; }
+.bienvenida-lfae a { color: var(--blanco); }
