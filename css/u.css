@@ -460,28 +460,30 @@ input[type=checkbox]:focus-visible{outline:2px solid #ececee;outline-offset:3px}
 .disco.luna { border: 1.5px solid var(--negro); }
 
 /* Los cinco que siguen */
-.siguientes { border: 1px solid var(--negro); padding: 28px 26px 22px; margin-top: 20px; }
-.siguientes h3 { font-size: var(--t-texto); font-weight: 300; margin: 0 0 18px; }
-table.sig { width: 100%; border-collapse: collapse; font-size: var(--t-nota); font-variant-numeric: tabular-nums; }
-table.sig th, table.sig td { text-align: left; vertical-align: top; padding: 12px 14px 12px 0; border-top: 1px solid #dedede; font-weight: 300; }
-table.sig thead th { border-top: 0; font-size: var(--t-versalita); letter-spacing: .14em; text-transform: uppercase; color: var(--gris-osc); font-weight: 400; padding-top: 0; }
-table.sig tbody th { font-weight: 400; white-space: nowrap; }
-table.sig td span, table.sig tbody th span { display: block; font-size: var(--t-nota); color: var(--gris-osc); }
-table.sig .tipo { white-space: nowrap; }
-table.sig .tipo .disco { margin-right: 8px; }
-table.sig .vis { max-width: 26em; }
-.siguientes .fuente { margin-top: 16px; }
-@media (max-width: 860px) {
-  table.sig thead { position: absolute; left: -9999px; }
-  table.sig, table.sig tbody { display: block; }
-  table.sig tr { display: grid; grid-template-columns: repeat(4, auto); gap: 8px 16px; justify-content: start; padding: 16px 0; border-top: 1px solid #dedede; }
-  table.sig th, table.sig td { border: 0; padding: 0; }
-  table.sig tbody th { grid-column: 1 / 3; }
-  table.sig .tipo { grid-column: 3 / -1; }
-  table.sig .vis { grid-column: 1 / -1; max-width: none; }
-  table.sig td[data-k]::before { content: attr(data-k); display: block; font-size: var(--t-versalita); letter-spacing: .12em; text-transform: uppercase; color: var(--gris-osc); }
-}
-@media (max-width: 420px) { table.sig tr { grid-template-columns: repeat(2, auto); } table.sig tbody th, table.sig .tipo { grid-column: auto; } }
+/* Los cinco eclipses que siguen (29 oct 2026): filas con jerarquía; los solares van como masa negra. */
+.siguientes { margin-top: 64px; }
+.siguientes h3 { font-size: var(--t-seccion); font-weight: 200; margin: 0 0 16px; }
+.sig-leyenda { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 0 0 24px; font-size: var(--t-nota); color: var(--gris-osc); }
+.sig-leyenda span { display: inline-flex; align-items: center; gap: 8px; }
+.sig-lista { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--negro); }
+.sig-fila { display: grid; gap: 12px 32px; padding: 24px 0; border-bottom: 1px solid #c9c9cd; }
+@media (min-width: 900px) { .sig-fila { grid-template-columns: 200px 300px minmax(0, 1fr); padding: 28px 0; } }
+.sig-fila p { margin: 0; }
+.sig-fecha { font-size: var(--t-entradilla); font-weight: 200; line-height: 1.1; }
+@media (min-width: 900px) { .sig-fecha { font-size: 28px; } }
+.sig-hora, .sig-datos, .sig-k { font-family: var(--mono); font-size: var(--t-folio); color: var(--gris-osc); letter-spacing: .02em; margin-top: 6px !important; }
+.sig-k { text-transform: uppercase; letter-spacing: .14em; margin: 0 0 6px !important; }
+.sig-tipo { display: flex; align-items: center; gap: 10px; font-size: var(--t-texto); font-weight: 400; }
+.sig-tipo .disco { width: 16px; height: 16px; }
+.sig-dur { font-size: var(--t-texto); font-weight: 300; margin-top: 6px !important; font-variant-numeric: tabular-nums; }
+.sig-dur span { color: var(--gris-osc); font-size: var(--t-nota); }
+.sig-donde p:last-child { font-size: 16px; line-height: 1.5; font-weight: 300; }
+.sig-fila.solar { background: var(--negro); color: var(--blanco); padding-left: 24px; padding-right: 24px; border-bottom-color: var(--negro); }
+@media (min-width: 900px) { .sig-fila.solar { margin: 0 -24px; padding-left: 24px; padding-right: 24px; } }
+.sig-fila.solar .sig-hora, .sig-fila.solar .sig-datos, .sig-fila.solar .sig-k, .sig-fila.solar .sig-dur span { color: var(--gris); }
+.sig-fila.solar .disco.sol { background: var(--blanco); }
+.sig-fila.solar .disco.sol-anular { border-color: var(--blanco); }
+.siguientes .fuente { margin-top: 20px; }
 
 /* Puertas: siete, sin fondo (las siete ramas del esquema, 27 oct 2026) */
 .inicio .puertas { gap: 0; border-top: 1px solid var(--linea); }
@@ -491,6 +493,10 @@ table.sig .vis { max-width: 26em; }
 .inicio .puerta:hover h3, .inicio .puerta:focus-visible h3 { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .inicio .puerta .verbo { font-size: 12px; color: var(--gris); }
 .inicio .puerta h3 { font-weight: 300; font-size: var(--t-entradilla); }
+.inicio .puerta .verbo { display: inline-flex; align-items: center; gap: 8px; }
+.inicio .puerta .verbo::before { content: ""; width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid currentColor; flex: none; }
+.inicio .puerta:hover .verbo::before, .inicio .puerta:focus-visible .verbo::before { background: currentColor; }
+.inicio .puerta p { font-size: 15px; line-height: 1.5; }
 
 /* Franja de palabras dentro de la sección oscura */
 .inicio .franja { margin-top: 72px; }
@@ -500,7 +506,7 @@ table.sig .vis { max-width: 26em; }
 .inicio .wrap { max-width: var(--ancho); }
 .inicio .claro h2, .inicio .oscuro h2 { max-width: 20em; }
 .inicio .portada .wrap, .inicio .coincidencia .wrap { max-width: 760px; }
-@media (max-width: 560px) { .inicio section { padding: 64px 0; } .ficha, .siguientes { padding: 22px 18px 18px; } }
+@media (max-width: 560px) { .inicio section { padding: 64px 0; } .ficha { padding: 22px 18px 18px; } }
 @media (max-width: 979px) {
   .mapa-claro { height: clamp(340px, 92vw, 560px); margin: 0 calc(-1 * var(--gutter)); }
 }
