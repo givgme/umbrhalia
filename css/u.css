@@ -95,9 +95,8 @@ section + section { border-top: 1px solid var(--linea); }
 .portada .wrap { width: 100%; }
 /* Portada: «Mono» de fondo, la corona en monocromo en bucle a 0.3× (29 oct 2026). Decorativo: el texto va encima. */
 .portada { position: relative; overflow: hidden; }
-.portada-fondo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 26%; opacity: .85; transform: scale(1.6); transform-origin: 50% 40%; pointer-events: none; }
-/* El texto va en un recuadro negro sólido sobre la corona (variante A, elegida el 29 oct 2026). */
-.portada > .wrap { position: relative; z-index: 1; background: var(--negro); max-width: 560px; padding-block: 40px; }
+.portada-fondo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 26%; opacity: .45; pointer-events: none; }
+.portada > .wrap { position: relative; z-index: 1; }
 .ohr-respira { width: 150px; height: 150px; margin: 0 auto 28px; display: block; animation: respira 6s ease-in-out infinite; }
 @keyframes respira { 0%, 100% { transform: scale(1); opacity: .9; } 50% { transform: scale(1.06); opacity: 1; } }
 .cuenta { font-size: clamp(64px, 20vw, 120px); font-weight: 200; line-height: 1; margin: 8px 0; letter-spacing: -.02em; }
@@ -510,8 +509,7 @@ input[type=checkbox]:focus-visible{outline:2px solid #ececee;outline-offset:3px}
 /* Un solo borde izquierdo en la portada: todo usa el ancho amplio; el texto corrido se limita en em */
 .inicio .wrap { max-width: var(--ancho); }
 .inicio .claro h2, .inicio .oscuro h2 { max-width: 20em; }
-.inicio .coincidencia .wrap { max-width: 760px; }
-.inicio .portada > .wrap { max-width: 560px; }
+.inicio .portada .wrap, .inicio .coincidencia .wrap { max-width: 760px; }
 @media (max-width: 560px) { .inicio section { padding: 64px 0; } .ficha { padding: 22px 18px 18px; } }
 @media (max-width: 979px) {
   .mapa-claro { height: clamp(340px, 92vw, 560px); margin: 0 calc(-1 * var(--gutter)); }
