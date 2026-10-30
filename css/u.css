@@ -969,3 +969,4 @@ main.interior ~ .pie .wrap { max-width: 1040px; }
 .bienvenida-intro { font-size: var(--t-entradilla); font-weight: 300; line-height: 1.45; color: var(--blanco); margin: 0 auto 18px; text-wrap: balance; }
 .bienvenida-lfae { font-size: var(--t-nota); color: var(--gris); margin: 0; }
 .bienvenida-lfae a { color: var(--blanco); }
+.nowrap { white-space: nowrap; }
