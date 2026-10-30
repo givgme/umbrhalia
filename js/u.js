@@ -392,6 +392,22 @@ var U = (function () {
     return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; });
   }
 
+  // Videos en bucle y en cámara lenta (data-lento = velocidad). Sin movimiento reducido arrancan solos, mudos;
+  // el botón [data-video-pausa] los detiene (WCAG 2.2.2). Con movimiento reducido se queda el póster.
+  (function videosLentos() {
+    document.querySelectorAll('video[data-lento]').forEach(function (v) {
+      var tasa = parseFloat(v.getAttribute('data-lento')) || 1;
+      var b = v.parentNode.querySelector('[data-video-pausa]');
+      var fijar = function () { v.defaultPlaybackRate = tasa; v.playbackRate = tasa; };
+      fijar(); v.addEventListener('loadedmetadata', fijar); v.addEventListener('play', fijar);
+      var pintar = function () { if (b) { var p = v.paused; b.textContent = p ? tr('Reproducir', 'Play') : tr('Pausar', 'Pause'); b.setAttribute('aria-pressed', p ? 'true' : 'false'); } };
+      v.addEventListener('play', pintar); v.addEventListener('pause', pintar);
+      if (b) b.addEventListener('click', function () { if (v.paused) v.play(); else v.pause(); });
+      if (sinMovimiento()) { pintar(); return; }
+      var p = v.play(); if (p && p.catch) p.catch(pintar);
+    });
+  })();
+
   return {
     ROOT: ROOT, LANG: LANG, tr: tr, campo: campo, nombre: nombre, TESTIGOS: TESTIGOS, PALABRAS_TESTIGOS: PALABRAS_TESTIGOS,
     eclipses: eclipses, proximos: proximos, fecha: fecha, fechaCorta: fechaCorta, duracion: duracion, diasHasta: diasHasta,

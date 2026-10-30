@@ -93,6 +93,11 @@ section + section { border-top: 1px solid var(--linea); }
 /* Portada */
 .portada { min-height: 88vh; display: flex; align-items: center; text-align: center; padding: 48px 0; }
 .portada .wrap { width: 100%; }
+/* Portada: «Mono», la corona en monocromo y cámara lenta (29 oct 2026). Lighten funde el negro del video con el fondo. */
+.portada-video { position: relative; width: min(80vw, 380px); margin: 0 auto 16px; }
+.portada-video video { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 32%; background: transparent; mix-blend-mode: lighten; }
+.portada-video .pausa { position: absolute; right: 0; bottom: 0; width: 56px; height: 56px; font-size: 10px; letter-spacing: .04em; background: transparent; color: var(--gris); border: 1px solid var(--linea); }
+.portada-video .pausa:hover, .portada-video .pausa:focus-visible { background: transparent; color: var(--blanco); border-color: var(--blanco); }
 .ohr-respira { width: 150px; height: 150px; margin: 0 auto 28px; display: block; animation: respira 6s ease-in-out infinite; }
 @keyframes respira { 0%, 100% { transform: scale(1); opacity: .9; } 50% { transform: scale(1.06); opacity: 1; } }
 .cuenta { font-size: clamp(64px, 20vw, 120px); font-weight: 200; line-height: 1; margin: 8px 0; letter-spacing: -.02em; }
