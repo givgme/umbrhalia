@@ -943,11 +943,16 @@ main.interior ~ .pie .wrap { max-width: 1040px; }
 .video-obra figcaption { margin-top: 10px; }
 
 /* Existir · «Mono»: estudio de imagen para la sala, la corona en monocromo en bucle a 0.3× (29 oct 2026). */
-.ex-mono { padding-block: 96px; }
-/* «Mono» como pieza: el video negro con un listón blanco abajo, para que su negro no choque con el de la página. */
-.ex-mono-pieza { width: min(100%, 560px); margin: 40px auto 0; }
-.ex-mono-video { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 30%; background: #000; }
-.ex-mono-liston { background: var(--blanco); color: var(--negro); padding: 14px 18px 16px; font-size: var(--t-nota); line-height: 1.5; }
+/* «Mono» como pieza de sala (30 oct 2026): marialuisa blanca y filete fino sobre el muro claro; cédula al lado. */
+.ex-portada { padding-bottom: 72px; }
+.ex-muro { padding-block: 88px; }
+.ex-muro-grid { display: grid; gap: 28px; align-items: end; }
+@media (min-width: 900px) { .ex-muro-grid { grid-template-columns: minmax(0, 640px) minmax(0, 300px); justify-content: center; gap: 48px; } }
+.ex-marialuisa { margin: 0; background: var(--papel); padding: clamp(24px, 6vw, 64px); border: 1px solid #cfcfd4; }
+.ex-marialuisa video { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; background: #000; outline: 1px solid #2a2a2f; }
+.ex-cedula-pieza h2 { font-size: var(--t-entradilla); font-weight: 300; margin: 0 0 12px; }
+.ex-cedula-pieza .nota { margin: 0; }
+.ex-foto-sola { margin: 0; }
 
 /* Dona y comparte luz, una sola pieza (29 oct 2026): las cuatro pestañas comparten diseño; fotos al final. */
 .dona-pestanas [role="tab"] { font-size: var(--t-entradilla); font-weight: 300; }
