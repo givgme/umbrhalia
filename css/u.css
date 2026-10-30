@@ -428,6 +428,7 @@ input[type=checkbox]:focus-visible{outline:2px solid #ececee;outline-offset:3px}
 /* Portada */
 .inicio .portada { min-height: calc(100vh - 56px); }
 .inicio .cuenta-sub { color: var(--blanco); }
+.portada-lema { font-size: var(--t-entradilla); font-weight: 300; line-height: 1.4; color: var(--blanco); max-width: 26em; margin: 28px auto 0; text-wrap: balance; }
 
 /* La próxima ventana: mapa y ficha */
 .ventana h2 { margin-bottom: 32px; }
